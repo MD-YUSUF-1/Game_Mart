@@ -25,21 +25,6 @@ namespace ProjectWin
             InitializeComponent();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
             dbcon();
@@ -55,26 +40,27 @@ namespace ProjectWin
             string query = "SELECT * FROM Login_Info WHERE Username = '" + username + "' AND Password = '" + password + "'";
             try
             {
-
                     using (SqlDataAdapter sqda1 = new SqlDataAdapter(query, con))
                     {
                         DataTable dt = new DataTable();
                         sqda1.Fill(dt);
+                        //Storing The role
                         string [] dataArray = new string [dt.Rows.Count];
                         int i = 0;
                         foreach (DataRow row in dt.Rows) {
                             dataArray[i] = row["Role"].ToString();
                             i++;
                         }
+                        //checking if no role
                         if (dataArray.Length < 1) {
                             MessageBox.Show("Invalid  Person", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return;
                         }
+                        //converting the role in to lower case
                         dataArray[0] = dataArray[0].ToLower();
                         int count = dt.Rows.Count;
-                        //System.Diagnostics.Debug.WriteLine($"Count: {count}");
-                        System.Diagnostics.Debug.WriteLine($"{dataArray[0]}");
-                        if (count == 1)
+          
+                        if (count == 1 && count < 2)
                         {
                             MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -112,11 +98,6 @@ namespace ProjectWin
             {
                 MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-
-            //SalesMan s = new SalesMan();
-            //s.Show();
-            //this.Hide();
         }
     }
 }
