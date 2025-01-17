@@ -52,39 +52,65 @@ namespace ProjectWin
                 return;
             }
 
-            string query = "SELECT COUNT(*) FROM Users WHERE Username = '" + username + "' AND Password = '" + password + "'";
+            string query = "SELECT * FROM Login_Info WHERE Username = '" + username + "' AND Password = '" + password + "'";
             try
             {
-                if (username== "admin" && password == "admin")
-                {
-                    Admin_Homepage admin_homePage = new Admin_Homepage();
-                    admin_homePage.Show();
-                    this.Hide();
-                }
-                else
-                {
-                    dbcon();
-                    using(SqlCommand sq1 = new SqlCommand(query, con))
+
+                    using (SqlDataAdapter sqda1 = new SqlDataAdapter(query, con))
                     {
-                        int count  = Convert.ToInt32(sq1.ExecuteScalar());
-                        System.Diagnostics.Debug.WriteLine($"Count: {count}");
-
-
-
                         DataTable dt = new DataTable();
-                        SqlDataReader sdr = sq1.ExecuteReader();
-                        dt.Load(sdr);
-                        dataGridView1.DataSource = dt;
-                        //con.Close();
+                        sqda1.Fill(dt);
+                        string [] dataArray = new string [dt.Rows.Count];
+                        int i = 0;
+                        foreach (DataRow row in dt.Rows) {
+                            dataArray[i] = row["Role"].ToString();
+                            i++;
+                        }
+                        if (dataArray.Length < 1) {
+                            MessageBox.Show("Invalid  Person", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                        dataArray[0] = dataArray[0].ToLower();
+                        int count = dt.Rows.Count;
+                        //System.Diagnostics.Debug.WriteLine($"Count: {count}");
+                        System.Diagnostics.Debug.WriteLine($"{dataArray[0]}");
+                        if (count == 1)
+                        {
+                            MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        if (dataArray[0]== "admin")
+                        {
+                            Admin_Homepage admin_homePage = new Admin_Homepage();
+                            admin_homePage.Show();
+                            this.Hide();
+                            con.Close();
+                        }
+                        if (dataArray[0] == "salesman")
+                            {
+                                SalesMan s = new SalesMan();
+                                this.Hide();
+                                s.Show();
+                                con.Close();
+                            }
+                            if (dataArray[0] == "manager")
+                            {
+                                Manager_Home m = new Manager_Home();
+                                this.Hide();
+                                m.Show();
+                                con.Close();
+                            }
+                        
                     }
-
-
-
-                }
+                        else
+                        {
+                            MessageBox.Show("Invalid username or password.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
 

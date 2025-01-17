@@ -36,8 +36,6 @@
             button1 = new Button();
             button2 = new Button();
             label3 = new Label();
-            dataGridView1 = new DataGridView();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -116,21 +114,12 @@
             label3.TabIndex = 6;
             label3.Text = "Welcome To Our Game Store";
             // 
-            // dataGridView1
-            // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(78, 290);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(587, 150);
-            dataGridView1.TabIndex = 7;
-            // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(753, 454);
-            Controls.Add(dataGridView1);
             Controls.Add(label3);
             Controls.Add(button2);
             Controls.Add(button1);
@@ -141,7 +130,6 @@
             Name = "Login";
             Text = "Login";
             Load += Form1_Load;
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -155,6 +143,5 @@
         private Button button1;
         private Button button2;
         private Label label3;
-        private DataGridView dataGridView1;
     }
 }
