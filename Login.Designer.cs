@@ -30,12 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             label1 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            LoginTextBox1 = new TextBox();
+            loginPassBox2 = new TextBox();
             label2 = new Label();
             button1 = new Button();
             button2 = new Button();
             label3 = new Label();
+            dataGridView1 = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -51,21 +53,21 @@
             label1.Text = "USERNAME";
             label1.Click += label1_Click;
             // 
-            // textBox1
+            // LoginTextBox1
             // 
-            textBox1.Location = new Point(318, 150);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(222, 23);
-            textBox1.TabIndex = 1;
-            textBox1.TextChanged += textBox1_TextChanged;
+            LoginTextBox1.Location = new Point(318, 150);
+            LoginTextBox1.Name = "LoginTextBox1";
+            LoginTextBox1.Size = new Size(222, 23);
+            LoginTextBox1.TabIndex = 1;
+            LoginTextBox1.TextChanged += textBox1_TextChanged;
             // 
-            // textBox2
+            // loginPassBox2
             // 
-            textBox2.Location = new Point(318, 194);
-            textBox2.Name = "textBox2";
-            textBox2.PasswordChar = '*';
-            textBox2.Size = new Size(222, 23);
-            textBox2.TabIndex = 2;
+            loginPassBox2.Location = new Point(318, 194);
+            loginPassBox2.Name = "loginPassBox2";
+            loginPassBox2.PasswordChar = '*';
+            loginPassBox2.Size = new Size(222, 23);
+            loginPassBox2.TabIndex = 2;
             // 
             // label2
             // 
@@ -114,22 +116,32 @@
             label3.TabIndex = 6;
             label3.Text = "Welcome To Our Game Store";
             // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(78, 290);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.Size = new Size(587, 150);
+            dataGridView1.TabIndex = 7;
+            // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(753, 454);
+            Controls.Add(dataGridView1);
             Controls.Add(label3);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(label2);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(loginPassBox2);
+            Controls.Add(LoginTextBox1);
             Controls.Add(label1);
             Name = "Login";
             Text = "Login";
             Load += Form1_Load;
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -137,11 +149,12 @@
         #endregion
 
         private Label label1;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox LoginTextBox1;
+        private TextBox loginPassBox2;
         private Label label2;
         private Button button1;
         private Button button2;
         private Label label3;
+        private DataGridView dataGridView1;
     }
 }

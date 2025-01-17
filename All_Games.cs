@@ -18,9 +18,15 @@ namespace ProjectWin
         SqlConnection con;
         public void dbcon()
         {
-            con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=G:\8. EIGHTH SEMESTER\C#\Project\Game_Mart.mdf;Integrated Security=True;Connect Timeout=30;Encrypt=False
+            try{
+                con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""G:\8. EIGHTH SEMESTER\C#\Project\ProjectWin\Database\Game_Mart.mdf"";Integrated Security=True;Connect Timeout=30;Encrypt=False
 ");
-            con.Open();
+                con.Open();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Failed to connect to the database: {ex.Message}", "Database Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         public SalesMan()
         {
@@ -38,8 +44,6 @@ namespace ProjectWin
 
             dataGridView1.DataSource = dt;
             con.Close();
-
-
         }
 
         private void label2_Click(object sender, EventArgs e)

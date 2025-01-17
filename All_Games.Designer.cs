@@ -35,6 +35,7 @@
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
+            panel1 = new Panel();
             dataGridView1 = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -63,6 +64,7 @@
             // 
             // pictureBox1
             // 
+            pictureBox1.BackColor = SystemColors.ActiveCaptionText;
             pictureBox1.Location = new Point(35, 98);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(168, 172);
@@ -89,7 +91,7 @@
             label1.ForeColor = Color.Transparent;
             label1.Location = new Point(227, 120);
             label1.Name = "label1";
-            label1.Size = new Size(221, 51);
+            label1.Size = new Size(221, 36);
             label1.TabIndex = 4;
             label1.Text = "Game name";
             // 
@@ -116,21 +118,29 @@
             label3.TabIndex = 6;
             label3.Text = "Price: ";
             // 
+            // panel1
+            // 
+            panel1.Location = new Point(57, 431);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(378, 108);
+            panel1.TabIndex = 8;
+            // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(35, 291);
+            dataGridView1.Location = new Point(456, 301);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(686, 147);
-            dataGridView1.TabIndex = 7;
+            dataGridView1.Size = new Size(484, 150);
+            dataGridView1.TabIndex = 9;
             // 
             // SalesMan
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = Properties.Resources.BG1;
-            ClientSize = new Size(800, 450);
+            BackColor = SystemColors.ActiveCaptionText;
+            ClientSize = new Size(1026, 616);
             Controls.Add(dataGridView1);
+            Controls.Add(panel1);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -154,6 +164,7 @@
         private Label label1;
         private Label label2;
         private Label label3;
+        private Panel panel1;
         private DataGridView dataGridView1;
     }
 }
