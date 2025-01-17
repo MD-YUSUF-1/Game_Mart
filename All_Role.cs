@@ -21,5 +21,17 @@ namespace ProjectWin
         {
 
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            Login l = new Login();
+            l.Show();
+            this.Hide();
+        }
     }
 }

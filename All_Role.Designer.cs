@@ -57,6 +57,7 @@
             label2.TabIndex = 1;
             label2.Text = "MANAGER";
             label2.TextAlign = ContentAlignment.MiddleCenter;
+            label2.Click += label2_Click;
             // 
             // label3
             // 
@@ -69,6 +70,7 @@
             label3.TabIndex = 2;
             label3.Text = "SALESMAN";
             label3.TextAlign = ContentAlignment.MiddleCenter;
+            label3.Click += label3_Click;
             // 
             // All_Role
             // 
