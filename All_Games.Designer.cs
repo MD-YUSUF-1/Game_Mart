@@ -37,13 +37,15 @@
             label3 = new Label();
             panel1 = new Panel();
             button4 = new Button();
+            dataGridView1 = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // button1
             // 
-            button1.Location = new Point(812, 205);
+            button1.Location = new Point(532, 204);
             button1.Name = "button1";
             button1.Size = new Size(75, 23);
             button1.TabIndex = 0;
@@ -55,12 +57,13 @@
             button2.BackColor = SystemColors.ActiveCaptionText;
             button2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button2.ForeColor = Color.Transparent;
-            button2.Location = new Point(658, 243);
+            button2.Location = new Point(704, 225);
             button2.Name = "button2";
             button2.Size = new Size(118, 44);
             button2.TabIndex = 1;
             button2.Text = "Buy Now";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // pictureBox1
             // 
@@ -76,7 +79,7 @@
             button3.BackColor = SystemColors.ActiveCaptionText;
             button3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button3.ForeColor = Color.Transparent;
-            button3.Location = new Point(534, 243);
+            button3.Location = new Point(685, 279);
             button3.Name = "button3";
             button3.Size = new Size(118, 40);
             button3.TabIndex = 3;
@@ -89,7 +92,7 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Transparent;
-            label1.Location = new Point(181, 373);
+            label1.Location = new Point(244, 168);
             label1.Name = "label1";
             label1.Size = new Size(221, 36);
             label1.TabIndex = 4;
@@ -100,9 +103,9 @@
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.Transparent;
-            label2.Location = new Point(284, 273);
+            label2.Location = new Point(244, 234);
             label2.Name = "label2";
-            label2.Size = new Size(145, 30);
+            label2.Size = new Size(145, 36);
             label2.TabIndex = 5;
             label2.Text = "Genre: ......";
             label2.Click += label2_Click;
@@ -112,7 +115,7 @@
             label3.BackColor = Color.Transparent;
             label3.Font = new Font("Segoe UI Light", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.Transparent;
-            label3.Location = new Point(222, 444);
+            label3.Location = new Point(244, 283);
             label3.Name = "label3";
             label3.Size = new Size(145, 30);
             label3.TabIndex = 6;
@@ -120,7 +123,7 @@
             // 
             // panel1
             // 
-            panel1.BackColor = SystemColors.ActiveCaptionText;
+            panel1.BackColor = Color.FromArgb(64, 64, 64);
             panel1.Controls.Add(button4);
             panel1.Controls.Add(pictureBox1);
             panel1.Location = new Point(-6, 0);
@@ -142,12 +145,21 @@
             button4.UseVisualStyleBackColor = false;
             button4.Click += button4_Click;
             // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(58, 411);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.Size = new Size(918, 193);
+            dataGridView1.TabIndex = 9;
+            // 
             // SalesMan
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ActiveBorder;
+            BackColor = Color.DimGray;
             ClientSize = new Size(1026, 616);
+            Controls.Add(dataGridView1);
             Controls.Add(panel1);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -159,6 +171,7 @@
             Text = "GameDetails";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
 
@@ -173,5 +186,6 @@
         private Label label3;
         private Panel panel1;
         private Button button4;
+        private DataGridView dataGridView1;
     }
 }
