@@ -19,21 +19,24 @@ namespace ProjectWin
 
         private void label1_Click(object sender, EventArgs e)
         {
-            Login l = new Login();
+            string role = "admin";
+            Login l = new Login(role);
             l.Show();
             this.Hide();
         }
 
         private void label2_Click(object sender, EventArgs e)
         {
-            Login l = new Login();
+            string role = "manager";
+            Login l = new Login(role);
             l.Show();
             this.Hide();
         }
 
         private void label3_Click(object sender, EventArgs e)
         {
-            Login l = new Login();
+            string role = "salesman";
+            Login l = new Login(role);
             l.Show();
             this.Hide();
         }

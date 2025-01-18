@@ -49,7 +49,6 @@
             label1.Size = new Size(98, 21);
             label1.TabIndex = 0;
             label1.Text = "USERNAME";
-            label1.Click += label1_Click;
             // 
             // LoginTextBox1
             // 
@@ -57,7 +56,6 @@
             LoginTextBox1.Name = "LoginTextBox1";
             LoginTextBox1.Size = new Size(222, 23);
             LoginTextBox1.TabIndex = 1;
-            LoginTextBox1.TextChanged += textBox1_TextChanged;
             // 
             // loginPassBox2
             // 
@@ -83,7 +81,7 @@
             // 
             button1.BackColor = SystemColors.ButtonHighlight;
             button1.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.Location = new Point(300, 252);
+            button1.Location = new Point(636, 400);
             button1.Name = "button1";
             button1.Size = new Size(85, 32);
             button1.TabIndex = 4;
@@ -94,7 +92,7 @@
             // 
             button2.BackColor = SystemColors.ButtonHighlight;
             button2.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button2.Location = new Point(443, 252);
+            button2.Location = new Point(380, 236);
             button2.Name = "button2";
             button2.Size = new Size(82, 32);
             button2.TabIndex = 5;
@@ -129,7 +127,6 @@
             Controls.Add(label1);
             Name = "Login";
             Text = "Login";
-            Load += Form1_Load;
             ResumeLayout(false);
             PerformLayout();
         }

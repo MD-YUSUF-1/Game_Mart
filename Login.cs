@@ -7,12 +7,12 @@ namespace ProjectWin
     public partial class Login : Form
     {
         SqlConnection con;
+        string role;
         public void dbcon()
         {
             try
             {
-                con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""G:\8. EIGHTH SEMESTER\C#\Project\ProjectWin\Database\Game_Mart.mdf"";Integrated Security=True;Connect Timeout=30;Encrypt=False
-");
+                con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""G:\8. EIGHTH SEMESTER\C#\Project\MAIN PROJECT\Game_Mart.mdf"";Integrated Security=True;Connect Timeout=30;Encrypt=False");
                 con.Open();
             }
             catch (Exception ex)
@@ -20,11 +20,26 @@ namespace ProjectWin
                 MessageBox.Show($"Failed to connect to the database: {ex.Message}", "Database Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        public Login()
+        public Login(string role)
         {
+            this.role = role;
             InitializeComponent();
         }
 
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
         private void button2_Click(object sender, EventArgs e)
         {
             dbcon();
@@ -56,9 +71,16 @@ namespace ProjectWin
                             MessageBox.Show("Invalid  Person", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return;
                         }
+                    
                         //converting the role in to lower case
                         dataArray[0] = dataArray[0].ToLower();
-                        int count = dt.Rows.Count;
+                    //checking valid role trying to login
+                    if (dataArray[0] != role)
+                    {
+                        MessageBox.Show("Invalid Author", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    int count = dt.Rows.Count;
           
                         if (count == 1 && count < 2)
                         {
@@ -73,7 +95,7 @@ namespace ProjectWin
                         }
                         if (dataArray[0] == "salesman")
                             {
-                                SalesMan s = new SalesMan();
+                                SalesMan s = new SalesMan(username,password);
                                 this.Hide();
                                 s.Show();
                                 con.Close();

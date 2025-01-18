@@ -16,10 +16,13 @@ namespace ProjectWin
     public partial class SalesMan : Form
     {
         SqlConnection con;
+        string username;
+        string password;
         public void dbcon()
         {
-            try{
-                con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""G:\8. EIGHTH SEMESTER\C#\Project\ProjectWin\Database\Game_Mart.mdf"";Integrated Security=True;Connect Timeout=30;Encrypt=False
+            try
+            {
+                con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""G:\8. EIGHTH SEMESTER\C#\Project\MAIN PROJECT\Game_Mart.mdf"";Integrated Security=True;Connect Timeout=30;Encrypt=False
 ");
                 con.Open();
             }
@@ -28,10 +31,12 @@ namespace ProjectWin
                 MessageBox.Show($"Failed to connect to the database: {ex.Message}", "Database Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        public SalesMan()
+        public SalesMan(string username, string password)
         {
             InitializeComponent();
             this.Load += Form2_Load;
+            this.username = username;
+            this.password = password;
         }
         private void Form2_Load(object sender, EventArgs e)
         {
@@ -42,7 +47,7 @@ namespace ProjectWin
             SqlDataReader sdr = sq1.ExecuteReader();
             dt.Load(sdr);
 
-            dataGridView1.DataSource = dt;
+            //dataGridView1.DataSource = dt;
             con.Close();
         }
 
@@ -53,6 +58,11 @@ namespace ProjectWin
         }
 
         private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
         {
 
         }
