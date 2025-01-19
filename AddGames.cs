@@ -54,27 +54,27 @@ namespace ProjectWin
             try
             {
                 dbcon();
-            SqlCommand sq2 = new SqlCommand("insert into PRODUCT_TABLE(GName,GStock,GDiscount,GPrice,GGenre,GImage) values(@Name,@Stock,@discount,@Price, @Genre, @Image)", con);
-            sq2.Parameters.AddWithValue("@Name", textBox1.Text);
-            sq2.Parameters.AddWithValue("@Genre", textBox2.Text);
-            sq2.Parameters.AddWithValue("@Stock", textBox3.Text);
-            sq2.Parameters.AddWithValue("@Price", textBox4.Text);
-            sq2.Parameters.AddWithValue("@discount", textBox5.Text);
-            MemoryStream memstr = new MemoryStream();
-            pictureBox1.Image.Save(memstr, pictureBox1.Image.RawFormat);
-            sq2.Parameters.AddWithValue("@Image", memstr.ToArray());
+                SqlCommand sq2 = new SqlCommand("insert into PRODUCT_TABLE(GName,GStock,GDiscount,GPrice,GGenre,GImage) values(@Name,@Stock,@discount,@Price, @Genre, @Image)", con);
+                sq2.Parameters.AddWithValue("@Name", textBox1.Text);
+                sq2.Parameters.AddWithValue("@Genre", textBox2.Text);
+                sq2.Parameters.AddWithValue("@Stock", textBox3.Text);
+                sq2.Parameters.AddWithValue("@Price", textBox4.Text);
+                sq2.Parameters.AddWithValue("@discount", textBox5.Text);
+                MemoryStream memstr = new MemoryStream();
+                pictureBox1.Image.Save(memstr, pictureBox1.Image.RawFormat);
+                sq2.Parameters.AddWithValue("@Image", memstr.ToArray());
 
 
-            sq2.ExecuteNonQuery();
-            con.Close();
-            MessageBox.Show("Data added");
-            Form2_Load();
-        }
+                sq2.ExecuteNonQuery();
+                con.Close();
+                MessageBox.Show("Data added");
+                Form2_Load();
+            }
             catch (Exception ex)
             {
                 MessageBox.Show("Failed" + ex);
             }
-}
+        }
 
         private void Form2_Load()
         {
@@ -93,7 +93,8 @@ namespace ProjectWin
                 img.ImageLayout = DataGridViewImageCellLayout.Stretch;
                 con.Close();
             }
-            catch(Exception ex) {
+            catch (Exception ex)
+            {
                 MessageBox.Show("Failed to load Table " + ex);
             }
         }
@@ -111,6 +112,12 @@ namespace ProjectWin
         private void AddGames_Load(object sender, EventArgs e)
         {
             Form2_Load();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            dbcon();
+            SqlCommand sq1 = new SqlCommand("select * from PRODUCT_TABLE", con);
         }
     }
 }

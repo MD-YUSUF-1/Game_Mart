@@ -21,5 +21,19 @@ namespace ProjectWin
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            All_Products_Admin all_Products_Admin = new All_Products_Admin();
+            all_Products_Admin.Show();
+            this.Hide();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            All_Role all_Role = new All_Role();
+            all_Role.Show();
+            this.Hide();
+        }
     }
 }

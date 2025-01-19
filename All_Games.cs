@@ -60,7 +60,9 @@ namespace ProjectWin
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            All_Role lg = new All_Role();
+            lg.Show();  
+            this.Hide();
         }
 
         private void button2_Click(object sender, EventArgs e)

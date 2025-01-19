@@ -104,7 +104,7 @@
             button2.BackColor = SystemColors.ActiveCaptionText;
             button2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button2.ForeColor = Color.Transparent;
-            button2.Location = new Point(235, 342);
+            button2.Location = new Point(748, 368);
             button2.Name = "button2";
             button2.Size = new Size(118, 44);
             button2.TabIndex = 1;
@@ -117,7 +117,7 @@
             button3.BackColor = SystemColors.ActiveCaptionText;
             button3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button3.ForeColor = Color.Transparent;
-            button3.Location = new Point(431, 344);
+            button3.Location = new Point(548, 368);
             button3.Name = "button3";
             button3.Size = new Size(118, 44);
             button3.TabIndex = 3;
@@ -130,16 +130,16 @@
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(-6, 411);
+            dataGridView1.Location = new Point(-6, 443);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(1035, 204);
+            dataGridView1.Size = new Size(1047, 224);
             dataGridView1.TabIndex = 9;
             dataGridView1.CellClick += dataGridView1_CellClick;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // pictureBox3
             // 
-            pictureBox3.Location = new Point(74, 123);
+            pictureBox3.Location = new Point(190, 135);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(293, 205);
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -152,7 +152,7 @@
             gameName.AutoSize = true;
             gameName.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             gameName.ForeColor = SystemColors.ButtonHighlight;
-            gameName.Location = new Point(485, 123);
+            gameName.Location = new Point(602, 148);
             gameName.Name = "gameName";
             gameName.Size = new Size(64, 25);
             gameName.TabIndex = 11;
@@ -163,7 +163,7 @@
             gameGenre.AutoSize = true;
             gameGenre.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             gameGenre.ForeColor = SystemColors.ButtonHighlight;
-            gameGenre.Location = new Point(485, 168);
+            gameGenre.Location = new Point(600, 200);
             gameGenre.Name = "gameGenre";
             gameGenre.Size = new Size(66, 25);
             gameGenre.TabIndex = 12;
@@ -174,7 +174,7 @@
             gamePrice.AutoSize = true;
             gamePrice.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             gamePrice.ForeColor = SystemColors.ButtonHighlight;
-            gamePrice.Location = new Point(479, 260);
+            gamePrice.Location = new Point(600, 315);
             gamePrice.Name = "gamePrice";
             gamePrice.Size = new Size(56, 25);
             gamePrice.TabIndex = 14;
@@ -185,7 +185,7 @@
             gameStock.AutoSize = true;
             gameStock.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             gameStock.ForeColor = SystemColors.ButtonHighlight;
-            gameStock.Location = new Point(479, 215);
+            gameStock.Location = new Point(600, 258);
             gameStock.Name = "gameStock";
             gameStock.Size = new Size(62, 25);
             gameStock.TabIndex = 15;
@@ -196,7 +196,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ButtonHighlight;
-            label1.Location = new Point(405, 168);
+            label1.Location = new Point(507, 200);
             label1.Name = "label1";
             label1.Size = new Size(71, 25);
             label1.TabIndex = 16;
@@ -207,7 +207,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = SystemColors.ButtonHighlight;
-            label2.Location = new Point(403, 123);
+            label2.Location = new Point(504, 148);
             label2.Name = "label2";
             label2.Size = new Size(69, 25);
             label2.TabIndex = 17;
@@ -218,7 +218,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = SystemColors.ButtonHighlight;
-            label4.Location = new Point(405, 260);
+            label4.Location = new Point(507, 315);
             label4.Name = "label4";
             label4.Size = new Size(66, 25);
             label4.TabIndex = 19;
@@ -229,7 +229,7 @@
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label5.ForeColor = SystemColors.ButtonHighlight;
-            label5.Location = new Point(405, 215);
+            label5.Location = new Point(505, 258);
             label5.Name = "label5";
             label5.Size = new Size(68, 25);
             label5.TabIndex = 20;
@@ -240,7 +240,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(64, 64, 64);
-            ClientSize = new Size(1026, 616);
+            ClientSize = new Size(1034, 661);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label2);

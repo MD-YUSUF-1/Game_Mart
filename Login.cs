@@ -91,8 +91,10 @@ namespace ProjectWin
 
                         if (dataArray[0] == "admin")
                         {
-                            Admin_Homepage admin_homePage = new Admin_Homepage();
-                            admin_homePage.Show();
+                            //Admin_Homepage admin_homePage = new Admin_Homepage();
+                            //admin_homePage.Show();
+                            AddGames ag = new AddGames();
+                            ag.Show();
                             this.Hide();
                             con.Close();
                         }

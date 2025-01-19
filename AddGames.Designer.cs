@@ -43,6 +43,7 @@
             label4 = new Label();
             label5 = new Label();
             dataGridView1 = new DataGridView();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
@@ -169,11 +170,22 @@
             dataGridView1.Size = new Size(844, 150);
             dataGridView1.TabIndex = 13;
             // 
+            // button1
+            // 
+            button1.Location = new Point(100, 307);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 14;
+            button1.Text = "Delete";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click_1;
+            // 
             // AddGames
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(884, 582);
+            Controls.Add(button1);
             Controls.Add(dataGridView1);
             Controls.Add(label5);
             Controls.Add(label4);
@@ -213,5 +225,6 @@
         private Label label4;
         private Label label5;
         private DataGridView dataGridView1;
+        private Button button1;
     }
 }
