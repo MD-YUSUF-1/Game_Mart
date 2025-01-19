@@ -126,19 +126,7 @@ namespace ProjectWin
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            //try
-            //{
-            //    gameName.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-            //    gameGenre.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
-            //    gameStock.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
-            //    gamePrice.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
 
-            //    MemoryStream ms = new MemoryStream((byte[])dataGridView1.CurrentRow.Cells[6].Value);
-            //    pictureBox3.Image = Image.FromStream(ms);
-            //}
-            //catch(Exception ex) {
-            //    MessageBox.Show("Invalid data " + ex.Message);
-            //}
         }
 
         private void SalesMan_Load_1(object sender, EventArgs e)
@@ -146,7 +134,7 @@ namespace ProjectWin
             DataTable dt = new DataTable();
             FlowLayoutPanel flowLayoutPanel = new FlowLayoutPanel
             {
-                Size = new Size(1050, 600),
+                Size = new Size(1230, 700),
                 Location = new Point(0, 100),
                 AutoScroll = true,
                 WrapContents = true ,
@@ -162,42 +150,39 @@ namespace ProjectWin
             }
             try
             {
-                //if (dataGridView1.Rows.Count > 0)
-                //{
-                //    dataGridView1.Rows[0].Selected = true;
-
-                //    gameName.Text = dataGridView1.Rows[0].Cells[1].Value?.ToString();
-                //    gameGenre.Text = dataGridView1.Rows[0].Cells[5].Value?.ToString();
-                //    gameStock.Text = dataGridView1.Rows[0].Cells[2].Value?.ToString();
-                //    gamePrice.Text = dataGridView1.Rows[0].Cells[4].Value?.ToString();
-                //}
-                //else
-                //{
-                //    gameName.Text = "No Data";
-                //    gameGenre.Text = "No Data";
-                //    gameStock.Text = "No Data";
-                //    gamePrice.Text = "No Data";
-                //}
                 foreach (DataRow row in dt.Rows)
                 {
-                    Debug.WriteLine(row["GName"]);
+                    //Debug.WriteLine(row["GName"]);
 
                     //creating new Panel
-                    Panel card = new Panel()
+                    Panel card = new Panel
                     {
-                        Size = new Size(500, 300),
+                        Size = new Size(590, 330),
                         BorderStyle = BorderStyle.FixedSingle,
                         Margin = new Padding(10)
                     };
                     //adding pictureBox
-                    PictureBox pictureBox = new PictureBox()
+                    
+                    
+                    PictureBox pictureBox = new PictureBox
                     {
-                        Size = new Size(300,250),
+                        Size = new Size(300,300),
                         Location = new Point(10,10),
-                        BackColor = Color.Red,
                         SizeMode = PictureBoxSizeMode.StretchImage,
-                        //Image 
+                 
                     };
+                    object imageData = row["GImage"];
+                    if (imageData == DBNull.Value)
+                    {
+                        pictureBox.Image = null;
+                    }
+                    else
+                    {
+                        MemoryStream stream = new MemoryStream((byte[])imageData);
+                        pictureBox.Image = Image.FromStream(stream);
+                    }
+
+
                     card.Controls.Add(pictureBox);
 
                  
@@ -206,7 +191,9 @@ namespace ProjectWin
                         Text = "Name: " + row["GName"].ToString(),
                         Font = new System.Drawing.Font("Segoe UI", 12, FontStyle.Bold),
                         Location = new Point(325, 10),
-                        AutoSize = true
+                        AutoSize = true,
+                        ForeColor = Color.White,
+                        
                     };
                     card.Controls.Add(titleLabel1);
 
@@ -215,7 +202,8 @@ namespace ProjectWin
                         Text = "Genre: "+ row["GGenre"].ToString(),
                         Font = new System.Drawing.Font("Segoe UI", 12, FontStyle.Bold),
                         Location = new Point(325, 40),
-                        AutoSize = true
+                        AutoSize = true,
+                        ForeColor = Color.White,
                     };
                     card.Controls.Add(titleLabel2);
                     Label titleLabel3 = new Label
@@ -223,7 +211,8 @@ namespace ProjectWin
                         Text = "Stock: " + row["GStock"].ToString(),
                         Font = new System.Drawing.Font("Segoe UI", 12, FontStyle.Bold),
                         Location = new Point(325, 70),
-                        AutoSize = true
+                        AutoSize = true,
+                        ForeColor = Color.White,
                     };
                     card.Controls.Add(titleLabel3);
 
@@ -232,11 +221,37 @@ namespace ProjectWin
                         Text = "Price: " + row["GPrice"].ToString(),
                         Font = new System.Drawing.Font("Segoe UI", 12, FontStyle.Bold),
                         Location = new Point(325, 100),
-                        AutoSize = true
+                        AutoSize = true,
+                        ForeColor = Color.White,
                     };
                     card.Controls.Add(titleLabel4);
+                    Button AddToCartbtn = new Button
+                    {
+                        Text = "Add to cart",
+                        Font = new System.Drawing.Font("Segoe UI", 12, FontStyle.Bold),
+                        Size = new Size(160, 40),
+                        Location = new Point(325, 140),
+                        BackColor = Color.DarkCyan,
+                        FlatStyle = FlatStyle.Popup,
+                        ForeColor = Color.White
+                    };
+                    AddToCartbtn.Click += (s, e) =>
+                    {
+                        MessageBox.Show("Btn Clicked"+ row["GName"]);
 
-
+                    };
+                    card.Controls.Add(AddToCartbtn);
+                    Button BuyNowBtn = new Button
+                    {
+                        Text = "Buy now",
+                        Font = new System.Drawing.Font("Segoe UI", 12, FontStyle.Bold),
+                        Size = new Size(120, 40),
+                        Location = new Point(325, 200),
+                        BackColor = Color.DarkCyan,
+                        FlatStyle = FlatStyle.Popup,
+                        ForeColor = Color.White
+                    };
+                    card.Controls.Add(BuyNowBtn);
 
 
                     flowLayoutPanel.Controls.Add(card);

@@ -34,18 +34,20 @@
             // panel1
             // 
             panel1.BackColor = Color.Black;
-            panel1.Location = new Point(-4, 0);
+            panel1.Location = new Point(-5, 0);
+            panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1050, 100);
+            panel1.Size = new Size(1241, 100);
             panel1.TabIndex = 0;
             // 
             // SalesMan
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(64, 64, 64);
-            ClientSize = new Size(1034, 661);
+            ClientSize = new Size(1232, 803);
             Controls.Add(panel1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "SalesMan";
             Text = "GameDetails";
             Load += SalesMan_Load_1;
