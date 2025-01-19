@@ -12,6 +12,8 @@ using System.Windows.Forms;
 using Microsoft.Data.SqlClient;
 using static System.Net.Mime.MediaTypeNames;
 using Image = System.Drawing.Image;
+using System.Diagnostics;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ProjectWin
 {
@@ -105,41 +107,54 @@ namespace ProjectWin
         {
 
         }
+        public void databseConnect(DataTable dt)
+        {
+            dbcon();
+            SqlCommand sq1 = new SqlCommand("select * from PRODUCT_TABLE", con);
+
+
+            SqlDataReader sdr = sq1.ExecuteReader();
+            dt.Load(sdr);
+
+            //dataGridView1.RowTemplate.Height = 75;
+            //dataGridView1.DataSource = dt;
+            DataGridViewImageColumn img = new DataGridViewImageColumn();
+            //img = (DataGridViewImageColumn)dataGridView1.Columns[6];
+            img.ImageLayout = DataGridViewImageCellLayout.Stretch;
+            con.Close();
+        }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            try
-            {
-                gameName.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-                gameGenre.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
-                gameStock.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
-                gamePrice.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+            //try
+            //{
+            //    gameName.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            //    gameGenre.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
+            //    gameStock.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+            //    gamePrice.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
 
-                MemoryStream ms = new MemoryStream((byte[])dataGridView1.CurrentRow.Cells[6].Value);
-                pictureBox3.Image = Image.FromStream(ms);
-            }
-            catch(Exception ex) {
-                MessageBox.Show("Invalid data " + ex.Message);
-            }
+            //    MemoryStream ms = new MemoryStream((byte[])dataGridView1.CurrentRow.Cells[6].Value);
+            //    pictureBox3.Image = Image.FromStream(ms);
+            //}
+            //catch(Exception ex) {
+            //    MessageBox.Show("Invalid data " + ex.Message);
+            //}
         }
 
         private void SalesMan_Load_1(object sender, EventArgs e)
         {
+            DataTable dt = new DataTable();
+            FlowLayoutPanel flowLayoutPanel = new FlowLayoutPanel
+            {
+                Size = new Size(1050, 600),
+                Location = new Point(0, 100),
+                AutoScroll = true,
+                WrapContents = true ,
+            };
+
             try
             {
-                dbcon();
-                SqlCommand sq1 = new SqlCommand("select * from PRODUCT_TABLE", con);
-                DataTable dt = new DataTable();
-
-                SqlDataReader sdr = sq1.ExecuteReader();
-                dt.Load(sdr);
-
-                dataGridView1.RowTemplate.Height = 75;
-                dataGridView1.DataSource = dt;
-                DataGridViewImageColumn img = new DataGridViewImageColumn();
-                img = (DataGridViewImageColumn)dataGridView1.Columns[6];
-                img.ImageLayout = DataGridViewImageCellLayout.Stretch;
-                con.Close();
+                databseConnect(dt);
             }
             catch(Exception ex)
             {
@@ -147,24 +162,90 @@ namespace ProjectWin
             }
             try
             {
-                if (dataGridView1.Rows.Count > 0)
-                {
-                    dataGridView1.Rows[0].Selected = true;
+                //if (dataGridView1.Rows.Count > 0)
+                //{
+                //    dataGridView1.Rows[0].Selected = true;
 
-                    gameName.Text = dataGridView1.Rows[0].Cells[1].Value?.ToString();
-                    gameGenre.Text = dataGridView1.Rows[0].Cells[5].Value?.ToString();
-                    gameStock.Text = dataGridView1.Rows[0].Cells[2].Value?.ToString();
-                    gamePrice.Text = dataGridView1.Rows[0].Cells[4].Value?.ToString();
-                }
-                else
+                //    gameName.Text = dataGridView1.Rows[0].Cells[1].Value?.ToString();
+                //    gameGenre.Text = dataGridView1.Rows[0].Cells[5].Value?.ToString();
+                //    gameStock.Text = dataGridView1.Rows[0].Cells[2].Value?.ToString();
+                //    gamePrice.Text = dataGridView1.Rows[0].Cells[4].Value?.ToString();
+                //}
+                //else
+                //{
+                //    gameName.Text = "No Data";
+                //    gameGenre.Text = "No Data";
+                //    gameStock.Text = "No Data";
+                //    gamePrice.Text = "No Data";
+                //}
+                foreach (DataRow row in dt.Rows)
                 {
-                    gameName.Text = "No Data";
-                    gameGenre.Text = "No Data";
-                    gameStock.Text = "No Data";
-                    gamePrice.Text = "No Data";
+                    Debug.WriteLine(row["GName"]);
+
+                    //creating new Panel
+                    Panel card = new Panel()
+                    {
+                        Size = new Size(500, 300),
+                        BorderStyle = BorderStyle.FixedSingle,
+                        Margin = new Padding(10)
+                    };
+                    //adding pictureBox
+                    PictureBox pictureBox = new PictureBox()
+                    {
+                        Size = new Size(300,250),
+                        Location = new Point(10,10),
+                        BackColor = Color.Red,
+                        SizeMode = PictureBoxSizeMode.StretchImage,
+                        //Image 
+                    };
+                    card.Controls.Add(pictureBox);
+
+                 
+                    Label titleLabel1 = new Label
+                    {
+                        Text = "Name: " + row["GName"].ToString(),
+                        Font = new System.Drawing.Font("Segoe UI", 12, FontStyle.Bold),
+                        Location = new Point(325, 10),
+                        AutoSize = true
+                    };
+                    card.Controls.Add(titleLabel1);
+
+                    Label titleLabel2 = new Label
+                    {
+                        Text = "Genre: "+ row["GGenre"].ToString(),
+                        Font = new System.Drawing.Font("Segoe UI", 12, FontStyle.Bold),
+                        Location = new Point(325, 40),
+                        AutoSize = true
+                    };
+                    card.Controls.Add(titleLabel2);
+                    Label titleLabel3 = new Label
+                    {
+                        Text = "Stock: " + row["GStock"].ToString(),
+                        Font = new System.Drawing.Font("Segoe UI", 12, FontStyle.Bold),
+                        Location = new Point(325, 70),
+                        AutoSize = true
+                    };
+                    card.Controls.Add(titleLabel3);
+
+                    Label titleLabel4 = new Label
+                    {
+                        Text = "Price: " + row["GPrice"].ToString(),
+                        Font = new System.Drawing.Font("Segoe UI", 12, FontStyle.Bold),
+                        Location = new Point(325, 100),
+                        AutoSize = true
+                    };
+                    card.Controls.Add(titleLabel4);
+
+
+
+
+                    flowLayoutPanel.Controls.Add(card);
                 }
+
+                this.Controls.Add(flowLayoutPanel);
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 MessageBox.Show("No data Found" + ex.Message);
             }
 
