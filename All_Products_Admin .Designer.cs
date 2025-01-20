@@ -42,12 +42,12 @@
             gameStock = new TextBox();
             gameGenre = new TextBox();
             button2 = new Button();
-            label6 = new Label();
             gameID = new TextBox();
             label = new Label();
             button1 = new Button();
             updateBtn = new Button();
             browseBtn = new Button();
+            label6 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gameImage).BeginInit();
             SuspendLayout();
@@ -206,25 +206,13 @@
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
             // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Cursor = Cursors.Hand;
-            label6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.ForeColor = Color.LightSkyBlue;
-            label6.Location = new Point(31, 12);
-            label6.Name = "label6";
-            label6.Size = new Size(74, 28);
-            label6.TabIndex = 23;
-            label6.Text = "<-Back";
-            label6.Click += label6_Click;
-            // 
             // gameID
             // 
             gameID.BackColor = Color.Silver;
             gameID.BorderStyle = BorderStyle.None;
             gameID.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            gameID.Location = new Point(960, 95);
+            gameID.ForeColor = SystemColors.ControlText;
+            gameID.Location = new Point(960, 97);
             gameID.Margin = new Padding(3, 4, 3, 4);
             gameID.Name = "gameID";
             gameID.ReadOnly = true;
@@ -269,6 +257,7 @@
             // browseBtn
             // 
             browseBtn.BackColor = Color.DeepSkyBlue;
+            browseBtn.Enabled = false;
             browseBtn.FlatStyle = FlatStyle.Flat;
             browseBtn.Location = new Point(738, 800);
             browseBtn.Name = "browseBtn";
@@ -276,6 +265,20 @@
             browseBtn.TabIndex = 28;
             browseBtn.Text = "Browse";
             browseBtn.UseVisualStyleBackColor = false;
+            browseBtn.Click += browseBtn_Click;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Cursor = Cursors.Hand;
+            label6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label6.ForeColor = Color.LightSkyBlue;
+            label6.Location = new Point(54, 9);
+            label6.Name = "label6";
+            label6.Size = new Size(74, 28);
+            label6.TabIndex = 23;
+            label6.Text = "<-Back";
+            label6.Click += label6_Click;
             // 
             // All_Products_Admin
             // 
@@ -327,11 +330,11 @@
         private TextBox gameStock;
         private TextBox gameGenre;
         private Button button2;
-        private Label label6;
         private TextBox gameID;
         private Label label;
         private Button button1;
         private Button updateBtn;
         private Button browseBtn;
+        private Label label6;
     }
 }

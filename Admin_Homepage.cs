@@ -35,5 +35,24 @@ namespace ProjectWin
             all_Role.Show();
             this.Hide();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Admin_Managers_Table admin_Managers_Table = new Admin_Managers_Table();
+            admin_Managers_Table.Show();
+            this.Hide();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Admin_SalesPerson_Table admin_SalesPerson_Table = new Admin_SalesPerson_Table();
+            admin_SalesPerson_Table.Show();
+            this.Hide();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -21,5 +21,13 @@ namespace ProjectWin
         {
 
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Admin_Homepage adminHomepage = new Admin_Homepage();
+            adminHomepage.Show();
+            this.Hide();
+
+        }
     }
 }

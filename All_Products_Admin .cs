@@ -128,16 +128,61 @@ namespace ProjectWin
         {
             if (updateBtn.Text == "Edit")
             {
-                updateBtn.Text = "Update";
-                gameID.ReadOnly = false;
-                gameDiscount.ReadOnly = false;
-                gameGenre.ReadOnly = false;
-                gameName.ReadOnly = false;
-                gameStock.ReadOnly = false;
-                gamePrice.ReadOnly = false;
+                if (string.IsNullOrWhiteSpace(gameID.Text))
+                {
+                    MessageBox.Show("Please Select a Product");
+                    return;
+                }
+                else
+                {
+                    updateBtn.Text = "Update";
+                    gameDiscount.ReadOnly = false;
+                    gameGenre.ReadOnly = false;
+                    gameName.ReadOnly = false;
+                    gameStock.ReadOnly = false;
+                    gamePrice.ReadOnly = false;
+                    browseBtn.Enabled = true;
+                    browseBtn.Cursor = Cursors.Hand;
+                }
+            }
+            else if (updateBtn.Text == "Update")
+            {
+                updateBtn.Text = "Edit";
+                gameGenre.ReadOnly = true;
+                gameName.ReadOnly = true;
+                gameStock.ReadOnly = true;
+                gamePrice.ReadOnly = true;
+                gameDiscount.ReadOnly = true;
+                browseBtn.Enabled = false;
+                try
+                {
+                    dbcon();
+                    SqlCommand sq2 = new SqlCommand("UPDATE PRODUCT_TABLE SET GName = @Name, GStock = @Stock, GDiscount = @Discount, GPrice = @Price, GGenre = @Genre, GImage = @Image WHERE GameID = @gameID", con);
+                    sq2.Parameters.AddWithValue("gameID", gameID.Text);
+                    sq2.Parameters.AddWithValue("@Name", gameName.Text);
+                    sq2.Parameters.AddWithValue("@Genre", gameGenre.Text);
+                    sq2.Parameters.AddWithValue("@Stock", gameStock.Text );
+                    sq2.Parameters.AddWithValue("@Price", gamePrice.Text );
+                    sq2.Parameters.AddWithValue("@discount", gameDiscount.Text );
+                    MemoryStream memstr = new MemoryStream();
+                    gameImage.Image.Save(memstr, gameImage.Image.RawFormat);
+                    sq2.Parameters.AddWithValue("@Image", memstr.ToArray());
+                    sq2.ExecuteNonQuery();
+                    con.Close();
+                    Form2_Load();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Inavlid input");
+                }
 
 
             }
+        }
+
+        private void browseBtn_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("hi");
         }
     }
 }

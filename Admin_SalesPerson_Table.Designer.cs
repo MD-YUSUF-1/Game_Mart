@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Admin_SalesPerson_Table));
+            pictureBox1 = new PictureBox();
             textBox3 = new TextBox();
             textBox2 = new TextBox();
             textBox1 = new TextBox();
@@ -36,24 +37,37 @@
             button1 = new Button();
             label = new Label();
             gameID = new TextBox();
-            label6 = new Label();
             button2 = new Button();
             label5 = new Label();
             label4 = new Label();
             label1 = new Label();
             dataGridView1 = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Cursor = Cursors.Hand;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(41, 34);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(61, 61);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 62;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // textBox3
             // 
             textBox3.BackColor = Color.Gray;
             textBox3.BorderStyle = BorderStyle.None;
             textBox3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox3.Location = new Point(888, 329);
+            textBox3.Location = new Point(1042, 427);
+            textBox3.Margin = new Padding(3, 4, 3, 4);
             textBox3.Multiline = true;
             textBox3.Name = "textBox3";
-            textBox3.Size = new Size(262, 30);
+            textBox3.Size = new Size(299, 40);
             textBox3.TabIndex = 61;
             // 
             // textBox2
@@ -61,10 +75,11 @@
             textBox2.BackColor = Color.Gray;
             textBox2.BorderStyle = BorderStyle.None;
             textBox2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox2.Location = new Point(888, 266);
+            textBox2.Location = new Point(1042, 343);
+            textBox2.Margin = new Padding(3, 4, 3, 4);
             textBox2.Multiline = true;
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(262, 30);
+            textBox2.Size = new Size(299, 40);
             textBox2.TabIndex = 60;
             // 
             // textBox1
@@ -72,20 +87,20 @@
             textBox1.BackColor = Color.Gray;
             textBox1.BorderStyle = BorderStyle.None;
             textBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.Location = new Point(888, 202);
+            textBox1.Location = new Point(1042, 258);
+            textBox1.Margin = new Padding(3, 4, 3, 4);
             textBox1.Multiline = true;
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(262, 30);
+            textBox1.Size = new Size(299, 40);
             textBox1.TabIndex = 59;
             // 
             // updateBtn
             // 
             updateBtn.BackColor = Color.DeepSkyBlue;
             updateBtn.FlatStyle = FlatStyle.Flat;
-            updateBtn.Location = new Point(318, 618);
-            updateBtn.Margin = new Padding(3, 2, 3, 2);
+            updateBtn.Location = new Point(344, 716);
             updateBtn.Name = "updateBtn";
-            updateBtn.Size = new Size(143, 39);
+            updateBtn.Size = new Size(163, 52);
             updateBtn.TabIndex = 58;
             updateBtn.Text = "Edit";
             updateBtn.UseVisualStyleBackColor = false;
@@ -94,10 +109,9 @@
             // 
             button1.BackColor = Color.DeepSkyBlue;
             button1.FlatStyle = FlatStyle.Flat;
-            button1.Location = new Point(550, 618);
-            button1.Margin = new Padding(3, 2, 3, 2);
+            button1.Location = new Point(616, 716);
             button1.Name = "button1";
-            button1.Size = new Size(143, 39);
+            button1.Size = new Size(163, 52);
             button1.TabIndex = 57;
             button1.Text = "Delete";
             button1.UseVisualStyleBackColor = false;
@@ -108,9 +122,9 @@
             label.BackColor = Color.Transparent;
             label.Font = new Font("Segoe UI", 15.75F);
             label.ForeColor = Color.LightSkyBlue;
-            label.Location = new Point(848, 142);
+            label.Location = new Point(996, 178);
             label.Name = "label";
-            label.Size = new Size(34, 30);
+            label.Size = new Size(43, 37);
             label.TabIndex = 56;
             label.Text = "ID";
             // 
@@ -119,33 +133,22 @@
             gameID.BackColor = Color.Gray;
             gameID.BorderStyle = BorderStyle.None;
             gameID.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            gameID.Location = new Point(888, 142);
+            gameID.Location = new Point(1042, 178);
+            gameID.Margin = new Padding(3, 4, 3, 4);
             gameID.Multiline = true;
             gameID.Name = "gameID";
-            gameID.Size = new Size(262, 30);
+            gameID.Size = new Size(299, 40);
             gameID.TabIndex = 55;
-            // 
-            // label6
-            // 
-            label6.Anchor = AnchorStyles.None;
-            label6.BackColor = SystemColors.ActiveCaptionText;
-            label6.Cursor = Cursors.Hand;
-            label6.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.ForeColor = Color.LightSkyBlue;
-            label6.Location = new Point(31, 45);
-            label6.Name = "label6";
-            label6.Size = new Size(81, 42);
-            label6.TabIndex = 54;
-            label6.Text = "<-Back";
             // 
             // button2
             // 
             button2.BackColor = Color.DeepSkyBlue;
             button2.FlatStyle = FlatStyle.Flat;
-            button2.Location = new Point(97, 618);
+            button2.Location = new Point(84, 716);
+            button2.Margin = new Padding(3, 4, 3, 4);
             button2.Name = "button2";
-            button2.Size = new Size(132, 39);
-            button2.TabIndex = 53;
+            button2.Size = new Size(151, 52);
+            button2.TabIndex = 54;
             button2.Text = "Insert";
             button2.UseVisualStyleBackColor = false;
             // 
@@ -155,10 +158,10 @@
             label5.BackColor = Color.Transparent;
             label5.Font = new Font("Segoe UI", 15.75F);
             label5.ForeColor = Color.LightSkyBlue;
-            label5.Location = new Point(810, 266);
+            label5.Location = new Point(952, 343);
             label5.Name = "label5";
-            label5.Size = new Size(72, 30);
-            label5.TabIndex = 52;
+            label5.Size = new Size(92, 37);
+            label5.TabIndex = 53;
             label5.Text = "Phone";
             // 
             // label4
@@ -167,10 +170,10 @@
             label4.BackColor = Color.Transparent;
             label4.Font = new Font("Segoe UI", 15.75F);
             label4.ForeColor = Color.LightSkyBlue;
-            label4.Location = new Point(813, 329);
+            label4.Location = new Point(956, 427);
             label4.Name = "label4";
-            label4.Size = new Size(66, 30);
-            label4.TabIndex = 51;
+            label4.Size = new Size(87, 37);
+            label4.TabIndex = 52;
             label4.Text = "Gmail";
             // 
             // label1
@@ -179,10 +182,10 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Segoe UI", 15.75F);
             label1.ForeColor = Color.LightSkyBlue;
-            label1.Location = new Point(813, 202);
+            label1.Location = new Point(956, 258);
             label1.Name = "label1";
-            label1.Size = new Size(69, 30);
-            label1.TabIndex = 50;
+            label1.Size = new Size(88, 37);
+            label1.TabIndex = 51;
             label1.Text = "Name";
             // 
             // dataGridView1
@@ -191,18 +194,21 @@
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.BackgroundColor = Color.Gray;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(31, 113);
+            dataGridView1.Location = new Point(41, 112);
+            dataGridView1.Margin = new Padding(3, 4, 3, 4);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(763, 491);
-            dataGridView1.TabIndex = 49;
+            dataGridView1.Size = new Size(872, 560);
+            dataGridView1.TabIndex = 50;
             // 
             // Admin_SalesPerson_Table
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
-            ClientSize = new Size(1184, 761);
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(1382, 803);
+            Controls.Add(pictureBox1);
             Controls.Add(textBox3);
             Controls.Add(textBox2);
             Controls.Add(textBox1);
@@ -210,14 +216,15 @@
             Controls.Add(button1);
             Controls.Add(label);
             Controls.Add(gameID);
-            Controls.Add(label6);
             Controls.Add(button2);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label1);
             Controls.Add(dataGridView1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "Admin_SalesPerson_Table";
             Text = "Admin_SalesPerson_Table";
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -225,6 +232,7 @@
 
         #endregion
 
+        private PictureBox pictureBox1;
         private TextBox textBox3;
         private TextBox textBox2;
         private TextBox textBox1;
@@ -232,7 +240,6 @@
         private Button button1;
         private Label label;
         private TextBox gameID;
-        private Label label6;
         private Button button2;
         private Label label5;
         private Label label4;

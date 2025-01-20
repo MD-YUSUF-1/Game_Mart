@@ -42,14 +42,16 @@
             textBox1 = new TextBox();
             textBox2 = new TextBox();
             textBox3 = new TextBox();
+            pictureBox1 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // updateBtn
             // 
             updateBtn.BackColor = Color.DeepSkyBlue;
             updateBtn.FlatStyle = FlatStyle.Flat;
-            updateBtn.Location = new Point(369, 801);
+            updateBtn.Location = new Point(338, 708);
             updateBtn.Name = "updateBtn";
             updateBtn.Size = new Size(163, 52);
             updateBtn.TabIndex = 45;
@@ -60,7 +62,7 @@
             // 
             button1.BackColor = Color.DeepSkyBlue;
             button1.FlatStyle = FlatStyle.Flat;
-            button1.Location = new Point(634, 801);
+            button1.Location = new Point(628, 708);
             button1.Name = "button1";
             button1.Size = new Size(163, 52);
             button1.TabIndex = 44;
@@ -73,7 +75,7 @@
             label.BackColor = Color.Transparent;
             label.Font = new Font("Segoe UI", 15.75F);
             label.ForeColor = Color.LightSkyBlue;
-            label.Location = new Point(975, 167);
+            label.Location = new Point(1008, 170);
             label.Name = "label";
             label.Size = new Size(43, 37);
             label.TabIndex = 43;
@@ -84,7 +86,7 @@
             gameID.BackColor = Color.Gray;
             gameID.BorderStyle = BorderStyle.None;
             gameID.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            gameID.Location = new Point(1021, 167);
+            gameID.Location = new Point(1054, 170);
             gameID.Margin = new Padding(3, 4, 3, 4);
             gameID.Multiline = true;
             gameID.Name = "gameID";
@@ -98,9 +100,9 @@
             label6.Cursor = Cursors.Hand;
             label6.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label6.ForeColor = Color.LightSkyBlue;
-            label6.Location = new Point(-44, -119);
+            label6.Location = new Point(56, -69);
             label6.Name = "label6";
-            label6.Size = new Size(93, 56);
+            label6.Size = new Size(133, 56);
             label6.TabIndex = 41;
             label6.Text = "<-Back";
             // 
@@ -108,7 +110,7 @@
             // 
             button2.BackColor = Color.DeepSkyBlue;
             button2.FlatStyle = FlatStyle.Flat;
-            button2.Location = new Point(117, 801);
+            button2.Location = new Point(96, 708);
             button2.Margin = new Padding(3, 4, 3, 4);
             button2.Name = "button2";
             button2.Size = new Size(151, 52);
@@ -122,7 +124,7 @@
             label5.BackColor = Color.Transparent;
             label5.Font = new Font("Segoe UI", 15.75F);
             label5.ForeColor = Color.LightSkyBlue;
-            label5.Location = new Point(931, 332);
+            label5.Location = new Point(964, 335);
             label5.Name = "label5";
             label5.Size = new Size(92, 37);
             label5.TabIndex = 35;
@@ -134,7 +136,7 @@
             label4.BackColor = Color.Transparent;
             label4.Font = new Font("Segoe UI", 15.75F);
             label4.ForeColor = Color.LightSkyBlue;
-            label4.Location = new Point(935, 416);
+            label4.Location = new Point(968, 419);
             label4.Name = "label4";
             label4.Size = new Size(87, 37);
             label4.TabIndex = 34;
@@ -146,7 +148,7 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Segoe UI", 15.75F);
             label1.ForeColor = Color.LightSkyBlue;
-            label1.Location = new Point(935, 247);
+            label1.Location = new Point(968, 250);
             label1.Name = "label1";
             label1.Size = new Size(88, 37);
             label1.TabIndex = 31;
@@ -158,11 +160,11 @@
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.BackgroundColor = Color.Gray;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(41, 128);
+            dataGridView1.Location = new Point(53, 104);
             dataGridView1.Margin = new Padding(3, 4, 3, 4);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(872, 655);
+            dataGridView1.Size = new Size(872, 560);
             dataGridView1.TabIndex = 28;
             // 
             // textBox1
@@ -170,7 +172,7 @@
             textBox1.BackColor = Color.Gray;
             textBox1.BorderStyle = BorderStyle.None;
             textBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.Location = new Point(1021, 247);
+            textBox1.Location = new Point(1054, 250);
             textBox1.Margin = new Padding(3, 4, 3, 4);
             textBox1.Multiline = true;
             textBox1.Name = "textBox1";
@@ -182,7 +184,7 @@
             textBox2.BackColor = Color.Gray;
             textBox2.BorderStyle = BorderStyle.None;
             textBox2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox2.Location = new Point(1021, 332);
+            textBox2.Location = new Point(1054, 335);
             textBox2.Margin = new Padding(3, 4, 3, 4);
             textBox2.Multiline = true;
             textBox2.Name = "textBox2";
@@ -194,19 +196,33 @@
             textBox3.BackColor = Color.Gray;
             textBox3.BorderStyle = BorderStyle.None;
             textBox3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox3.Location = new Point(1021, 416);
+            textBox3.Location = new Point(1054, 419);
             textBox3.Margin = new Padding(3, 4, 3, 4);
             textBox3.Multiline = true;
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(299, 40);
             textBox3.TabIndex = 48;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Cursor = Cursors.Hand;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(53, 26);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(61, 61);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 49;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
+            // 
             // Admin_Managers_Table
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
-            ClientSize = new Size(1182, 703);
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(1382, 803);
+            Controls.Add(pictureBox1);
             Controls.Add(textBox3);
             Controls.Add(textBox2);
             Controls.Add(textBox1);
@@ -225,6 +241,7 @@
             Text = "Admin_Managers_Table";
             Load += Admin_Managers_Table_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -244,5 +261,6 @@
         private TextBox textBox1;
         private TextBox textBox2;
         private TextBox textBox3;
+        private PictureBox pictureBox1;
     }
 }
