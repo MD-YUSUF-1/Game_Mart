@@ -49,10 +49,9 @@
             // 
             updateBtn.BackColor = Color.DeepSkyBlue;
             updateBtn.FlatStyle = FlatStyle.Flat;
-            updateBtn.Location = new Point(323, 601);
-            updateBtn.Margin = new Padding(3, 2, 3, 2);
+            updateBtn.Location = new Point(369, 801);
             updateBtn.Name = "updateBtn";
-            updateBtn.Size = new Size(143, 39);
+            updateBtn.Size = new Size(163, 52);
             updateBtn.TabIndex = 45;
             updateBtn.Text = "Edit";
             updateBtn.UseVisualStyleBackColor = false;
@@ -61,10 +60,9 @@
             // 
             button1.BackColor = Color.DeepSkyBlue;
             button1.FlatStyle = FlatStyle.Flat;
-            button1.Location = new Point(555, 601);
-            button1.Margin = new Padding(3, 2, 3, 2);
+            button1.Location = new Point(634, 801);
             button1.Name = "button1";
-            button1.Size = new Size(143, 39);
+            button1.Size = new Size(163, 52);
             button1.TabIndex = 44;
             button1.Text = "Delete";
             button1.UseVisualStyleBackColor = false;
@@ -75,9 +73,9 @@
             label.BackColor = Color.Transparent;
             label.Font = new Font("Segoe UI", 15.75F);
             label.ForeColor = Color.LightSkyBlue;
-            label.Location = new Point(853, 125);
+            label.Location = new Point(975, 167);
             label.Name = "label";
-            label.Size = new Size(34, 30);
+            label.Size = new Size(43, 37);
             label.TabIndex = 43;
             label.Text = "ID";
             // 
@@ -86,10 +84,11 @@
             gameID.BackColor = Color.Gray;
             gameID.BorderStyle = BorderStyle.None;
             gameID.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            gameID.Location = new Point(893, 125);
+            gameID.Location = new Point(1021, 167);
+            gameID.Margin = new Padding(3, 4, 3, 4);
             gameID.Multiline = true;
             gameID.Name = "gameID";
-            gameID.Size = new Size(262, 30);
+            gameID.Size = new Size(299, 40);
             gameID.TabIndex = 42;
             // 
             // label6
@@ -99,9 +98,9 @@
             label6.Cursor = Cursors.Hand;
             label6.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label6.ForeColor = Color.LightSkyBlue;
-            label6.Location = new Point(36, 28);
+            label6.Location = new Point(-44, -119);
             label6.Name = "label6";
-            label6.Size = new Size(81, 42);
+            label6.Size = new Size(93, 56);
             label6.TabIndex = 41;
             label6.Text = "<-Back";
             // 
@@ -109,9 +108,10 @@
             // 
             button2.BackColor = Color.DeepSkyBlue;
             button2.FlatStyle = FlatStyle.Flat;
-            button2.Location = new Point(102, 601);
+            button2.Location = new Point(117, 801);
+            button2.Margin = new Padding(3, 4, 3, 4);
             button2.Name = "button2";
-            button2.Size = new Size(132, 39);
+            button2.Size = new Size(151, 52);
             button2.TabIndex = 40;
             button2.Text = "Insert";
             button2.UseVisualStyleBackColor = false;
@@ -122,9 +122,9 @@
             label5.BackColor = Color.Transparent;
             label5.Font = new Font("Segoe UI", 15.75F);
             label5.ForeColor = Color.LightSkyBlue;
-            label5.Location = new Point(815, 249);
+            label5.Location = new Point(931, 332);
             label5.Name = "label5";
-            label5.Size = new Size(72, 30);
+            label5.Size = new Size(92, 37);
             label5.TabIndex = 35;
             label5.Text = "Phone";
             // 
@@ -134,9 +134,9 @@
             label4.BackColor = Color.Transparent;
             label4.Font = new Font("Segoe UI", 15.75F);
             label4.ForeColor = Color.LightSkyBlue;
-            label4.Location = new Point(818, 312);
+            label4.Location = new Point(935, 416);
             label4.Name = "label4";
-            label4.Size = new Size(66, 30);
+            label4.Size = new Size(87, 37);
             label4.TabIndex = 34;
             label4.Text = "Gmail";
             // 
@@ -146,9 +146,9 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Segoe UI", 15.75F);
             label1.ForeColor = Color.LightSkyBlue;
-            label1.Location = new Point(818, 185);
+            label1.Location = new Point(935, 247);
             label1.Name = "label1";
-            label1.Size = new Size(69, 30);
+            label1.Size = new Size(88, 37);
             label1.TabIndex = 31;
             label1.Text = "Name";
             // 
@@ -158,10 +158,11 @@
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.BackgroundColor = Color.Gray;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(36, 96);
+            dataGridView1.Location = new Point(41, 128);
+            dataGridView1.Margin = new Padding(3, 4, 3, 4);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(763, 491);
+            dataGridView1.Size = new Size(872, 655);
             dataGridView1.TabIndex = 28;
             // 
             // textBox1
@@ -169,10 +170,11 @@
             textBox1.BackColor = Color.Gray;
             textBox1.BorderStyle = BorderStyle.None;
             textBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.Location = new Point(893, 185);
+            textBox1.Location = new Point(1021, 247);
+            textBox1.Margin = new Padding(3, 4, 3, 4);
             textBox1.Multiline = true;
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(262, 30);
+            textBox1.Size = new Size(299, 40);
             textBox1.TabIndex = 46;
             // 
             // textBox2
@@ -180,10 +182,11 @@
             textBox2.BackColor = Color.Gray;
             textBox2.BorderStyle = BorderStyle.None;
             textBox2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox2.Location = new Point(893, 249);
+            textBox2.Location = new Point(1021, 332);
+            textBox2.Margin = new Padding(3, 4, 3, 4);
             textBox2.Multiline = true;
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(262, 30);
+            textBox2.Size = new Size(299, 40);
             textBox2.TabIndex = 47;
             // 
             // textBox3
@@ -191,18 +194,19 @@
             textBox3.BackColor = Color.Gray;
             textBox3.BorderStyle = BorderStyle.None;
             textBox3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox3.Location = new Point(893, 312);
+            textBox3.Location = new Point(1021, 416);
+            textBox3.Margin = new Padding(3, 4, 3, 4);
             textBox3.Multiline = true;
             textBox3.Name = "textBox3";
-            textBox3.Size = new Size(262, 30);
+            textBox3.Size = new Size(299, 40);
             textBox3.TabIndex = 48;
             // 
             // Admin_Managers_Table
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
-            ClientSize = new Size(1184, 761);
+            ClientSize = new Size(1182, 703);
             Controls.Add(textBox3);
             Controls.Add(textBox2);
             Controls.Add(textBox1);
@@ -216,6 +220,7 @@
             Controls.Add(label4);
             Controls.Add(label1);
             Controls.Add(dataGridView1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "Admin_Managers_Table";
             Text = "Admin_Managers_Table";
             Load += Admin_Managers_Table_Load;

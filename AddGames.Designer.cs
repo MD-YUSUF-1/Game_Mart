@@ -49,36 +49,36 @@
             // 
             // textBox1
             // 
-<<<<<<< HEAD
-            textBox1.Location = new Point(414, 20);
+
+
             textBox1.Margin = new Padding(3, 4, 3, 4);
-=======
+
             textBox1.Location = new Point(298, 40);
->>>>>>> 87f18f2179182a5be5baa7922b62a7a3cd438860
+
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(267, 23);
             textBox1.TabIndex = 0;
             // 
             // textBox2
             // 
-<<<<<<< HEAD
-            textBox2.Location = new Point(414, 91);
+
+
             textBox2.Margin = new Padding(3, 4, 3, 4);
-=======
+
             textBox2.Location = new Point(298, 79);
->>>>>>> 87f18f2179182a5be5baa7922b62a7a3cd438860
+
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(267, 23);
             textBox2.TabIndex = 1;
             // 
             // textBox3
             // 
-<<<<<<< HEAD
-            textBox3.Location = new Point(414, 174);
+
+
             textBox3.Margin = new Padding(3, 4, 3, 4);
-=======
+
             textBox3.Location = new Point(298, 122);
->>>>>>> 87f18f2179182a5be5baa7922b62a7a3cd438860
+
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(267, 23);
             textBox3.TabIndex = 2;
@@ -100,12 +100,12 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-<<<<<<< HEAD
-            pictureBox1.Location = new Point(760, 55);
+
+
             pictureBox1.Margin = new Padding(3, 4, 3, 4);
-=======
+
             pictureBox1.Location = new Point(646, 40);
->>>>>>> 87f18f2179182a5be5baa7922b62a7a3cd438860
+
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(186, 173);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -203,12 +203,11 @@
             // 
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-<<<<<<< HEAD
-            dataGridView1.Location = new Point(56, 540);
+
             dataGridView1.Margin = new Padding(3, 4, 3, 4);
-=======
+
             dataGridView1.Location = new Point(0, 359);
->>>>>>> 87f18f2179182a5be5baa7922b62a7a3cd438860
+
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.Size = new Size(882, 222);
@@ -219,12 +218,11 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-<<<<<<< HEAD
-            ClientSize = new Size(1182, 753);
-=======
+
+
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(884, 582);
->>>>>>> 87f18f2179182a5be5baa7922b62a7a3cd438860
+
             Controls.Add(dataGridView1);
             Controls.Add(label5);
             Controls.Add(label4);

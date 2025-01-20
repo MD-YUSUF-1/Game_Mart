@@ -129,7 +129,12 @@ namespace ProjectWin
             if (updateBtn.Text == "Edit")
             {
                 updateBtn.Text = "Update";
-               
+                gameID.ReadOnly = false;
+                gameDiscount.ReadOnly = false;
+                gameGenre.ReadOnly = false;
+                gameName.ReadOnly = false;
+                gameStock.ReadOnly = false;
+                gamePrice.ReadOnly = false;
 
 
             }
