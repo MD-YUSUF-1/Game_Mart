@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProfilePage));
             pictureBox1 = new PictureBox();
             label1 = new Label();
             label2 = new Label();
@@ -39,9 +40,10 @@
             // pictureBox1
             // 
             pictureBox1.BackgroundImage = Properties.Resources.defaultProfile1;
-            pictureBox1.Location = new Point(166, 101);
+            pictureBox1.Location = new Point(190, 135);
+            pictureBox1.Margin = new Padding(3, 4, 3, 4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(149, 147);
+            pictureBox1.Size = new Size(170, 196);
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
@@ -50,9 +52,9 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Transparent;
-            label1.Location = new Point(349, 99);
+            label1.Location = new Point(399, 135);
             label1.Name = "label1";
-            label1.Size = new Size(221, 51);
+            label1.Size = new Size(253, 68);
             label1.TabIndex = 7;
             label1.Text = "Name";
             // 
@@ -61,9 +63,9 @@
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.Transparent;
-            label2.Location = new Point(349, 150);
+            label2.Location = new Point(399, 200);
             label2.Name = "label2";
-            label2.Size = new Size(221, 51);
+            label2.Size = new Size(253, 68);
             label2.TabIndex = 8;
             label2.Text = "Email :";
             // 
@@ -72,9 +74,9 @@
             label3.BackColor = Color.Transparent;
             label3.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.Transparent;
-            label3.Location = new Point(349, 201);
+            label3.Location = new Point(399, 268);
             label3.Name = "label3";
-            label3.Size = new Size(221, 51);
+            label3.Size = new Size(253, 68);
             label3.TabIndex = 9;
             label3.Text = "Phone";
             // 
@@ -83,26 +85,30 @@
             button1.BackColor = Color.Black;
             button1.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             button1.ForeColor = Color.Transparent;
-            button1.Location = new Point(333, 309);
+            button1.Location = new Point(381, 412);
+            button1.Margin = new Padding(3, 4, 3, 4);
             button1.Name = "button1";
-            button1.Size = new Size(163, 54);
+            button1.Size = new Size(186, 72);
             button1.TabIndex = 12;
             button1.Text = "Edit Profile";
             button1.UseVisualStyleBackColor = false;
             // 
             // ProfilePage
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = Properties.Resources.HomepageBG1;
-            ClientSize = new Size(800, 450);
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(914, 600);
             Controls.Add(button1);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(pictureBox1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "ProfilePage";
             Text = "ProfilePage";
+            Load += ProfilePage_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }

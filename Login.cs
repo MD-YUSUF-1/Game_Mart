@@ -55,66 +55,71 @@ namespace ProjectWin
             string query = "SELECT * FROM Login_Info WHERE Username = '" + username + "' AND Password = '" + password + "'";
             try
             {
-                    using (SqlDataAdapter sqda1 = new SqlDataAdapter(query, con))
+                using (SqlDataAdapter sqda1 = new SqlDataAdapter(query, con))
+                {
+                    DataTable dt = new DataTable();
+                    sqda1.Fill(dt);
+                    //Storing The role
+                    string[] dataArray = new string[dt.Rows.Count];
+                    int i = 0;
+                    foreach (DataRow row in dt.Rows)
                     {
-                        DataTable dt = new DataTable();
-                        sqda1.Fill(dt);
-                        //Storing The role
-                        string [] dataArray = new string [dt.Rows.Count];
-                        int i = 0;
-                        foreach (DataRow row in dt.Rows) {
-                            dataArray[i] = row["Role"].ToString();
-                            i++;
-                        }
-                        //checking if no role
-                        if (dataArray.Length < 1) {
-                            MessageBox.Show("Invalid  Person", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return;
-                        }
-                    
-                        //converting the role in to lower case
-                        dataArray[0] = dataArray[0].ToLower();
+                        dataArray[i] = row["Role"].ToString();
+                        i++;
+                    }
+                    //checking if no role
+                    if (dataArray.Length < 1)
+                    {
+                        MessageBox.Show("Invalid  Person", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    //converting the role in to lower case
+                    dataArray[0] = dataArray[0].ToLower();
                     //checking valid role trying to login
                     if (dataArray[0] != role)
                     {
                         MessageBox.Show("Invalid Author", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
+                        return;
                     }
                     int count = dt.Rows.Count;
-          
-                        if (count == 1 && count < 2)
-                        {
-                            MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        if (dataArray[0]== "admin")
+                    if (count == 1 && count < 2)
+                    {
+                        MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        if (dataArray[0] == "admin")
                         {
-                            Admin_Homepage admin_homePage = new Admin_Homepage();
-                            admin_homePage.Show();
+                            //Admin_Homepage admin_homePage = new Admin_Homepage();
+                            //admin_homePage.Show();
+                            AddGames ag = new AddGames();
+                            ag.Show();
                             this.Hide();
                             con.Close();
                         }
                         if (dataArray[0] == "salesman")
-                            {
-                                SalesMan s = new SalesMan(username,password);
-                                this.Hide();
-                                s.Show();
-                                con.Close();
-                            }
-                            if (dataArray[0] == "manager")
-                            {
-                                Manager_Home m = new Manager_Home();
-                                this.Hide();
-                                m.Show();
-                                con.Close();
-                            }
-                        
-                    }
-                        else
                         {
-                            MessageBox.Show("Invalid username or password.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            SalesMan s = new SalesMan(username, password);
+                            this.Hide();
+                            s.Show();
+                            con.Close();
                         }
+                        if (dataArray[0] == "manager")
+                        {
+                            Manager_Home m = new Manager_Home();
+                            this.Hide();
+                            m.Show();
+                            con.Close();
+                        }
+
                     }
-                
+                    else
+                    {
+                        MessageBox.Show("Invalid username or password.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+
             }
             catch (Exception ex)
             {

@@ -12,7 +12,7 @@ namespace ProjectWin
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new AddGames());
-            //Application.Run(new SalesMan("ankon", "yusuf"));
+            //Application.Run(new SalesMan("a","b"));
         }
     }
 }
