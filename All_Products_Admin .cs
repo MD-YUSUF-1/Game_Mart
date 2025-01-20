@@ -135,7 +135,7 @@ namespace ProjectWin
                 gameName.ReadOnly = false;
                 gameStock.ReadOnly = false;
                 gamePrice.ReadOnly = false;
-                gameStock.ReadOnly = false;
+
 
             }
         }
