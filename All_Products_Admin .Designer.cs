@@ -41,18 +41,19 @@
             gamePrice = new TextBox();
             gameStock = new TextBox();
             gameGenre = new TextBox();
-            button4 = new Button();
             button2 = new Button();
-            button3 = new Button();
             label6 = new Label();
             gameID = new TextBox();
             label = new Label();
+            button1 = new Button();
+            updateBtn = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gameImage).BeginInit();
             SuspendLayout();
             // 
             // dataGridView1
             // 
+            dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.BackgroundColor = Color.Gray;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -186,18 +187,6 @@
             gameGenre.Size = new Size(343, 27);
             gameGenre.TabIndex = 16;
             // 
-            // button4
-            // 
-            button4.BackColor = Color.DeepSkyBlue;
-            button4.FlatStyle = FlatStyle.Flat;
-            button4.Location = new Point(631, 800);
-            button4.Margin = new Padding(3, 4, 3, 4);
-            button4.Name = "button4";
-            button4.Size = new Size(151, 52);
-            button4.TabIndex = 20;
-            button4.Text = "Delete";
-            button4.UseVisualStyleBackColor = false;
-            // 
             // button2
             // 
             button2.BackColor = Color.DeepSkyBlue;
@@ -210,18 +199,6 @@
             button2.Text = "Insert";
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
-            // 
-            // button3
-            // 
-            button3.BackColor = Color.DeepSkyBlue;
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.Location = new Point(389, 800);
-            button3.Margin = new Padding(3, 4, 3, 4);
-            button3.Name = "button3";
-            button3.Size = new Size(151, 52);
-            button3.TabIndex = 22;
-            button3.Text = "Update";
-            button3.UseVisualStyleBackColor = false;
             // 
             // label6
             // 
@@ -258,18 +235,42 @@
             label.TabIndex = 25;
             label.Text = "ID";
             // 
+            // button1
+            // 
+            button1.BackColor = Color.DeepSkyBlue;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Location = new Point(647, 800);
+            button1.Name = "button1";
+            button1.Size = new Size(163, 52);
+            button1.TabIndex = 26;
+            button1.Text = "Delete";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+            // 
+            // updateBtn
+            // 
+            updateBtn.BackColor = Color.DeepSkyBlue;
+            updateBtn.FlatStyle = FlatStyle.Flat;
+            updateBtn.Location = new Point(382, 800);
+            updateBtn.Name = "updateBtn";
+            updateBtn.Size = new Size(163, 52);
+            updateBtn.TabIndex = 27;
+            updateBtn.Text = "Edit";
+            updateBtn.UseVisualStyleBackColor = false;
+            updateBtn.Click += updateBtn_Click;
+            // 
             // All_Products_Admin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(64, 64, 64);
             ClientSize = new Size(1353, 881);
+            Controls.Add(updateBtn);
+            Controls.Add(button1);
             Controls.Add(label);
             Controls.Add(gameID);
             Controls.Add(label6);
-            Controls.Add(button3);
             Controls.Add(button2);
-            Controls.Add(button4);
             Controls.Add(gameGenre);
             Controls.Add(gameStock);
             Controls.Add(gamePrice);
@@ -306,11 +307,11 @@
         private TextBox gamePrice;
         private TextBox gameStock;
         private TextBox gameGenre;
-        private Button button4;
         private Button button2;
-        private Button button3;
         private Label label6;
         private TextBox gameID;
         private Label label;
+        private Button button1;
+        private Button updateBtn;
     }
 }

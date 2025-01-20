@@ -11,8 +11,8 @@ namespace ProjectWin
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            //Application.Run(new Admin_Homepage());
-            Application.Run(new SalesMan("a","b"));
+            Application.Run(new Admin_Homepage());
+            //Application.Run(new SalesMan("a","b"));
 
         }
     }

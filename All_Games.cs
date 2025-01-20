@@ -38,14 +38,14 @@ namespace ProjectWin
         public SalesMan(string username, string password)
         {
             InitializeComponent();
-            this.Load +=SalesMan_Load_1;
+            this.Load += SalesMan_Load_1;
             this.username = username;
             this.password = password;
         }
         private void Form2_Load(object sender, EventArgs e)
         {
-           
-            
+
+
             //SalesMan_Load_1(sender, e);
         }
 
@@ -63,7 +63,7 @@ namespace ProjectWin
         private void button4_Click(object sender, EventArgs e)
         {
             All_Role lg = new All_Role();
-            lg.Show();  
+            lg.Show();
             this.Hide();
         }
 
@@ -124,16 +124,16 @@ namespace ProjectWin
         private void SalesMan_Load_1(object sender, EventArgs e)
         {
             DataTable dt = new DataTable();
-            
+
 
             try
             {
                 databseConnect(dt);
-                
+
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                MessageBox.Show("database Connection Error"+ ex.Message);
+                MessageBox.Show("database Connection Error" + ex.Message);
             }
             dynamic_Data(dt);
 
@@ -141,31 +141,33 @@ namespace ProjectWin
 
         }
 
+
         public void dynamic_Data(DataTable dt)
         {
             try
-                
+
             {
 
                 FlowLayoutPanel flowLayoutPanel = new FlowLayoutPanel
                 {
-                    Size = new Size(1160, 670),
+                    Size = new Size(1300, 670),
                     Location = new Point(40, 100),
                     AutoScroll = true,
+                    BackColor = Color.Gray,
                     WrapContents = true,
                 };
                 foreach (DataRow row in dt.Rows)
                 {
                     //Debug.WriteLine(row["GName"]);
 
-                    //creating new Panel
                     Panel card = new Panel
                     {
-                        Size = new Size(545, 330),
+                        Size = new Size(610, 330),
                         BorderStyle = BorderStyle.FixedSingle,
-                        Margin = new Padding(10)
+                        Margin = new Padding(10),
+                        //BackColor = Color.GhostWhite,
                     };
-                    //adding pictureBox
+
 
 
                     PictureBox pictureBox = new PictureBox
@@ -231,13 +233,14 @@ namespace ProjectWin
                         Font = new System.Drawing.Font("Segoe UI", 12, FontStyle.Bold),
                         Size = new Size(160, 50),
                         Location = new Point(325, 140),
-                        BackColor = Color.DeepSkyBlue,
+                        BackColor = System.Drawing.ColorTranslator.FromHtml("#F5F5F5"),
                         FlatStyle = FlatStyle.Popup,
-                        ForeColor = Color.White
+                        ForeColor = System.Drawing.ColorTranslator.FromHtml("#333333")
                     };
                     AddToCartbtn.Click += (s, e) =>
                     {
-                        MessageBox.Show("Btn Clicked" + row["GName"]);
+                        dbcon();
+                        SqlCommand sq1 = new SqlCommand("select * from PRODUCT_TABLE", con);
 
                     };
                     card.Controls.Add(AddToCartbtn);
@@ -247,9 +250,9 @@ namespace ProjectWin
                         Font = new System.Drawing.Font("Segoe UI", 12, FontStyle.Bold),
                         Size = new Size(120, 50),
                         Location = new Point(325, 200),
-                        BackColor = Color.DeepSkyBlue,
+                        BackColor = System.Drawing.ColorTranslator.FromHtml("#F5F5F5"),
                         FlatStyle = FlatStyle.Popup,
-                        ForeColor = Color.White
+                        ForeColor = System.Drawing.ColorTranslator.FromHtml("#333333")
                     };
                     card.Controls.Add(BuyNowBtn);
 
@@ -263,6 +266,18 @@ namespace ProjectWin
             {
                 MessageBox.Show("No data Found" + ex.Message);
             }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void profileBtn_Click(object sender, EventArgs e)
+        {
+            ProfilePage profilePage = new ProfilePage();
+            profilePage.Show();
+            this.Hide();
         }
     }
 }
