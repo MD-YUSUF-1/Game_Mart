@@ -28,164 +28,82 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
-            button2 = new Button();
-            pictureBox1 = new PictureBox();
-            button3 = new Button();
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SalesMan));
             panel1 = new Panel();
-            button4 = new Button();
-            dataGridView1 = new DataGridView();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            pictureBox1 = new PictureBox();
+            profileBtn = new Button();
+            logoutBtn = new Button();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
-            // 
-            // button1
-            // 
-            button1.Location = new Point(532, 204);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 0;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            button2.BackColor = SystemColors.ActiveCaptionText;
-            button2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.ForeColor = Color.Transparent;
-            button2.Location = new Point(704, 225);
-            button2.Name = "button2";
-            button2.Size = new Size(118, 44);
-            button2.TabIndex = 1;
-            button2.Text = "Buy Now";
-            button2.UseVisualStyleBackColor = false;
-            button2.Click += button2_Click;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.BackColor = SystemColors.ActiveCaptionText;
-            pictureBox1.Location = new Point(-58, 168);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(168, 172);
-            pictureBox1.TabIndex = 2;
-            pictureBox1.TabStop = false;
-            // 
-            // button3
-            // 
-            button3.BackColor = SystemColors.ActiveCaptionText;
-            button3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button3.ForeColor = Color.Transparent;
-            button3.Location = new Point(685, 279);
-            button3.Name = "button3";
-            button3.Size = new Size(118, 40);
-            button3.TabIndex = 3;
-            button3.Text = "Add To Cart";
-            button3.UseVisualStyleBackColor = false;
-            button3.Click += button3_Click;
-            // 
-            // label1
-            // 
-            label1.BackColor = Color.Transparent;
-            label1.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.Transparent;
-            label1.Location = new Point(244, 168);
-            label1.Name = "label1";
-            label1.Size = new Size(221, 36);
-            label1.TabIndex = 4;
-            label1.Text = "Game name";
-            // 
-            // label2
-            // 
-            label2.BackColor = Color.Transparent;
-            label2.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.Transparent;
-            label2.Location = new Point(244, 234);
-            label2.Name = "label2";
-            label2.Size = new Size(145, 36);
-            label2.TabIndex = 5;
-            label2.Text = "Genre: ......";
-            label2.Click += label2_Click;
-            // 
-            // label3
-            // 
-            label3.BackColor = Color.Transparent;
-            label3.Font = new Font("Segoe UI Light", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.ForeColor = Color.Transparent;
-            label3.Location = new Point(244, 283);
-            label3.Name = "label3";
-            label3.Size = new Size(145, 30);
-            label3.TabIndex = 6;
-            label3.Text = "Price: ";
             // 
             // panel1
             // 
-            panel1.BackColor = Color.FromArgb(64, 64, 64);
-            panel1.Controls.Add(button4);
+            panel1.BackColor = Color.Black;
             panel1.Controls.Add(pictureBox1);
-            panel1.Location = new Point(-6, 0);
+            panel1.Controls.Add(profileBtn);
+            panel1.Controls.Add(logoutBtn);
+            panel1.Location = new Point(-5, 0);
+            panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1035, 105);
-            panel1.TabIndex = 8;
+            panel1.Size = new Size(1395, 100);
+            panel1.TabIndex = 0;
             // 
-            // button4
+            // pictureBox1
             // 
-            button4.BackColor = SystemColors.ActiveCaptionText;
-            button4.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button4.ForeColor = Color.Transparent;
-            button4.Location = new Point(921, 29);
-            button4.Margin = new Padding(0);
-            button4.Name = "button4";
-            button4.Size = new Size(90, 44);
-            button4.TabIndex = 9;
-            button4.Text = "Log out";
-            button4.UseVisualStyleBackColor = false;
-            button4.Click += button4_Click;
+            pictureBox1.BackColor = Color.Black;
+            pictureBox1.Cursor = Cursors.Hand;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(997, 3);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(103, 85);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 1;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
-            // dataGridView1
+            // profileBtn
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(58, 411);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(918, 193);
-            dataGridView1.TabIndex = 9;
+            profileBtn.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            profileBtn.Location = new Point(1117, 22);
+            profileBtn.Name = "profileBtn";
+            profileBtn.Size = new Size(109, 50);
+            profileBtn.TabIndex = 1;
+            profileBtn.Text = "profile";
+            profileBtn.UseVisualStyleBackColor = true;
+            profileBtn.Click += profileBtn_Click;
+            // 
+            // logoutBtn
+            // 
+            logoutBtn.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            logoutBtn.Location = new Point(1250, 22);
+            logoutBtn.Name = "logoutBtn";
+            logoutBtn.Size = new Size(108, 50);
+            logoutBtn.TabIndex = 0;
+            logoutBtn.Text = "Logout";
+            logoutBtn.UseVisualStyleBackColor = true;
             // 
             // SalesMan
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.DimGray;
-            ClientSize = new Size(1026, 616);
-            Controls.Add(dataGridView1);
+            BackColor = Color.FromArgb(64, 64, 64);
+            ClientSize = new Size(1382, 803);
             Controls.Add(panel1);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(label1);
-            Controls.Add(button3);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "SalesMan";
             Text = "GameDetails";
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            Load += SalesMan_Load_1;
             panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Button button1;
-        private Button button2;
-        private PictureBox pictureBox1;
-        private Button button3;
-        private Label label1;
-        private Label label2;
-        private Label label3;
         private Panel panel1;
-        private Button button4;
-        private DataGridView dataGridView1;
+        private Button logoutBtn;
+        private Button profileBtn;
+        private PictureBox pictureBox1;
     }
 }

@@ -16,5 +16,10 @@ namespace ProjectWin
         {
             InitializeComponent();
         }
+
+        private void ProfilePage_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
