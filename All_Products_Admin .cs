@@ -84,11 +84,25 @@ namespace ProjectWin
 
                 MemoryStream ms = new MemoryStream((byte[])dataGridView1.CurrentRow.Cells[6].Value);
                 gameImage.Image = Image.FromStream(ms);
+
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Invalid data " + ex.Message);
             }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            dbcon();
+            SqlCommand sq1 = new SqlCommand("DELETE from PRODUCT_TABLE where id=@id", con);
+            sq1.Parameters.AddWithValue("@id", int.Parse(gameID.Text));
+            sq1.ExecuteNonQuery();
+            con.Close();
+            MessageBox.Show("Product DELETED");
+            Form2_Load();
+
         }
     }
 }

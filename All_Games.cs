@@ -111,16 +111,8 @@ namespace ProjectWin
         {
             dbcon();
             SqlCommand sq1 = new SqlCommand("select * from PRODUCT_TABLE", con);
-
-
             SqlDataReader sdr = sq1.ExecuteReader();
             dt.Load(sdr);
-
-            //dataGridView1.RowTemplate.Height = 75;
-            //dataGridView1.DataSource = dt;
-            DataGridViewImageColumn img = new DataGridViewImageColumn();
-            //img = (DataGridViewImageColumn)dataGridView1.Columns[6];
-            img.ImageLayout = DataGridViewImageCellLayout.Stretch;
             con.Close();
         }
 
@@ -132,24 +124,36 @@ namespace ProjectWin
         private void SalesMan_Load_1(object sender, EventArgs e)
         {
             DataTable dt = new DataTable();
-            FlowLayoutPanel flowLayoutPanel = new FlowLayoutPanel
-            {
-                Size = new Size(1230, 700),
-                Location = new Point(0, 100),
-                AutoScroll = true,
-                WrapContents = true ,
-            };
+            
 
             try
             {
                 databseConnect(dt);
+                
             }
             catch(Exception ex)
             {
                 MessageBox.Show("database Connection Error"+ ex.Message);
             }
+            dynamic_Data(dt);
+
+
+
+        }
+
+        public void dynamic_Data(DataTable dt)
+        {
             try
+                
             {
+
+                FlowLayoutPanel flowLayoutPanel = new FlowLayoutPanel
+                {
+                    Size = new Size(1160, 670),
+                    Location = new Point(40, 100),
+                    AutoScroll = true,
+                    WrapContents = true,
+                };
                 foreach (DataRow row in dt.Rows)
                 {
                     //Debug.WriteLine(row["GName"]);
@@ -157,19 +161,19 @@ namespace ProjectWin
                     //creating new Panel
                     Panel card = new Panel
                     {
-                        Size = new Size(590, 330),
+                        Size = new Size(545, 330),
                         BorderStyle = BorderStyle.FixedSingle,
                         Margin = new Padding(10)
                     };
                     //adding pictureBox
-                    
-                    
+
+
                     PictureBox pictureBox = new PictureBox
                     {
-                        Size = new Size(300,300),
-                        Location = new Point(10,10),
+                        Size = new Size(300, 300),
+                        Location = new Point(10, 10),
                         SizeMode = PictureBoxSizeMode.StretchImage,
-                 
+
                     };
                     object imageData = row["GImage"];
                     if (imageData == DBNull.Value)
@@ -181,11 +185,7 @@ namespace ProjectWin
                         MemoryStream stream = new MemoryStream((byte[])imageData);
                         pictureBox.Image = Image.FromStream(stream);
                     }
-
-
                     card.Controls.Add(pictureBox);
-
-                 
                     Label titleLabel1 = new Label
                     {
                         Text = "Name: " + row["GName"].ToString(),
@@ -193,13 +193,13 @@ namespace ProjectWin
                         Location = new Point(325, 10),
                         AutoSize = true,
                         ForeColor = Color.White,
-                        
+
                     };
                     card.Controls.Add(titleLabel1);
 
                     Label titleLabel2 = new Label
                     {
-                        Text = "Genre: "+ row["GGenre"].ToString(),
+                        Text = "Genre: " + row["GGenre"].ToString(),
                         Font = new System.Drawing.Font("Segoe UI", 12, FontStyle.Bold),
                         Location = new Point(325, 40),
                         AutoSize = true,
@@ -229,15 +229,15 @@ namespace ProjectWin
                     {
                         Text = "Add to cart",
                         Font = new System.Drawing.Font("Segoe UI", 12, FontStyle.Bold),
-                        Size = new Size(160, 40),
+                        Size = new Size(160, 50),
                         Location = new Point(325, 140),
-                        BackColor = Color.DarkCyan,
+                        BackColor = Color.DeepSkyBlue,
                         FlatStyle = FlatStyle.Popup,
                         ForeColor = Color.White
                     };
                     AddToCartbtn.Click += (s, e) =>
                     {
-                        MessageBox.Show("Btn Clicked"+ row["GName"]);
+                        MessageBox.Show("Btn Clicked" + row["GName"]);
 
                     };
                     card.Controls.Add(AddToCartbtn);
@@ -245,9 +245,9 @@ namespace ProjectWin
                     {
                         Text = "Buy now",
                         Font = new System.Drawing.Font("Segoe UI", 12, FontStyle.Bold),
-                        Size = new Size(120, 40),
+                        Size = new Size(120, 50),
                         Location = new Point(325, 200),
-                        BackColor = Color.DarkCyan,
+                        BackColor = Color.DeepSkyBlue,
                         FlatStyle = FlatStyle.Popup,
                         ForeColor = Color.White
                     };
@@ -263,7 +263,6 @@ namespace ProjectWin
             {
                 MessageBox.Show("No data Found" + ex.Message);
             }
-
         }
     }
 }

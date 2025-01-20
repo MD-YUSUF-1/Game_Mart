@@ -56,9 +56,11 @@
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.BackgroundColor = Color.Gray;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(47, 46);
+            dataGridView1.Location = new Point(54, 61);
+            dataGridView1.Margin = new Padding(3, 4, 3, 4);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(763, 540);
+            dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.Size = new Size(872, 720);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellClick += dataGridView1_CellClick;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
@@ -68,17 +70,19 @@
             gameName.BackColor = Color.Gray;
             gameName.BorderStyle = BorderStyle.None;
             gameName.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            gameName.Location = new Point(840, 120);
+            gameName.Location = new Point(960, 160);
+            gameName.Margin = new Padding(3, 4, 3, 4);
             gameName.Name = "gameName";
-            gameName.Size = new Size(300, 22);
+            gameName.Size = new Size(343, 27);
             gameName.TabIndex = 1;
             // 
             // gameImage
             // 
             gameImage.Image = (Image)resources.GetObject("gameImage.Image");
-            gameImage.Location = new Point(892, 397);
+            gameImage.Location = new Point(1019, 529);
+            gameImage.Margin = new Padding(3, 4, 3, 4);
             gameImage.Name = "gameImage";
-            gameImage.Size = new Size(213, 189);
+            gameImage.Size = new Size(243, 252);
             gameImage.SizeMode = PictureBoxSizeMode.StretchImage;
             gameImage.TabIndex = 7;
             gameImage.TabStop = false;
@@ -88,9 +92,9 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.LightSkyBlue;
-            label1.Location = new Point(840, 96);
+            label1.Location = new Point(960, 128);
             label1.Name = "label1";
-            label1.Size = new Size(52, 21);
+            label1.Size = new Size(64, 28);
             label1.TabIndex = 8;
             label1.Text = "Name";
             // 
@@ -99,9 +103,9 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.LightSkyBlue;
-            label2.Location = new Point(840, 334);
+            label2.Location = new Point(960, 445);
             label2.Name = "label2";
-            label2.Size = new Size(71, 21);
+            label2.Size = new Size(89, 28);
             label2.TabIndex = 9;
             label2.Text = "Discount";
             // 
@@ -110,9 +114,9 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.LightSkyBlue;
-            label3.Location = new Point(840, 274);
+            label3.Location = new Point(960, 365);
             label3.Name = "label3";
-            label3.Size = new Size(44, 21);
+            label3.Size = new Size(54, 28);
             label3.TabIndex = 10;
             label3.Text = "Price";
             // 
@@ -121,9 +125,9 @@
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.LightSkyBlue;
-            label4.Location = new Point(837, 215);
+            label4.Location = new Point(957, 287);
             label4.Name = "label4";
-            label4.Size = new Size(47, 21);
+            label4.Size = new Size(60, 28);
             label4.TabIndex = 11;
             label4.Text = "Stock";
             // 
@@ -132,9 +136,9 @@
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.LightSkyBlue;
-            label5.Location = new Point(840, 157);
+            label5.Location = new Point(960, 209);
             label5.Name = "label5";
-            label5.Size = new Size(52, 21);
+            label5.Size = new Size(64, 28);
             label5.TabIndex = 12;
             label5.Text = "Genre";
             // 
@@ -143,9 +147,10 @@
             gameDiscount.BackColor = Color.Gray;
             gameDiscount.BorderStyle = BorderStyle.None;
             gameDiscount.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            gameDiscount.Location = new Point(840, 358);
+            gameDiscount.Location = new Point(960, 477);
+            gameDiscount.Margin = new Padding(3, 4, 3, 4);
             gameDiscount.Name = "gameDiscount";
-            gameDiscount.Size = new Size(300, 22);
+            gameDiscount.Size = new Size(343, 27);
             gameDiscount.TabIndex = 13;
             // 
             // gamePrice
@@ -153,9 +158,10 @@
             gamePrice.BackColor = Color.Gray;
             gamePrice.BorderStyle = BorderStyle.None;
             gamePrice.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            gamePrice.Location = new Point(840, 298);
+            gamePrice.Location = new Point(960, 397);
+            gamePrice.Margin = new Padding(3, 4, 3, 4);
             gamePrice.Name = "gamePrice";
-            gamePrice.Size = new Size(300, 22);
+            gamePrice.Size = new Size(343, 27);
             gamePrice.TabIndex = 14;
             // 
             // gameStock
@@ -163,9 +169,10 @@
             gameStock.BackColor = Color.Gray;
             gameStock.BorderStyle = BorderStyle.None;
             gameStock.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            gameStock.Location = new Point(840, 239);
+            gameStock.Location = new Point(960, 319);
+            gameStock.Margin = new Padding(3, 4, 3, 4);
             gameStock.Name = "gameStock";
-            gameStock.Size = new Size(300, 22);
+            gameStock.Size = new Size(343, 27);
             gameStock.TabIndex = 15;
             // 
             // gameGenre
@@ -173,47 +180,48 @@
             gameGenre.BackColor = Color.Gray;
             gameGenre.BorderStyle = BorderStyle.None;
             gameGenre.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            gameGenre.Location = new Point(840, 181);
+            gameGenre.Location = new Point(960, 241);
+            gameGenre.Margin = new Padding(3, 4, 3, 4);
             gameGenre.Name = "gameGenre";
-            gameGenre.Size = new Size(300, 22);
+            gameGenre.Size = new Size(343, 27);
             gameGenre.TabIndex = 16;
             // 
             // button4
             // 
             button4.BackColor = Color.DeepSkyBlue;
             button4.FlatStyle = FlatStyle.Flat;
-            button4.Location = new Point(552, 600);
+            button4.Location = new Point(631, 800);
+            button4.Margin = new Padding(3, 4, 3, 4);
             button4.Name = "button4";
-            button4.Size = new Size(132, 39);
+            button4.Size = new Size(151, 52);
             button4.TabIndex = 20;
             button4.Text = "Delete";
             button4.UseVisualStyleBackColor = false;
-            button4.Visible = false;
             // 
             // button2
             // 
             button2.BackColor = Color.DeepSkyBlue;
             button2.FlatStyle = FlatStyle.Flat;
-            button2.Location = new Point(113, 600);
+            button2.Location = new Point(129, 800);
+            button2.Margin = new Padding(3, 4, 3, 4);
             button2.Name = "button2";
-            button2.Size = new Size(132, 39);
+            button2.Size = new Size(151, 52);
             button2.TabIndex = 21;
             button2.Text = "Insert";
             button2.UseVisualStyleBackColor = false;
-            button2.Visible = false;
             button2.Click += button2_Click;
             // 
             // button3
             // 
             button3.BackColor = Color.DeepSkyBlue;
             button3.FlatStyle = FlatStyle.Flat;
-            button3.Location = new Point(340, 600);
+            button3.Location = new Point(389, 800);
+            button3.Margin = new Padding(3, 4, 3, 4);
             button3.Name = "button3";
-            button3.Size = new Size(132, 39);
+            button3.Size = new Size(151, 52);
             button3.TabIndex = 22;
             button3.Text = "Update";
             button3.UseVisualStyleBackColor = false;
-            button3.Visible = false;
             // 
             // label6
             // 
@@ -221,9 +229,9 @@
             label6.Cursor = Cursors.Hand;
             label6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label6.ForeColor = Color.LightSkyBlue;
-            label6.Location = new Point(27, 9);
+            label6.Location = new Point(31, 12);
             label6.Name = "label6";
-            label6.Size = new Size(59, 21);
+            label6.Size = new Size(74, 28);
             label6.TabIndex = 23;
             label6.Text = "<-Back";
             label6.Click += label6_Click;
@@ -233,9 +241,10 @@
             gameID.BackColor = Color.Gray;
             gameID.BorderStyle = BorderStyle.None;
             gameID.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            gameID.Location = new Point(840, 71);
+            gameID.Location = new Point(960, 95);
+            gameID.Margin = new Padding(3, 4, 3, 4);
             gameID.Name = "gameID";
-            gameID.Size = new Size(300, 22);
+            gameID.Size = new Size(343, 27);
             gameID.TabIndex = 24;
             // 
             // label
@@ -243,18 +252,18 @@
             label.AutoSize = true;
             label.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label.ForeColor = Color.LightSkyBlue;
-            label.Location = new Point(840, 46);
+            label.Location = new Point(960, 61);
             label.Name = "label";
-            label.Size = new Size(25, 21);
+            label.Size = new Size(31, 28);
             label.TabIndex = 25;
             label.Text = "ID";
             // 
             // All_Products_Admin
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(64, 64, 64);
-            ClientSize = new Size(1184, 661);
+            ClientSize = new Size(1353, 881);
             Controls.Add(label);
             Controls.Add(gameID);
             Controls.Add(label6);
@@ -273,6 +282,7 @@
             Controls.Add(gameImage);
             Controls.Add(gameName);
             Controls.Add(dataGridView1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "All_Products_Admin";
             Text = "All_Products_Admin";
             Click += All_Products_Admin_Click;
