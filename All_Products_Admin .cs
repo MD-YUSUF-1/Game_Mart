@@ -84,15 +84,23 @@ namespace ProjectWin
         {
             try
             {
-                gameID.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-                gameName.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-                gameGenre.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
-                gameStock.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
-                gamePrice.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
-                gameDiscount.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+                if (updateBtn.Text == "Update")
+                {
+                    MessageBox.Show("Please, Update First");
+                    dataGridView1.ClearSelection();
+                }
+                else
+                {
+                    gameID.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                    gameName.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+                    gameGenre.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
+                    gameStock.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+                    gamePrice.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+                    gameDiscount.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
 
-                MemoryStream ms = new MemoryStream((byte[])dataGridView1.CurrentRow.Cells[6].Value);
-                gameImage.Image = Image.FromStream(ms);
+                    MemoryStream ms = new MemoryStream((byte[])dataGridView1.CurrentRow.Cells[6].Value);
+                    gameImage.Image = Image.FromStream(ms);
+                }
 
 
             }
@@ -143,6 +151,11 @@ namespace ProjectWin
                     gamePrice.ReadOnly = false;
                     browseBtn.Enabled = true;
                     browseBtn.Cursor = Cursors.Hand;
+                    gameName.BackColor = Color.Silver;
+                    gamePrice.BackColor = Color.Silver;
+                    gameStock.BackColor = Color.Silver;
+                    gameDiscount.BackColor = Color.Silver;
+                    gameGenre.BackColor = Color.Silver;
                 }
             }
             else if (updateBtn.Text == "Update")
@@ -154,6 +167,12 @@ namespace ProjectWin
                 gamePrice.ReadOnly = true;
                 gameDiscount.ReadOnly = true;
                 browseBtn.Enabled = false;
+                gameName.BackColor = Color.Gray;
+                gamePrice.BackColor = Color.Gray;
+                gameStock.BackColor = Color.Gray;
+                gameDiscount.BackColor = Color.Gray;
+                gameGenre.BackColor = Color.Gray;
+               
                 try
                 {
                     dbcon();
@@ -161,14 +180,20 @@ namespace ProjectWin
                     sq2.Parameters.AddWithValue("gameID", gameID.Text);
                     sq2.Parameters.AddWithValue("@Name", gameName.Text);
                     sq2.Parameters.AddWithValue("@Genre", gameGenre.Text);
-                    sq2.Parameters.AddWithValue("@Stock", gameStock.Text );
-                    sq2.Parameters.AddWithValue("@Price", gamePrice.Text );
-                    sq2.Parameters.AddWithValue("@discount", gameDiscount.Text );
+                    sq2.Parameters.AddWithValue("@Stock", gameStock.Text);
+                    sq2.Parameters.AddWithValue("@Price", gamePrice.Text);
+                    sq2.Parameters.AddWithValue("@discount", gameDiscount.Text);
                     MemoryStream memstr = new MemoryStream();
                     gameImage.Image.Save(memstr, gameImage.Image.RawFormat);
                     sq2.Parameters.AddWithValue("@Image", memstr.ToArray());
                     sq2.ExecuteNonQuery();
                     con.Close();
+                    gameGenre.Text = "";
+                    gameName.Text = "";
+                    gameDiscount.Text = "";
+                    gameStock.Text = "";
+                    gamePrice.Text = "";
+                    MessageBox.Show("Updated Successfully");
                     Form2_Load();
                 }
                 catch (Exception ex)
@@ -182,7 +207,24 @@ namespace ProjectWin
 
         private void browseBtn_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("hi");
+            try
+            {
+                OpenFileDialog ofd = new OpenFileDialog();
+                ofd.Filter = "Image Files|*.jpg;*.jpeg;*.png";
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    gameImage.Image = Image.FromFile(ofd.FileName);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Image file not found!" + ex);
+            }
+        }
+
+        private void gameID_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

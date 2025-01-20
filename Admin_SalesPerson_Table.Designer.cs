@@ -30,13 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Admin_SalesPerson_Table));
             pictureBox1 = new PictureBox();
-            textBox3 = new TextBox();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
+            personGmail = new TextBox();
+            personPhone = new TextBox();
+            personName = new TextBox();
             updateBtn = new Button();
             button1 = new Button();
             label = new Label();
-            gameID = new TextBox();
+            personID = new TextBox();
             button2 = new Button();
             label5 = new Label();
             label4 = new Label();
@@ -58,41 +58,41 @@
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
             // 
-            // textBox3
+            // personGmail
             // 
-            textBox3.BackColor = Color.Gray;
-            textBox3.BorderStyle = BorderStyle.None;
-            textBox3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox3.Location = new Point(1042, 427);
-            textBox3.Margin = new Padding(3, 4, 3, 4);
-            textBox3.Multiline = true;
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(299, 40);
-            textBox3.TabIndex = 61;
+            personGmail.BackColor = Color.Silver;
+            personGmail.BorderStyle = BorderStyle.None;
+            personGmail.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            personGmail.Location = new Point(1042, 427);
+            personGmail.Margin = new Padding(3, 4, 3, 4);
+            personGmail.Multiline = true;
+            personGmail.Name = "personGmail";
+            personGmail.Size = new Size(299, 40);
+            personGmail.TabIndex = 61;
             // 
-            // textBox2
+            // personPhone
             // 
-            textBox2.BackColor = Color.Gray;
-            textBox2.BorderStyle = BorderStyle.None;
-            textBox2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox2.Location = new Point(1042, 343);
-            textBox2.Margin = new Padding(3, 4, 3, 4);
-            textBox2.Multiline = true;
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(299, 40);
-            textBox2.TabIndex = 60;
+            personPhone.BackColor = Color.Silver;
+            personPhone.BorderStyle = BorderStyle.None;
+            personPhone.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            personPhone.Location = new Point(1042, 343);
+            personPhone.Margin = new Padding(3, 4, 3, 4);
+            personPhone.Multiline = true;
+            personPhone.Name = "personPhone";
+            personPhone.Size = new Size(299, 40);
+            personPhone.TabIndex = 60;
             // 
-            // textBox1
+            // personName
             // 
-            textBox1.BackColor = Color.Gray;
-            textBox1.BorderStyle = BorderStyle.None;
-            textBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.Location = new Point(1042, 258);
-            textBox1.Margin = new Padding(3, 4, 3, 4);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(299, 40);
-            textBox1.TabIndex = 59;
+            personName.BackColor = Color.Silver;
+            personName.BorderStyle = BorderStyle.None;
+            personName.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            personName.Location = new Point(1042, 258);
+            personName.Margin = new Padding(3, 4, 3, 4);
+            personName.Multiline = true;
+            personName.Name = "personName";
+            personName.Size = new Size(299, 40);
+            personName.TabIndex = 59;
             // 
             // updateBtn
             // 
@@ -128,17 +128,17 @@
             label.TabIndex = 56;
             label.Text = "ID";
             // 
-            // gameID
+            // personID
             // 
-            gameID.BackColor = Color.Gray;
-            gameID.BorderStyle = BorderStyle.None;
-            gameID.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            gameID.Location = new Point(1042, 178);
-            gameID.Margin = new Padding(3, 4, 3, 4);
-            gameID.Multiline = true;
-            gameID.Name = "gameID";
-            gameID.Size = new Size(299, 40);
-            gameID.TabIndex = 55;
+            personID.BackColor = Color.Silver;
+            personID.BorderStyle = BorderStyle.None;
+            personID.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            personID.Location = new Point(1042, 178);
+            personID.Margin = new Padding(3, 4, 3, 4);
+            personID.Multiline = true;
+            personID.Name = "personID";
+            personID.Size = new Size(299, 40);
+            personID.TabIndex = 55;
             // 
             // button2
             // 
@@ -200,6 +200,8 @@
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.Size = new Size(872, 560);
             dataGridView1.TabIndex = 50;
+            dataGridView1.CellClick += dataGridView1_CellClick;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // Admin_SalesPerson_Table
             // 
@@ -209,13 +211,13 @@
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1382, 803);
             Controls.Add(pictureBox1);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(personGmail);
+            Controls.Add(personPhone);
+            Controls.Add(personName);
             Controls.Add(updateBtn);
             Controls.Add(button1);
             Controls.Add(label);
-            Controls.Add(gameID);
+            Controls.Add(personID);
             Controls.Add(button2);
             Controls.Add(label5);
             Controls.Add(label4);
@@ -233,13 +235,13 @@
         #endregion
 
         private PictureBox pictureBox1;
-        private TextBox textBox3;
-        private TextBox textBox2;
-        private TextBox textBox1;
+        private TextBox personGmail;
+        private TextBox personPhone;
+        private TextBox personName;
         private Button updateBtn;
         private Button button1;
         private Label label;
-        private TextBox gameID;
+        private TextBox personID;
         private Button button2;
         private Label label5;
         private Label label4;

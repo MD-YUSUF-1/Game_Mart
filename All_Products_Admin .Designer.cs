@@ -69,7 +69,7 @@
             // 
             // gameName
             // 
-            gameName.BackColor = Color.Silver;
+            gameName.BackColor = Color.Gray;
             gameName.BorderStyle = BorderStyle.None;
             gameName.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             gameName.Location = new Point(960, 160);
@@ -147,7 +147,7 @@
             // 
             // gameDiscount
             // 
-            gameDiscount.BackColor = Color.Silver;
+            gameDiscount.BackColor = Color.Gray;
             gameDiscount.BorderStyle = BorderStyle.None;
             gameDiscount.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             gameDiscount.Location = new Point(960, 477);
@@ -159,7 +159,7 @@
             // 
             // gamePrice
             // 
-            gamePrice.BackColor = Color.Silver;
+            gamePrice.BackColor = Color.Gray;
             gamePrice.BorderStyle = BorderStyle.None;
             gamePrice.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             gamePrice.Location = new Point(960, 397);
@@ -171,7 +171,7 @@
             // 
             // gameStock
             // 
-            gameStock.BackColor = Color.Silver;
+            gameStock.BackColor = Color.Gray;
             gameStock.BorderStyle = BorderStyle.None;
             gameStock.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             gameStock.Location = new Point(960, 319);
@@ -183,7 +183,7 @@
             // 
             // gameGenre
             // 
-            gameGenre.BackColor = Color.Silver;
+            gameGenre.BackColor = Color.Gray;
             gameGenre.BorderStyle = BorderStyle.None;
             gameGenre.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             gameGenre.Location = new Point(960, 241);
@@ -208,7 +208,7 @@
             // 
             // gameID
             // 
-            gameID.BackColor = Color.Silver;
+            gameID.BackColor = Color.Gray;
             gameID.BorderStyle = BorderStyle.None;
             gameID.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             gameID.ForeColor = SystemColors.ControlText;
@@ -218,6 +218,7 @@
             gameID.ReadOnly = true;
             gameID.Size = new Size(343, 27);
             gameID.TabIndex = 24;
+            gameID.TextChanged += gameID_TextChanged;
             // 
             // label
             // 
