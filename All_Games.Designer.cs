@@ -64,17 +64,19 @@
             // 
             // profileBtn
             // 
+            profileBtn.Cursor = Cursors.Hand;
             profileBtn.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             profileBtn.Location = new Point(1117, 22);
             profileBtn.Name = "profileBtn";
             profileBtn.Size = new Size(109, 50);
             profileBtn.TabIndex = 1;
-            profileBtn.Text = "profile";
+            profileBtn.Text = "Profile";
             profileBtn.UseVisualStyleBackColor = true;
             profileBtn.Click += profileBtn_Click;
             // 
             // logoutBtn
             // 
+            logoutBtn.Cursor = Cursors.Hand;
             logoutBtn.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             logoutBtn.Location = new Point(1250, 22);
             logoutBtn.Name = "logoutBtn";

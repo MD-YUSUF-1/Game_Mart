@@ -270,7 +270,9 @@ namespace ProjectWin
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-
+            CartPage cartPage = new CartPage();
+            cartPage.Show();
+            this.Hide();
         }
 
         private void profileBtn_Click(object sender, EventArgs e)
