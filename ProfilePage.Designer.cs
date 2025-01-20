@@ -40,7 +40,7 @@
             // pictureBox1
             // 
             pictureBox1.BackgroundImage = Properties.Resources.defaultProfile1;
-            pictureBox1.Location = new Point(190, 135);
+            pictureBox1.Location = new Point(190, 124);
             pictureBox1.Margin = new Padding(3, 4, 3, 4);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(170, 196);

@@ -21,8 +21,16 @@ namespace ProjectWin
         SqlConnection con;
         public void dbcon()
         {
-            con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""G:\8. EIGHTH SEMESTER\C#\Project\MAIN PROJECT\Game_Mart.mdf"";Integrated Security=True;Connect Timeout=30;Encrypt=False");
-            con.Open();
+            try
+            {
+                con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""G:\8. EIGHTH SEMESTER\C#\Project\MAIN PROJECT\database\Game_Mart.mdf"";Integrated Security=True;Connect Timeout=30;Encrypt=False
+");
+                con.Open();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Failed to connect to the database: {ex.Message}", "Database Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void label6_Click(object sender, EventArgs e)
@@ -59,6 +67,7 @@ namespace ProjectWin
         {
             AddGames addGames = new AddGames();
             addGames.Show();
+            this.Hide();
         }
 
         private void All_Products_Admin_Click(object sender, EventArgs e)
@@ -121,11 +130,13 @@ namespace ProjectWin
             {
                 updateBtn.Text = "Update";
                 gameID.ReadOnly = false;
-                gameDiscount.ReadOnly = false;  
+                gameDiscount.ReadOnly = false;
                 gameGenre.ReadOnly = false;
                 gameName.ReadOnly = false;
                 gameStock.ReadOnly = false;
                 gamePrice.ReadOnly = false;
+                gameStock.ReadOnly = false;
+
             }
         }
     }

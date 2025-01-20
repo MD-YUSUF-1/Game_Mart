@@ -47,6 +47,7 @@
             label = new Label();
             button1 = new Button();
             updateBtn = new Button();
+            browseBtn = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gameImage).BeginInit();
             SuspendLayout();
@@ -68,12 +69,13 @@
             // 
             // gameName
             // 
-            gameName.BackColor = Color.Gray;
+            gameName.BackColor = Color.Silver;
             gameName.BorderStyle = BorderStyle.None;
             gameName.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             gameName.Location = new Point(960, 160);
             gameName.Margin = new Padding(3, 4, 3, 4);
             gameName.Name = "gameName";
+            gameName.ReadOnly = true;
             gameName.Size = new Size(343, 27);
             gameName.TabIndex = 1;
             // 
@@ -145,45 +147,49 @@
             // 
             // gameDiscount
             // 
-            gameDiscount.BackColor = Color.Gray;
+            gameDiscount.BackColor = Color.Silver;
             gameDiscount.BorderStyle = BorderStyle.None;
             gameDiscount.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             gameDiscount.Location = new Point(960, 477);
             gameDiscount.Margin = new Padding(3, 4, 3, 4);
             gameDiscount.Name = "gameDiscount";
+            gameDiscount.ReadOnly = true;
             gameDiscount.Size = new Size(343, 27);
             gameDiscount.TabIndex = 13;
             // 
             // gamePrice
             // 
-            gamePrice.BackColor = Color.Gray;
+            gamePrice.BackColor = Color.Silver;
             gamePrice.BorderStyle = BorderStyle.None;
             gamePrice.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             gamePrice.Location = new Point(960, 397);
             gamePrice.Margin = new Padding(3, 4, 3, 4);
             gamePrice.Name = "gamePrice";
+            gamePrice.ReadOnly = true;
             gamePrice.Size = new Size(343, 27);
             gamePrice.TabIndex = 14;
             // 
             // gameStock
             // 
-            gameStock.BackColor = Color.Gray;
+            gameStock.BackColor = Color.Silver;
             gameStock.BorderStyle = BorderStyle.None;
             gameStock.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             gameStock.Location = new Point(960, 319);
             gameStock.Margin = new Padding(3, 4, 3, 4);
             gameStock.Name = "gameStock";
+            gameStock.ReadOnly = true;
             gameStock.Size = new Size(343, 27);
             gameStock.TabIndex = 15;
             // 
             // gameGenre
             // 
-            gameGenre.BackColor = Color.Gray;
+            gameGenre.BackColor = Color.Silver;
             gameGenre.BorderStyle = BorderStyle.None;
             gameGenre.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             gameGenre.Location = new Point(960, 241);
             gameGenre.Margin = new Padding(3, 4, 3, 4);
             gameGenre.Name = "gameGenre";
+            gameGenre.ReadOnly = true;
             gameGenre.Size = new Size(343, 27);
             gameGenre.TabIndex = 16;
             // 
@@ -191,7 +197,7 @@
             // 
             button2.BackColor = Color.DeepSkyBlue;
             button2.FlatStyle = FlatStyle.Flat;
-            button2.Location = new Point(129, 800);
+            button2.Location = new Point(77, 800);
             button2.Margin = new Padding(3, 4, 3, 4);
             button2.Name = "button2";
             button2.Size = new Size(151, 52);
@@ -215,12 +221,13 @@
             // 
             // gameID
             // 
-            gameID.BackColor = Color.Gray;
+            gameID.BackColor = Color.Silver;
             gameID.BorderStyle = BorderStyle.None;
             gameID.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             gameID.Location = new Point(960, 95);
             gameID.Margin = new Padding(3, 4, 3, 4);
             gameID.Name = "gameID";
+            gameID.ReadOnly = true;
             gameID.Size = new Size(343, 27);
             gameID.TabIndex = 24;
             // 
@@ -239,7 +246,7 @@
             // 
             button1.BackColor = Color.DeepSkyBlue;
             button1.FlatStyle = FlatStyle.Flat;
-            button1.Location = new Point(647, 800);
+            button1.Location = new Point(511, 800);
             button1.Name = "button1";
             button1.Size = new Size(163, 52);
             button1.TabIndex = 26;
@@ -251,7 +258,7 @@
             // 
             updateBtn.BackColor = Color.DeepSkyBlue;
             updateBtn.FlatStyle = FlatStyle.Flat;
-            updateBtn.Location = new Point(382, 800);
+            updateBtn.Location = new Point(294, 800);
             updateBtn.Name = "updateBtn";
             updateBtn.Size = new Size(163, 52);
             updateBtn.TabIndex = 27;
@@ -259,12 +266,24 @@
             updateBtn.UseVisualStyleBackColor = false;
             updateBtn.Click += updateBtn_Click;
             // 
+            // browseBtn
+            // 
+            browseBtn.BackColor = Color.DeepSkyBlue;
+            browseBtn.FlatStyle = FlatStyle.Flat;
+            browseBtn.Location = new Point(738, 800);
+            browseBtn.Name = "browseBtn";
+            browseBtn.Size = new Size(163, 52);
+            browseBtn.TabIndex = 28;
+            browseBtn.Text = "Browse";
+            browseBtn.UseVisualStyleBackColor = false;
+            // 
             // All_Products_Admin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(64, 64, 64);
             ClientSize = new Size(1353, 881);
+            Controls.Add(browseBtn);
             Controls.Add(updateBtn);
             Controls.Add(button1);
             Controls.Add(label);
@@ -313,5 +332,6 @@
         private Label label;
         private Button button1;
         private Button updateBtn;
+        private Button browseBtn;
     }
 }

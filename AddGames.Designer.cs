@@ -49,7 +49,7 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(424, 16);
+            textBox1.Location = new Point(414, 20);
             textBox1.Margin = new Padding(3, 4, 3, 4);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(231, 27);
@@ -57,7 +57,7 @@
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(424, 87);
+            textBox2.Location = new Point(414, 91);
             textBox2.Margin = new Padding(3, 4, 3, 4);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(231, 27);
@@ -65,7 +65,7 @@
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(424, 153);
+            textBox3.Location = new Point(414, 174);
             textBox3.Margin = new Padding(3, 4, 3, 4);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(231, 27);
@@ -90,7 +90,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(738, 105);
+            pictureBox1.Location = new Point(760, 55);
             pictureBox1.Margin = new Padding(3, 4, 3, 4);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(213, 231);
@@ -172,18 +172,19 @@
             // 
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(9, 499);
+            dataGridView1.Location = new Point(56, 540);
             dataGridView1.Margin = new Padding(3, 4, 3, 4);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.Size = new Size(965, 200);
             dataGridView1.TabIndex = 13;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // AddGames
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1010, 776);
+            ClientSize = new Size(1182, 753);
             Controls.Add(dataGridView1);
             Controls.Add(label5);
             Controls.Add(label4);
