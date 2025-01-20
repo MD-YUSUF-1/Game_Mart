@@ -49,51 +49,65 @@
             // 
             // textBox1
             // 
+<<<<<<< HEAD
             textBox1.Location = new Point(414, 20);
             textBox1.Margin = new Padding(3, 4, 3, 4);
+=======
+            textBox1.Location = new Point(298, 40);
+>>>>>>> 87f18f2179182a5be5baa7922b62a7a3cd438860
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(231, 27);
+            textBox1.Size = new Size(267, 23);
             textBox1.TabIndex = 0;
             // 
             // textBox2
             // 
+<<<<<<< HEAD
             textBox2.Location = new Point(414, 91);
             textBox2.Margin = new Padding(3, 4, 3, 4);
+=======
+            textBox2.Location = new Point(298, 79);
+>>>>>>> 87f18f2179182a5be5baa7922b62a7a3cd438860
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(231, 27);
+            textBox2.Size = new Size(267, 23);
             textBox2.TabIndex = 1;
             // 
             // textBox3
             // 
+<<<<<<< HEAD
             textBox3.Location = new Point(414, 174);
             textBox3.Margin = new Padding(3, 4, 3, 4);
+=======
+            textBox3.Location = new Point(298, 122);
+>>>>>>> 87f18f2179182a5be5baa7922b62a7a3cd438860
             textBox3.Name = "textBox3";
-            textBox3.Size = new Size(231, 27);
+            textBox3.Size = new Size(267, 23);
             textBox3.TabIndex = 2;
             // 
             // textBox4
             // 
-            textBox4.Location = new Point(424, 236);
-            textBox4.Margin = new Padding(3, 4, 3, 4);
+            textBox4.Location = new Point(298, 168);
             textBox4.Name = "textBox4";
-            textBox4.Size = new Size(231, 27);
+            textBox4.Size = new Size(267, 23);
             textBox4.TabIndex = 3;
             // 
             // textBox5
             // 
-            textBox5.Location = new Point(424, 305);
-            textBox5.Margin = new Padding(3, 4, 3, 4);
+            textBox5.Location = new Point(298, 210);
             textBox5.Name = "textBox5";
-            textBox5.Size = new Size(231, 27);
+            textBox5.Size = new Size(267, 23);
             textBox5.TabIndex = 4;
             // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+<<<<<<< HEAD
             pictureBox1.Location = new Point(760, 55);
             pictureBox1.Margin = new Padding(3, 4, 3, 4);
+=======
+            pictureBox1.Location = new Point(646, 40);
+>>>>>>> 87f18f2179182a5be5baa7922b62a7a3cd438860
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(213, 231);
+            pictureBox1.Size = new Size(186, 173);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 5;
             pictureBox1.TabStop = false;
@@ -101,10 +115,10 @@
             // 
             // browseBtn
             // 
-            browseBtn.Location = new Point(805, 383);
-            browseBtn.Margin = new Padding(3, 4, 3, 4);
+            browseBtn.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            browseBtn.Location = new Point(701, 268);
             browseBtn.Name = "browseBtn";
-            browseBtn.Size = new Size(86, 31);
+            browseBtn.Size = new Size(92, 31);
             browseBtn.TabIndex = 6;
             browseBtn.Text = "Browse";
             browseBtn.UseVisualStyleBackColor = true;
@@ -112,79 +126,105 @@
             // 
             // SubmitBtn
             // 
-            SubmitBtn.Location = new Point(463, 373);
-            SubmitBtn.Margin = new Padding(3, 4, 3, 4);
+            SubmitBtn.BackColor = Color.White;
+            SubmitBtn.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            SubmitBtn.ForeColor = Color.Black;
+            SubmitBtn.Location = new Point(378, 268);
             SubmitBtn.Name = "SubmitBtn";
-            SubmitBtn.Size = new Size(86, 31);
+            SubmitBtn.Size = new Size(104, 31);
             SubmitBtn.TabIndex = 7;
             SubmitBtn.Text = "Submit";
-            SubmitBtn.UseVisualStyleBackColor = true;
+            SubmitBtn.UseVisualStyleBackColor = false;
             SubmitBtn.Click += SubmitBtn_Click;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(327, 20);
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("Segoe UI", 12F);
+            label1.ForeColor = Color.Transparent;
+            label1.Location = new Point(214, 38);
             label1.Name = "label1";
-            label1.Size = new Size(46, 20);
+            label1.Size = new Size(52, 21);
             label1.TabIndex = 8;
-            label1.Text = "name";
+            label1.Text = "Name";
             label1.Click += label1_Click;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(327, 91);
+            label2.BackColor = Color.Transparent;
+            label2.Font = new Font("Segoe UI", 12F);
+            label2.ForeColor = Color.Transparent;
+            label2.Location = new Point(214, 77);
             label2.Name = "label2";
-            label2.Size = new Size(47, 20);
+            label2.Size = new Size(52, 21);
             label2.TabIndex = 9;
-            label2.Text = "genre";
+            label2.Text = "Genre";
             label2.Click += label2_Click;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(327, 247);
+            label3.BackColor = Color.Transparent;
+            label3.Font = new Font("Segoe UI", 12F);
+            label3.ForeColor = Color.Transparent;
+            label3.Location = new Point(219, 170);
             label3.Name = "label3";
-            label3.Size = new Size(41, 20);
+            label3.Size = new Size(44, 21);
             label3.TabIndex = 10;
             label3.Text = "Price";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(327, 164);
+            label4.BackColor = Color.Transparent;
+            label4.Font = new Font("Segoe UI", 12F);
+            label4.ForeColor = Color.Transparent;
+            label4.Location = new Point(219, 124);
             label4.Name = "label4";
-            label4.Size = new Size(45, 20);
+            label4.Size = new Size(47, 21);
             label4.TabIndex = 11;
             label4.Text = "Stock";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(327, 316);
+            label5.BackColor = Color.Transparent;
+            label5.Font = new Font("Segoe UI", 12F);
+            label5.ForeColor = Color.Transparent;
+            label5.Location = new Point(195, 212);
             label5.Name = "label5";
-            label5.Size = new Size(65, 20);
+            label5.Size = new Size(71, 21);
             label5.TabIndex = 12;
-            label5.Text = "discount";
+            label5.Text = "Discount";
             // 
             // dataGridView1
             // 
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+<<<<<<< HEAD
             dataGridView1.Location = new Point(56, 540);
             dataGridView1.Margin = new Padding(3, 4, 3, 4);
+=======
+            dataGridView1.Location = new Point(0, 359);
+>>>>>>> 87f18f2179182a5be5baa7922b62a7a3cd438860
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(965, 200);
+            dataGridView1.Size = new Size(882, 222);
             dataGridView1.TabIndex = 13;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // AddGames
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+<<<<<<< HEAD
             ClientSize = new Size(1182, 753);
+=======
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            ClientSize = new Size(884, 582);
+>>>>>>> 87f18f2179182a5be5baa7922b62a7a3cd438860
             Controls.Add(dataGridView1);
             Controls.Add(label5);
             Controls.Add(label4);
@@ -199,7 +239,6 @@
             Controls.Add(textBox3);
             Controls.Add(textBox2);
             Controls.Add(textBox1);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "AddGames";
             Text = "AddGames";
             Load += AddGames_Load;
