@@ -53,6 +53,7 @@
             // 
             // LoginTextBox1
             // 
+            LoginTextBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             LoginTextBox1.Location = new Point(435, 266);
             LoginTextBox1.Margin = new Padding(3, 4, 3, 4);
             LoginTextBox1.Multiline = true;
@@ -62,12 +63,13 @@
             // 
             // loginPassBox2
             // 
-            loginPassBox2.Location = new Point(435, 349);
+            loginPassBox2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            loginPassBox2.Location = new Point(435, 354);
             loginPassBox2.Margin = new Padding(3, 4, 3, 4);
             loginPassBox2.Multiline = true;
             loginPassBox2.Name = "loginPassBox2";
             loginPassBox2.PasswordChar = '*';
-            loginPassBox2.Size = new Size(282, 43);
+            loginPassBox2.Size = new Size(282, 38);
             loginPassBox2.TabIndex = 2;
             // 
             // label2

@@ -12,7 +12,7 @@ namespace ProjectWin
         {
             try
             {
-                con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""G:\8. EIGHTH SEMESTER\C#\Project\MAIN PROJECT\Game_Mart.mdf"";Integrated Security=True;Connect Timeout=30;Encrypt=False");
+                con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""G:\8. EIGHTH SEMESTER\C#\Project\MAIN PROJECT\database\Game_Mart.mdf"";Integrated Security=True;Connect Timeout=30;Encrypt=True;Encrypt=False");
                 con.Open();
             }
             catch (Exception ex)
@@ -52,11 +52,16 @@ namespace ProjectWin
                 return;
             }
 
-            string query = "SELECT * FROM Login_Info WHERE Username = '" + username + "' AND Password = '" + password + "'";
+            string query = "SELECT * FROM Login_Info WHERE Username = @username AND Password = @password";
             try
             {
-                using (SqlDataAdapter sqda1 = new SqlDataAdapter(query, con))
+               using(SqlCommand cmd = new SqlCommand(query,con))
                 {
+                    cmd.Parameters.AddWithValue("@username", username);
+                    cmd.Parameters.AddWithValue("@password", password);
+
+                    using (SqlDataAdapter sqda1 = new SqlDataAdapter(cmd))
+                    {
                     DataTable dt = new DataTable();
                     sqda1.Fill(dt);
                     //Storing The role
@@ -71,7 +76,9 @@ namespace ProjectWin
                     if (dataArray.Length < 1)
                     {
                         MessageBox.Show("Invalid  Person", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
+                            LoginTextBox1.Text = "";
+                            loginPassBox2.Text = "";
+                            return;
                     }
 
                     //converting the role in to lower case
@@ -80,15 +87,15 @@ namespace ProjectWin
                     if (dataArray[0] != role)
                     {
                         MessageBox.Show("Invalid Author", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            LoginTextBox1.Text = "";
+                            loginPassBox2.Text = "";
                         return;
-                        return;
+               
                     }
                     int count = dt.Rows.Count;
 
                     if (count == 1 && count < 2)
                     {
-                        MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                         if (dataArray[0] == "admin")
                         {
                             //Admin_Homepage admin_homePage = new Admin_Homepage();
@@ -113,12 +120,17 @@ namespace ProjectWin
                             con.Close();
                         }
 
+
                     }
                     else
                     {
                         MessageBox.Show("Invalid username or password.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                            LoginTextBox1.Text = "";
+                            loginPassBox2.Text = "";
+                        }
                 }
+
+            };
 
             }
             catch (Exception ex)
