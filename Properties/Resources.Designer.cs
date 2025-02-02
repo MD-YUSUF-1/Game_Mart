@@ -83,6 +83,16 @@ namespace ProjectWin.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BG11 {
+            get {
+                object obj = ResourceManager.GetObject("BG11", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap connections_background_1048_10302 {
             get {
                 object obj = ResourceManager.GetObject("connections-background_1048-10302", resourceCulture);
