@@ -14,6 +14,7 @@ using static System.Net.Mime.MediaTypeNames;
 using Image = System.Drawing.Image;
 using System.Diagnostics;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ProjectWin
 {
@@ -26,7 +27,7 @@ namespace ProjectWin
         {
             try
             {
-                con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""G:\8. EIGHTH SEMESTER\C#\Project\MAIN PROJECT\Game_Mart.mdf"";Integrated Security=True;Connect Timeout=30;Encrypt=False
+                con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""G:\8. EIGHTH SEMESTER\C#\Project\MAIN PROJECT\database\Game_Mart.mdf"";Integrated Security=True;Connect Timeout=30;Encrypt=False
 ");
                 con.Open();
             }
@@ -227,7 +228,7 @@ namespace ProjectWin
                         ForeColor = Color.White,
                     };
                     card.Controls.Add(titleLabel4);
-                    Button AddToCartbtn = new Button
+                    System.Windows.Forms.Button AddToCartbtn = new System.Windows.Forms.Button
                     {
                         Text = "Add to cart",
                         Font = new System.Drawing.Font("Segoe UI", 12, FontStyle.Bold),
@@ -240,11 +241,39 @@ namespace ProjectWin
                     AddToCartbtn.Click += (s, e) =>
                     {
                         dbcon();
-                        SqlCommand sq1 = new SqlCommand("select * from PRODUCT_TABLE", con);
+                        SqlCommand sq1 = new SqlCommand("SELECT SalespersonID,Username FROM Salespersons WHERE Username = @username AND Password = @password", con);
+                        DataTable dt1 = new DataTable();
+                        sq1.Parameters.AddWithValue("@username", username);
+                        sq1.Parameters.AddWithValue("@password", password);
+
+                        SqlDataAdapter sqd1 = new SqlDataAdapter(sq1);
+                        sqd1.Fill(dt1);
+                        SqlCommand sq2 = new SqlCommand("insert into CartTABLE(SalesPersonID,SalesPersonName,GameID,GameName,Price) values(@sid,@sname,@gid,@gname, @gp)", con);
+                        if (float.Parse(row["GDiscount"].ToString()) > 0)
+                        {
+                            float price = float.Parse(row["GPrice"].ToString());
+                            float discount = float.Parse(row["GDiscount"].ToString());
+                            price = price - (price * (discount / 100));
+                            price= (float)Math.Round(price,2);
+                            sq2.Parameters.AddWithValue("@gp", price);
+                        }
+                        else
+                        {
+                            sq2.Parameters.AddWithValue("@gp", row["GPrice"]);
+                        }
+
+                        sq2.Parameters.AddWithValue("@gname", row["GName"]);
+                        sq2.Parameters.AddWithValue("@gid", row["GameID"]);
+                            sq2.Parameters.AddWithValue("@sid", dt1.Rows[0]["SalespersonID"]);
+                            sq2.Parameters.AddWithValue("@sname", dt1.Rows[0]["username"]);
+                        MessageBox.Show("Added to the cart", "Success", MessageBoxButtons.OK);
+
+                        sq2.ExecuteNonQuery();
+                        con.Close();
 
                     };
                     card.Controls.Add(AddToCartbtn);
-                    Button BuyNowBtn = new Button
+                    System.Windows.Forms.Button BuyNowBtn = new System.Windows.Forms.Button
                     {
                         Text = "Buy now",
                         Font = new System.Drawing.Font("Segoe UI", 12, FontStyle.Bold),
@@ -270,7 +299,9 @@ namespace ProjectWin
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-
+            CartPage cartPage = new CartPage();
+            cartPage.Show();
+            this.Hide();
         }
 
         private void profileBtn_Click(object sender, EventArgs e)

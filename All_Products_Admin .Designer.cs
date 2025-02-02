@@ -42,11 +42,12 @@
             gameStock = new TextBox();
             gameGenre = new TextBox();
             button2 = new Button();
-            label6 = new Label();
             gameID = new TextBox();
             label = new Label();
             button1 = new Button();
             updateBtn = new Button();
+            browseBtn = new Button();
+            label6 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gameImage).BeginInit();
             SuspendLayout();
@@ -74,6 +75,7 @@
             gameName.Location = new Point(960, 160);
             gameName.Margin = new Padding(3, 4, 3, 4);
             gameName.Name = "gameName";
+            gameName.ReadOnly = true;
             gameName.Size = new Size(343, 27);
             gameName.TabIndex = 1;
             // 
@@ -151,6 +153,7 @@
             gameDiscount.Location = new Point(960, 477);
             gameDiscount.Margin = new Padding(3, 4, 3, 4);
             gameDiscount.Name = "gameDiscount";
+            gameDiscount.ReadOnly = true;
             gameDiscount.Size = new Size(343, 27);
             gameDiscount.TabIndex = 13;
             // 
@@ -162,6 +165,7 @@
             gamePrice.Location = new Point(960, 397);
             gamePrice.Margin = new Padding(3, 4, 3, 4);
             gamePrice.Name = "gamePrice";
+            gamePrice.ReadOnly = true;
             gamePrice.Size = new Size(343, 27);
             gamePrice.TabIndex = 14;
             // 
@@ -173,6 +177,7 @@
             gameStock.Location = new Point(960, 319);
             gameStock.Margin = new Padding(3, 4, 3, 4);
             gameStock.Name = "gameStock";
+            gameStock.ReadOnly = true;
             gameStock.Size = new Size(343, 27);
             gameStock.TabIndex = 15;
             // 
@@ -184,6 +189,7 @@
             gameGenre.Location = new Point(960, 241);
             gameGenre.Margin = new Padding(3, 4, 3, 4);
             gameGenre.Name = "gameGenre";
+            gameGenre.ReadOnly = true;
             gameGenre.Size = new Size(343, 27);
             gameGenre.TabIndex = 16;
             // 
@@ -191,7 +197,7 @@
             // 
             button2.BackColor = Color.DeepSkyBlue;
             button2.FlatStyle = FlatStyle.Flat;
-            button2.Location = new Point(129, 800);
+            button2.Location = new Point(77, 800);
             button2.Margin = new Padding(3, 4, 3, 4);
             button2.Name = "button2";
             button2.Size = new Size(151, 52);
@@ -200,29 +206,19 @@
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
             // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Cursor = Cursors.Hand;
-            label6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.ForeColor = Color.LightSkyBlue;
-            label6.Location = new Point(31, 12);
-            label6.Name = "label6";
-            label6.Size = new Size(74, 28);
-            label6.TabIndex = 23;
-            label6.Text = "<-Back";
-            label6.Click += label6_Click;
-            // 
             // gameID
             // 
             gameID.BackColor = Color.Gray;
             gameID.BorderStyle = BorderStyle.None;
             gameID.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            gameID.Location = new Point(960, 95);
+            gameID.ForeColor = SystemColors.ControlText;
+            gameID.Location = new Point(960, 97);
             gameID.Margin = new Padding(3, 4, 3, 4);
             gameID.Name = "gameID";
+            gameID.ReadOnly = true;
             gameID.Size = new Size(343, 27);
             gameID.TabIndex = 24;
+            gameID.TextChanged += gameID_TextChanged;
             // 
             // label
             // 
@@ -239,7 +235,7 @@
             // 
             button1.BackColor = Color.DeepSkyBlue;
             button1.FlatStyle = FlatStyle.Flat;
-            button1.Location = new Point(647, 800);
+            button1.Location = new Point(511, 800);
             button1.Name = "button1";
             button1.Size = new Size(163, 52);
             button1.TabIndex = 26;
@@ -251,7 +247,7 @@
             // 
             updateBtn.BackColor = Color.DeepSkyBlue;
             updateBtn.FlatStyle = FlatStyle.Flat;
-            updateBtn.Location = new Point(382, 800);
+            updateBtn.Location = new Point(294, 800);
             updateBtn.Name = "updateBtn";
             updateBtn.Size = new Size(163, 52);
             updateBtn.TabIndex = 27;
@@ -259,12 +255,39 @@
             updateBtn.UseVisualStyleBackColor = false;
             updateBtn.Click += updateBtn_Click;
             // 
+            // browseBtn
+            // 
+            browseBtn.BackColor = Color.DeepSkyBlue;
+            browseBtn.Enabled = false;
+            browseBtn.FlatStyle = FlatStyle.Flat;
+            browseBtn.Location = new Point(738, 800);
+            browseBtn.Name = "browseBtn";
+            browseBtn.Size = new Size(163, 52);
+            browseBtn.TabIndex = 28;
+            browseBtn.Text = "Browse";
+            browseBtn.UseVisualStyleBackColor = false;
+            browseBtn.Click += browseBtn_Click;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Cursor = Cursors.Hand;
+            label6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label6.ForeColor = Color.LightSkyBlue;
+            label6.Location = new Point(54, 9);
+            label6.Name = "label6";
+            label6.Size = new Size(74, 28);
+            label6.TabIndex = 23;
+            label6.Text = "<-Back";
+            label6.Click += label6_Click;
+            // 
             // All_Products_Admin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(64, 64, 64);
             ClientSize = new Size(1353, 881);
+            Controls.Add(browseBtn);
             Controls.Add(updateBtn);
             Controls.Add(button1);
             Controls.Add(label);
@@ -308,10 +331,11 @@
         private TextBox gameStock;
         private TextBox gameGenre;
         private Button button2;
-        private Label label6;
         private TextBox gameID;
         private Label label;
         private Button button1;
         private Button updateBtn;
+        private Button browseBtn;
+        private Label label6;
     }
 }
