@@ -131,20 +131,24 @@ namespace ProjectWin
 
         private void button1_Click(object sender, EventArgs e)
         {
-            dbcon();
-            SqlCommand sq1 = new SqlCommand("DELETE from PRODUCT_TABLE where GameID=@gameID", con);
-            sq1.Parameters.AddWithValue("@gameID", int.Parse(gameID.Text));
-            sq1.ExecuteNonQuery();
-            con.Close();
-            MessageBox.Show("Product DELETED");
-            Form2_Load();
-            gameID.Text = string.Empty;
-            gameName.Text = string.Empty;
-            gameStock.Text = string.Empty;
-            gamePrice.Text = string.Empty;
-            gameDiscount.Text = string.Empty;
-            gameGenre.Text = string.Empty;
-            gameImage.Image = null;
+            try
+            {
+                dbcon();
+                SqlCommand sq1 = new SqlCommand("DELETE from PRODUCT_TABLE where GameID=@gameID", con);
+                sq1.Parameters.AddWithValue("@gameID", int.Parse(gameID.Text));
+                sq1.ExecuteNonQuery();
+                con.Close();
+                MessageBox.Show("Product DELETED");
+                Form2_Load();
+                gameID.Text = string.Empty;
+                gameName.Text = string.Empty;
+                gameStock.Text = string.Empty;
+                gamePrice.Text = string.Empty;
+                gameDiscount.Text = string.Empty;
+                gameGenre.Text = string.Empty;
+                gameImage.Image = null;
+            }
+            catch (Exception ex) { MessageBox.Show("No game Found. " + ex.Message); }
         }
 
         private void updateBtn_Click(object sender, EventArgs e)
