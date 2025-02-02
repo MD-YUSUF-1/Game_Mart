@@ -58,7 +58,7 @@ namespace ProjectWin
             FlowLayoutPanel flowLayoutPanel = new FlowLayoutPanel
             {
                 Size = new Size(150, 75),
-                Location = new Point(1230,480),
+                Location = new Point(1230, 480),
                 AutoScroll = true,
                 //BackColor = Color.Red,
                 WrapContents = true,
@@ -73,7 +73,7 @@ namespace ProjectWin
 
             Label titleLabel1 = new Label
             {
-                Text = "Name: " ,
+                Text = "Name: ",
                 Font = new System.Drawing.Font("Segoe UI", 12, FontStyle.Bold),
                 Location = new Point(0, 0),
                 AutoSize = true,
@@ -88,6 +88,13 @@ namespace ProjectWin
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+            SalesMan sl = new SalesMan("a","b");
+            sl.Show();
+            this.Hide();
         }
     }
 }

@@ -13,10 +13,17 @@ namespace ProjectWin
 {
     public partial class All_Products_Admin : Form
     {
-        public All_Products_Admin()
+        string role;
+        public All_Products_Admin(string role)
         {
             InitializeComponent();
             Form2_Load();
+            gameImage.Image = null;
+            this.role = role;
+            if (role == "manager")
+            {
+                
+            }
         }
         SqlConnection con;
         public void dbcon()
@@ -130,6 +137,13 @@ namespace ProjectWin
             con.Close();
             MessageBox.Show("Product DELETED");
             Form2_Load();
+            gameID.Text = string.Empty;
+            gameName.Text = string.Empty;
+            gameStock.Text = string.Empty;
+            gamePrice.Text = string.Empty;
+            gameDiscount.Text = string.Empty;
+            gameGenre.Text = string.Empty;
+            gameImage.Image = null;
         }
 
         private void updateBtn_Click(object sender, EventArgs e)

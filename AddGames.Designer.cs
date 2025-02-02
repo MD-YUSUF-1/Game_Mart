@@ -43,6 +43,7 @@
             label4 = new Label();
             label5 = new Label();
             dataGridView1 = new DataGridView();
+            label6 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
@@ -200,12 +201,26 @@
             dataGridView1.TabIndex = 13;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.BackColor = SystemColors.ActiveCaptionText;
+            label6.Cursor = Cursors.Hand;
+            label6.ForeColor = Color.LightSeaGreen;
+            label6.Location = new Point(46, 21);
+            label6.Name = "label6";
+            label6.Size = new Size(56, 20);
+            label6.TabIndex = 14;
+            label6.Text = "<-Back";
+            label6.Click += label6_Click;
+            // 
             // AddGames
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(1010, 776);
+            Controls.Add(label6);
             Controls.Add(dataGridView1);
             Controls.Add(label5);
             Controls.Add(label4);
@@ -246,5 +261,6 @@
         private Label label4;
         private Label label5;
         private DataGridView dataGridView1;
+        private Label label6;
     }
 }

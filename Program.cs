@@ -13,9 +13,9 @@ namespace ProjectWin
             ApplicationConfiguration.Initialize();
             //Application.Run(new AddGames());
             //Application.Run(new Admin_Homepage());
-            //Application.Run(new All_Role());
+            Application.Run(new All_Role());
 
-            Application.Run(new SalesMan("ankon", "yusuf"));
+            //Application.Run(new SalesMan("ankon", "yusuf"));
             //Application.Run(new Login("a"));
 
         }

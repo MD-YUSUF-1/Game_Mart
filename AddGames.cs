@@ -124,5 +124,12 @@ namespace ProjectWin
         {
 
         }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+            All_Products_Admin all_Products_Admin = new All_Products_Admin();
+            all_Products_Admin.Show();
+            this.Hide();
+        }
     }
 }

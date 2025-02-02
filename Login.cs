@@ -55,82 +55,82 @@ namespace ProjectWin
             string query = "SELECT * FROM Login_Info WHERE Username = @username AND Password = @password";
             try
             {
-               using(SqlCommand cmd = new SqlCommand(query,con))
+                using (SqlCommand cmd = new SqlCommand(query, con))
                 {
                     cmd.Parameters.AddWithValue("@username", username);
                     cmd.Parameters.AddWithValue("@password", password);
 
                     using (SqlDataAdapter sqda1 = new SqlDataAdapter(cmd))
                     {
-                    DataTable dt = new DataTable();
-                    sqda1.Fill(dt);
-                    //Storing The role
-                    string[] dataArray = new string[dt.Rows.Count];
-                    int i = 0;
-                    foreach (DataRow row in dt.Rows)
-                    {
-                        dataArray[i] = row["Role"].ToString();
-                        i++;
-                    }
-                    //checking if no role
-                    if (dataArray.Length < 1)
-                    {
-                        MessageBox.Show("Invalid  Person", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        DataTable dt = new DataTable();
+                        sqda1.Fill(dt);
+                        //Storing The role
+                        string[] dataArray = new string[dt.Rows.Count];
+                        int i = 0;
+                        foreach (DataRow row in dt.Rows)
+                        {
+                            dataArray[i] = row["Role"].ToString();
+                            i++;
+                        }
+                        //checking if no role
+                        if (dataArray.Length < 1)
+                        {
+                            MessageBox.Show("Invalid  Person", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             LoginTextBox1.Text = "";
                             loginPassBox2.Text = "";
                             return;
-                    }
+                        }
 
-                    //converting the role in to lower case
-                    dataArray[0] = dataArray[0].ToLower();
-                    //checking valid role trying to login
-                    if (dataArray[0] != role)
-                    {
-                        MessageBox.Show("Invalid Author", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        //converting the role in to lower case
+                        dataArray[0] = dataArray[0].ToLower();
+                        //checking valid role trying to login
+                        if (dataArray[0] != role)
+                        {
+                            MessageBox.Show("Invalid Author", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             LoginTextBox1.Text = "";
                             loginPassBox2.Text = "";
-                        return;
-               
-                    }
-                    int count = dt.Rows.Count;
+                            return;
 
-                    if (count == 1 && count < 2)
-                    {
-                        if (dataArray[0] == "admin")
-                        {
-                            //Admin_Homepage admin_homePage = new Admin_Homepage();
-                            //admin_homePage.Show();
-                            AddGames ag = new AddGames();
-                            ag.Show();
-                            this.Hide();
-                            con.Close();
                         }
-                        if (dataArray[0] == "salesman")
+                        int count = dt.Rows.Count;
+
+                        if (count == 1 && count < 2)
                         {
-                            SalesMan s = new SalesMan(username, password);
-                            this.Hide();
-                            s.Show();
-                            con.Close();
-                        }
-                        if (dataArray[0] == "manager")
-                        {
-                            Manager_Home m = new Manager_Home();
-                            this.Hide();
-                            m.Show();
-                            con.Close();
-                        }
+                            if (dataArray[0] == "admin")
+                            {
+                                //Admin_Homepage admin_homePage = new Admin_Homepage();
+                                //admin_homePage.Show();
+                                Admin_Homepage ag = new Admin_Homepage();
+                                ag.Show();
+                                this.Hide();
+                                con.Close();
+                            }
+                            if (dataArray[0] == "salesman")
+                            {
+                                SalesMan s = new SalesMan(username, password);
+                                this.Hide();
+                                s.Show();
+                                con.Close();
+                            }
+                            if (dataArray[0] == "manager")
+                            {
+                                Manager_Home m = new Manager_Home();
+                                this.Hide();
+                                m.Show();
+                                con.Close();
+                            }
 
 
-                    }
-                    else
-                    {
-                        MessageBox.Show("Invalid username or password.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Invalid username or password.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             LoginTextBox1.Text = "";
                             loginPassBox2.Text = "";
                         }
-                }
+                    }
 
-            };
+                };
 
             }
             catch (Exception ex)
@@ -145,6 +145,11 @@ namespace ProjectWin
         }
 
         private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LoginTextBox1_TextChanged(object sender, EventArgs e)
         {
 
         }

@@ -33,6 +33,7 @@
             panel1 = new Panel();
             dataGridView1 = new DataGridView();
             label2 = new Label();
+            label6 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
@@ -62,6 +63,7 @@
             // panel1
             // 
             panel1.BackColor = Color.Black;
+            panel1.Controls.Add(label6);
             panel1.Controls.Add(profileBtn);
             panel1.Controls.Add(logoutBtn);
             panel1.Location = new Point(1, 2);
@@ -92,6 +94,19 @@
             label2.TabIndex = 7;
             label2.Text = "Total Price: ";
             // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.BackColor = SystemColors.ActiveCaptionText;
+            label6.Cursor = Cursors.Hand;
+            label6.ForeColor = Color.LightSeaGreen;
+            label6.Location = new Point(57, 33);
+            label6.Name = "label6";
+            label6.Size = new Size(56, 20);
+            label6.TabIndex = 15;
+            label6.Text = "<-Back";
+            label6.Click += label6_Click;
+            // 
             // CartPage
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -105,6 +120,7 @@
             Text = "CartPage";
             Load += CartPage_Load;
             panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -117,5 +133,6 @@
         private Panel panel1;
         private DataGridView dataGridView1;
         private Label label2;
+        private Label label6;
     }
 }

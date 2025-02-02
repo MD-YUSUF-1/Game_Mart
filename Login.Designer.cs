@@ -60,6 +60,7 @@
             LoginTextBox1.Name = "LoginTextBox1";
             LoginTextBox1.Size = new Size(282, 38);
             LoginTextBox1.TabIndex = 1;
+            LoginTextBox1.TextChanged += LoginTextBox1_TextChanged;
             // 
             // loginPassBox2
             // 
