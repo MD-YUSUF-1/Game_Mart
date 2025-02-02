@@ -83,5 +83,10 @@ namespace ProjectWin
                 MessageBox.Show("Invalid data " + ex.Message);
             }
         }
+
+        private void personID_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -16,5 +16,10 @@ namespace ProjectWin
         {
             InitializeComponent();
         }
+
+        private void Manager_Home_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
