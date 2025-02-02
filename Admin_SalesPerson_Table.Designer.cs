@@ -139,6 +139,7 @@
             personID.Name = "personID";
             personID.Size = new Size(299, 40);
             personID.TabIndex = 55;
+            personID.TextChanged += personID_TextChanged;
             // 
             // button2
             // 
