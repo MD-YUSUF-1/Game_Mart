@@ -22,7 +22,8 @@ namespace ProjectWin
             this.role = role;
             if (role == "manager")
             {
-                
+                button2.Visible = false;
+                button1.Visible = false;
             }
         }
         SqlConnection con;
@@ -72,7 +73,7 @@ namespace ProjectWin
 
         private void button2_Click(object sender, EventArgs e)
         {
-            AddGames addGames = new AddGames();
+            AddGames addGames = new AddGames(role);
             addGames.Show();
             this.Hide();
         }
