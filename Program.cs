@@ -14,7 +14,7 @@ namespace ProjectWin
 
             //Application.Run(new SalesMan("a","b"));
 
-Application.Run(new AddGames());
+//Application.Run(new AddGames());
             //Application.Run(new SalesMan("ankon", "yusuf"));
 
 
