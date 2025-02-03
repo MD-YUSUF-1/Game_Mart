@@ -73,6 +73,7 @@
             button1.TabIndex = 11;
             button1.Text = "REGISTER";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // label2
             // 
@@ -167,6 +168,7 @@
             button2.TabIndex = 18;
             button2.Text = "UPLOAD IMAGE";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // pictureBox1
             // 

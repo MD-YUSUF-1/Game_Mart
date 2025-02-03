@@ -19,13 +19,23 @@ namespace ProjectWin
 
 
             //Application.Run(new AddGames());
+
+           // Application.Run(new Admin_Homepage());
+            //Application.Run(new All_Role());
+            //Application.Run(new CartPage());
+
             //Application.Run(new Admin_Homepage());
             //Application.Run(new All_Role());
-            Application.Run(new CartPage(5,"yusuf","123456"));
+
+            //Application.Run(new CartPage(5));
+
+
+           // Application.Run(new CartPage(5,"yusuf","123456"));
+
 
             //Application.Run(new SalesMan("ankon", "yusuf"));
             //Application.Run(new Login("a"));
-
+            Application.Run(new RegisterPage());
 
         }
     }
