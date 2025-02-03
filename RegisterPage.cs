@@ -117,5 +117,15 @@ namespace ProjectWin
                 MessageBox.Show("Image file not found!" + ex);
             }
         }
+
+        private void RegisterPage_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void datePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

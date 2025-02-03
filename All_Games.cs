@@ -349,11 +349,11 @@ namespace ProjectWin
             this.Hide();
         }
 
-       
+
 
         private void profileBtn_Click(object sender, EventArgs e)
         {
-            ProfilePage profilePage = new ProfilePage();
+            ProfilePage profilePage = new ProfilePage("ankon", "123456", "manager");
             profilePage.Show();
             this.Hide();
         }

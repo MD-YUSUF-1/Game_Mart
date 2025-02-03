@@ -13,11 +13,17 @@ namespace ProjectWin
 {
     public partial class Manager_all_product : Form
     {
-        public Manager_all_product()
+        string username;
+        string password;
+        string role;
+        public Manager_all_product(string username, string pass, string role)
         {
             InitializeComponent();
             Form2_Load();
             browseBtn.Enabled = false;
+            this.username = username;
+            this.password = pass;
+            this.role = role;
         }
         SqlConnection con;
         public void dbcon()
@@ -160,35 +166,41 @@ namespace ProjectWin
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-        
+
+        {
+            try
             {
-                try
+                if (updateBtn.Text == "Update")
                 {
-                    if (updateBtn.Text == "Update")
-                    {
-                        MessageBox.Show("Please, Update First");
-                        dataGridView1.ClearSelection();
-                    }
-                    else
-                    {
-                        gameID.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-                        gameName.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-                        gameGenre.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
-                        gameStock.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
-                        gamePrice.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
-                        gameDiscount.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
-
-                        MemoryStream ms = new MemoryStream((byte[])dataGridView1.CurrentRow.Cells[6].Value);
-                        gameImage.Image = Image.FromStream(ms);
-                    }
-
-
+                    MessageBox.Show("Please, Update First");
+                    dataGridView1.ClearSelection();
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show("Invalid data " + ex.Message);
+                    gameID.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                    gameName.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+                    gameGenre.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
+                    gameStock.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+                    gamePrice.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+                    gameDiscount.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+
+                    MemoryStream ms = new MemoryStream((byte[])dataGridView1.CurrentRow.Cells[6].Value);
+                    gameImage.Image = Image.FromStream(ms);
                 }
+
+
             }
-        
+            catch (Exception ex)
+            {
+                MessageBox.Show("Invalid data " + ex.Message);
+            }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Manager_Homepage manager_Homepage = new Manager_Homepage(username, password, role);
+            manager_Homepage.Show();
+            this.Hide();
+        }
     }
 }

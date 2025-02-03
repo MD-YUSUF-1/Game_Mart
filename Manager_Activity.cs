@@ -8,15 +8,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Data.SqlClient;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace ProjectWin
 {
     public partial class Manager_Activity : Form
     {
-        public Manager_Activity()
+        string username;
+        string password;
+        string role;
+        public Manager_Activity(string username, string pass, string role)
         {
             InitializeComponent();
             Form2_Load();
+            this.username = username;
+            this.password = pass;
+            this.role = role;
         }
         SqlConnection con;
         //Databse connection code 
@@ -70,7 +77,7 @@ namespace ProjectWin
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            Manager_Homepage manager_Homepage = new Manager_Homepage();
+            Manager_Homepage manager_Homepage = new Manager_Homepage(username,password,role);
             manager_Homepage.Show();
             this.Hide();
         }

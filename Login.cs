@@ -113,7 +113,7 @@ namespace ProjectWin
                             }
                             if (dataArray[0] == "manager")
                             {
-                                Manager_Homepage m = new Manager_Homepage();
+                                Manager_Homepage m = new Manager_Homepage(username,password, dataArray[0]);
                                 this.Hide();
                                 m.Show();
                                 con.Close();

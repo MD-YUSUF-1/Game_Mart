@@ -199,6 +199,7 @@
             datePicker1.Name = "datePicker1";
             datePicker1.Size = new Size(305, 27);
             datePicker1.TabIndex = 50;
+            datePicker1.ValueChanged += datePicker1_ValueChanged;
             // 
             // radioButton1
             // 
@@ -266,6 +267,7 @@
             Margin = new Padding(3, 4, 3, 4);
             Name = "RegisterPage";
             Text = "RegisterPage";
+            Load += RegisterPage_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
