@@ -24,7 +24,9 @@ namespace ProjectWin
         {
             try
             {
+
                 con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""G:\8. EIGHTH SEMESTER\C#\Project\MAIN PROJECT\database\Game_Mart.mdf"";Integrated Security=True;Connect Timeout=30;Encrypt=False
+
 ");
                 con.Open();
             }
@@ -46,6 +48,8 @@ namespace ProjectWin
                 sda.Fill(dt);
                 dataGridView1.RowTemplate.Height = 75;
                 dataGridView1.DataSource = dt;
+
+
                 con.Close();
             }
             catch (Exception ex)
