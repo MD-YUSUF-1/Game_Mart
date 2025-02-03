@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -14,11 +15,15 @@ namespace ProjectWin
     public partial class CartPage : Form
     {
         int id;
-        public CartPage(int id)
+        string name;
+        string password;
+        public CartPage(int id,string name,string pass)
         {
             this.id = id;
             InitializeComponent();
             Form2_Load();
+            this.name = name;
+            this.password = pass;
         }
         SqlConnection con;
         public void dbcon()
@@ -319,24 +324,6 @@ namespace ProjectWin
                     //ForeColor = Color.White,
 
                 };
-
-                cardforBuy.Controls.Add(DeleteBtn);
-                System.Windows.Forms.Button BuyNowBtn = new System.Windows.Forms.Button
-                {
-                    Text = "Buy now",
-                    Font = new System.Drawing.Font("Segoe UI", 12, FontStyle.Bold),
-                    Size = new Size(180, 60),
-                    Location = new Point(780, 10),
-                    BackColor = System.Drawing.ColorTranslator.FromHtml("#F5F5F5"),
-                    FlatStyle = FlatStyle.Popup,
-                    ForeColor = System.Drawing.ColorTranslator.FromHtml("#333333")
-                    //ForeColor = Color.White,
-                };
-                cardforBuy.Controls.Add(BuyNowBtn);
-                flowLayoutPanelforCartData.Controls.Add(cardforBuy);
-                flowLayoutPanelForCartColumn.Controls.Add(card);
-                flowLayoutPanelForCartColumn.Controls.Add(flowLayoutPanelforCartData);
-                this.Controls.Add(flowLayoutPanelForCartColumn);
                 DeleteBtn.Click += (s, e) =>
                 {
 
@@ -360,7 +347,7 @@ namespace ProjectWin
                                 //Form2_Load();
                                 MessageBox.Show("Product DELETED");
                                 this.Hide();
-                                CartPage newCartPage = new CartPage(0);
+                                CartPage newCartPage = new CartPage(5,"yusuf", password );
                                 newCartPage.Show();
                                 tb.Text = "";
                                 con.Close();
@@ -380,6 +367,85 @@ namespace ProjectWin
                     catch (Exception ex) { MessageBox.Show("No game Found. " + ex.Message); }
 
                 };
+
+                cardforBuy.Controls.Add(DeleteBtn);
+                System.Windows.Forms.Button BuyNowBtn = new System.Windows.Forms.Button
+                {
+                    Text = "Buy now",
+                    Font = new System.Drawing.Font("Segoe UI", 12, FontStyle.Bold),
+                    Size = new Size(180, 60),
+                    Location = new Point(780, 10),
+                    BackColor = System.Drawing.ColorTranslator.FromHtml("#F5F5F5"),
+                    FlatStyle = FlatStyle.Popup,
+                    ForeColor = System.Drawing.ColorTranslator.FromHtml("#333333")
+                    //ForeColor = Color.White,
+                };
+                BuyNowBtn.Click += (s, e) =>
+                {
+
+                    try
+                    {
+                        string customerName = textBox1.Text; 
+                        string customerPhone = textBox2.Text;
+
+                        if (string.IsNullOrWhiteSpace(textBox1.Text) || string.IsNullOrWhiteSpace(textBox2.Text))
+                        {
+                            MessageBox.Show("Customer Name and Phone number cannot be empty.");
+                        }
+                        else
+                        {
+                            dbcon();
+                            SqlCommand insertcmd = new SqlCommand("INSERT INTO Activity_Table (SalespersonID, SalespersonName, PriceSold, CustomerName, CustomerPhone) VALUES(@SalespersonID, @SalespersonName, @PriceSold, @CustomerName, @CustomerPhone)", con);
+                            insertcmd.Parameters.AddWithValue("@SalespersonID", id);
+                            insertcmd.Parameters.AddWithValue("@SalespersonName", name);
+                            insertcmd.Parameters.AddWithValue("@PriceSold", TotalPrice());
+                            insertcmd.Parameters.AddWithValue("@CustomerName", customerName);
+                            insertcmd.Parameters.AddWithValue("@CustomerPhone", customerPhone);
+
+                            int rowsAffected = insertcmd.ExecuteNonQuery();
+                            if (rowsAffected > 0)
+                            {
+                                dbcon();
+                                SqlCommand deleteCmd = new SqlCommand("DELETE FROM CartTable WHERE SalespersonID = @SalespersonID", con);
+                                deleteCmd.Parameters.AddWithValue("@SalespersonID", id);
+                                int deleteRowsAffected = deleteCmd.ExecuteNonQuery();
+
+                                if (deleteRowsAffected > 0)
+                                {
+                                    MessageBox.Show("Items Sold To " + customerName + ", Total price " + TotalPrice() + ".");
+                                    this.Hide();
+                                    SalesMan salesMan = new SalesMan(name,password);
+                                    salesMan.Show();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("No cart items found for this salesperson.");
+                                }
+                                con.Close();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Insert failed.");
+                            }
+                            con.Close();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error: " + ex.Message);
+                    }
+
+                
+                        
+         
+
+                };
+                cardforBuy.Controls.Add(BuyNowBtn);
+                flowLayoutPanelforCartData.Controls.Add(cardforBuy);
+                flowLayoutPanelForCartColumn.Controls.Add(card);
+                flowLayoutPanelForCartColumn.Controls.Add(flowLayoutPanelforCartData);
+                this.Controls.Add(flowLayoutPanelForCartColumn);
+                
             }
             catch (Exception ex) { MessageBox.Show("No data" + ex); }
         }

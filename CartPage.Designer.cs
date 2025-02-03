@@ -32,6 +32,10 @@
             profileBtn = new Button();
             panel1 = new Panel();
             label6 = new Label();
+            cusName = new Label();
+            cusPhone = new Label();
+            textBox1 = new TextBox();
+            textBox2 = new TextBox();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -82,12 +86,54 @@
             label6.Text = "<-Back";
             label6.Click += label6_Click;
             // 
+            // cusName
+            // 
+            cusName.AutoSize = true;
+            cusName.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cusName.ForeColor = Color.White;
+            cusName.Location = new Point(47, 144);
+            cusName.Name = "cusName";
+            cusName.Size = new Size(162, 28);
+            cusName.TabIndex = 16;
+            cusName.Text = "Customer Name: ";
+            // 
+            // cusPhone
+            // 
+            cusPhone.AutoSize = true;
+            cusPhone.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cusPhone.ForeColor = Color.White;
+            cusPhone.Location = new Point(564, 147);
+            cusPhone.Name = "cusPhone";
+            cusPhone.Size = new Size(237, 28);
+            cusPhone.TabIndex = 17;
+            cusPhone.Text = "Customer Phone Number:";
+            // 
+            // textBox1
+            // 
+            textBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBox1.Location = new Point(215, 144);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(244, 34);
+            textBox1.TabIndex = 18;
+            // 
+            // textBox2
+            // 
+            textBox2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBox2.Location = new Point(818, 148);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(333, 34);
+            textBox2.TabIndex = 19;
+            // 
             // CartPage
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(64, 64, 64);
             ClientSize = new Size(1273, 803);
+            Controls.Add(textBox2);
+            Controls.Add(textBox1);
+            Controls.Add(cusPhone);
+            Controls.Add(cusName);
             Controls.Add(panel1);
             Name = "CartPage";
             Text = "CartPage";
@@ -95,6 +141,7 @@
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -103,5 +150,9 @@
         private Button profileBtn;
         private Panel panel1;
         private Label label6;
+        private Label cusName;
+        private Label cusPhone;
+        private TextBox textBox1;
+        private TextBox textBox2;
     }
 }
