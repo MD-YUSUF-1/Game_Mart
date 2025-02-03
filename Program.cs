@@ -25,7 +25,7 @@ namespace ProjectWin
             //Application.Run(new Manager_all_product());
             //Application.Run(new SalesMan("ankon", "yusuf"));
             //Application.Run(new Login("a"));
-
+            Application.Run(new RegisterPage());
 
         }
     }
