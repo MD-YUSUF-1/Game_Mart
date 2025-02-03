@@ -13,8 +13,10 @@ namespace ProjectWin
 {
     public partial class CartPage : Form
     {
-        public CartPage()
+        int id;
+        public CartPage(int id)
         {
+            this.id = id;
             InitializeComponent();
             Form2_Load();
         }
@@ -38,7 +40,8 @@ namespace ProjectWin
             try
             {
                 dbcon();
-                SqlCommand sq1 = new SqlCommand("select * from CartTable", con);
+                SqlCommand sq1 = new SqlCommand("select * from CartTable where SalesPersonID = @id", con);
+                sq1.Parameters.AddWithValue("@id", id);
                 SqlDataAdapter sda = new SqlDataAdapter(sq1);
                 DataTable dt = new DataTable();
                 sda.Fill(dt);
@@ -216,9 +219,18 @@ namespace ProjectWin
                     BorderStyle = BorderStyle.FixedSingle,
                     //BackColor = Color.White,
                 };
+                Label titleLabel16 = new Label
+                {
+                    Text = "Total Quantity: " + TotalGames(),
+                    Font = new System.Drawing.Font("Segoe UI", 14, FontStyle.Bold),
+                    Location = new Point(600, 10),
+                    AutoSize = true,
+                    ForeColor = Color.White,
+                };
+                cardforTotalPrice.Controls.Add(titleLabel16);
                 Label titleLabel15 = new Label
                 {
-                    Text = "Total Price: ",
+                    Text = "Total Price: " + TotalPrice(),
                     Font = new System.Drawing.Font("Segoe UI", 14, FontStyle.Bold),
                     Location = new Point(850, 10),
                     AutoSize = true,
@@ -348,7 +360,7 @@ namespace ProjectWin
                                 //Form2_Load();
                                 MessageBox.Show("Product DELETED");
                                 this.Hide();
-                                CartPage newCartPage = new CartPage();
+                                CartPage newCartPage = new CartPage(0);
                                 newCartPage.Show();
                                 tb.Text = "";
                                 con.Close();
@@ -374,6 +386,58 @@ namespace ProjectWin
         private void CartPage_Load(object sender, EventArgs e)
         {
 
+        }
+        public float TotalPrice()
+        {
+            float totalPrice = 0;
+            try {
+                dbcon();
+                dbcon(); 
+                SqlCommand totalPriceCmd = new SqlCommand("SELECT SUM(Price) FROM CartTable where SalesPersonID = @id", con);
+                totalPriceCmd.Parameters.AddWithValue("@id", id);
+                object result = totalPriceCmd.ExecuteScalar(); 
+
+                if (result != null && result != DBNull.Value)
+                {
+                    float totalPriceFromCart = Convert.ToSingle(result);
+                    totalPrice = float.Parse(totalPriceFromCart.ToString("F2"));
+                }
+                con.Close();
+
+
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("" + ex);
+            }
+            return totalPrice;
+        }
+
+        public int TotalGames()
+        {
+            int totalGames = 0;
+
+            try
+            {
+                dbcon(); 
+                SqlCommand totalGamesCmd = new SqlCommand("SELECT SUM(Quantity) FROM CartTable where SalesPersonID = @id", con);
+                totalGamesCmd.Parameters.AddWithValue("@id", id);
+                object result = totalGamesCmd.ExecuteScalar();
+
+                if (result != null && result != DBNull.Value)
+                {
+                    totalGames = Convert.ToInt32(result); 
+                }
+                con.Close(); 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error counting total games: " + ex.Message);
+            }
+           
+
+            return totalGames; 
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

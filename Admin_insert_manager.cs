@@ -17,7 +17,7 @@ namespace ProjectWin
         SqlConnection con;
         public void dbcon()
         {
-            con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\new_project\database\Game_Mart.mdf;Integrated Security=True;Connect Timeout=30;Encrypt=True");
+            con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""G:\8. EIGHTH SEMESTER\C#\Project\MAIN PROJECT\database\Game_Mart.mdf"";Integrated Security=True;Connect Timeout=30;Encrypt=False");
             con.Open();
         }
         public Admin_insert_manager()
