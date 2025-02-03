@@ -88,5 +88,13 @@ namespace ProjectWin
         {
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Admin_insert_salesman admin_Insert_Salesman = new Admin_insert_salesman();
+            admin_Insert_Salesman.Show();
+            this.Hide();
+                
+                }
     }
 }

@@ -52,195 +52,207 @@ namespace ProjectWin
         }
         public void dynamicDataLoad(DataTable dt)
         {
-            FlowLayoutPanel flowLayoutPanelForCartColumn = new FlowLayoutPanel
+            try
             {
-                Size = new Size(1290, 710),
-                Location = new Point(0, 100),
-                AutoScroll = true,
-                BackColor = Color.Gray,
-                WrapContents = true,
-            };
-            Panel card = new Panel
-            {
-                Size = new Size(1200, 60),
-                //BorderStyle = BorderStyle.FixedSingle,
-                Margin = new Padding(30, 50, 0, 0),
-                //BackColor = Color.GhostWhite,
-            };
-            Label titleLabel7 = new Label
-            {
-                Text = "SalesmanID",
-                Font = new System.Drawing.Font("Segoe UI", 12, FontStyle.Bold),
-                Location = new Point(40, 10),
-                AutoSize = true,
-                ForeColor = Color.White,
-
-            };
-            card.Controls.Add(titleLabel7);
-            Label titleLabel8 = new Label
-            {
-                Text = "SalesmanName",
-                Font = new System.Drawing.Font("Segoe UI", 12, FontStyle.Bold),
-                Location = new Point(240, 10),
-                AutoSize = true,
-                ForeColor = Color.White,
-
-            };
-            card.Controls.Add(titleLabel8);
-            Label titleLabel1 = new Label
-            {
-                Text = "GameID",
-                Font = new System.Drawing.Font("Segoe UI", 12, FontStyle.Bold),
-                Location = new Point(460, 10),
-                AutoSize = true,
-                ForeColor = Color.White,
-
-            };
-            card.Controls.Add(titleLabel1);
-
-            Label titleLabel2 = new Label
-            {
-                Text = "GameName",
-                Font = new System.Drawing.Font("Segoe UI", 12, FontStyle.Bold),
-                Location = new Point(650, 10),
-                AutoSize = true,
-                ForeColor = Color.White,
-            };
-            card.Controls.Add(titleLabel2);
-            Label titleLabel3 = new Label
-            {
-                Text = "Quantity",
-                Font = new System.Drawing.Font("Segoe UI", 12, FontStyle.Bold),
-                Location = new Point(830, 10),
-                AutoSize = true,
-                ForeColor = Color.White,
-            };
-            card.Controls.Add(titleLabel3);
-
-            Label titleLabel4 = new Label
-            {
-                Text = "Price",
-                Font = new System.Drawing.Font("Segoe UI", 12, FontStyle.Bold),
-                Location = new Point(1000, 10),
-                AutoSize = true,
-                ForeColor = Color.White,
-            };
-            card.Controls.Add(titleLabel4);
-            //for cart data
-            FlowLayoutPanel flowLayoutPanelforCartData = new FlowLayoutPanel
-            {
-                Size = new Size(1070, 710),
-                //Location = new Point(100, 100),
-                Margin = new Padding(90, 0, 0, 0),
-                AutoScroll = true,
-                //BackColor = Color.Red,
-                WrapContents = true,
-            };
-            foreach (DataRow row in dt.Rows)
-            {
-                //Debug.WriteLine(row["GName"]);
-
-                Panel cardForCartData = new Panel
+                FlowLayoutPanel flowLayoutPanelForCartColumn = new FlowLayoutPanel
                 {
-                    Size = new Size(1070, 60),
+                    Size = new Size(1290, 720),
+                    Location = new Point(0, 100),
+
+                    AutoScroll = true,
+                    //BackColor = Color.Green,
+                    WrapContents = true,
+                };
+                Panel card = new Panel
+                {
+                    Size = new Size(1200, 60),
+                    Margin = new Padding(30, 50, 0, 0),
+                    BorderStyle = BorderStyle.FixedSingle,
+                };
+                Label titleLabel7 = new Label
+                {
+                    Text = "SalesmanID",
+                    Font = new System.Drawing.Font("Segoe UI", 12, FontStyle.Bold),
+                    Location = new Point(40, 10),
+                    AutoSize = true,
+                    ForeColor = Color.White,
+
+                };
+                card.Controls.Add(titleLabel7);
+                Label titleLabel8 = new Label
+                {
+                    Text = "SalesmanName",
+                    Font = new System.Drawing.Font("Segoe UI", 12, FontStyle.Bold),
+                    Location = new Point(240, 10),
+                    AutoSize = true,
+                    ForeColor = Color.White,
+
+                };
+                card.Controls.Add(titleLabel8);
+                Label titleLabel1 = new Label
+                {
+                    Text = "GameID",
+                    Font = new System.Drawing.Font("Segoe UI", 12, FontStyle.Bold),
+                    Location = new Point(460, 10),
+                    AutoSize = true,
+                    ForeColor = Color.White,
+
+                };
+                card.Controls.Add(titleLabel1);
+
+                Label titleLabel2 = new Label
+                {
+                    Text = "GameName",
+                    Font = new System.Drawing.Font("Segoe UI", 12, FontStyle.Bold),
+                    Location = new Point(610, 10),
+                    AutoSize = true,
+                    ForeColor = Color.White,
+                };
+                card.Controls.Add(titleLabel2);
+                Label titleLabel3 = new Label
+                {
+                    Text = "Quantity",
+                    Font = new System.Drawing.Font("Segoe UI", 12, FontStyle.Bold),
+                    Location = new Point(830, 10),
+                    AutoSize = true,
+                    ForeColor = Color.White,
+                };
+                card.Controls.Add(titleLabel3);
+
+                Label titleLabel4 = new Label
+                {
+                    Text = "Price",
+                    Font = new System.Drawing.Font("Segoe UI", 12, FontStyle.Bold),
+                    Location = new Point(990, 10),
+                    AutoSize = true,
+                    ForeColor = Color.White,
+                };
+                card.Controls.Add(titleLabel4);
+                //for cart data
+                FlowLayoutPanel flowLayoutPanelforCartData = new FlowLayoutPanel
+                {
+                    Size = new Size(1270, 600),
+                    Margin = new Padding(0, 0, 0, 0),
+                    AutoScroll = true,
+                    //BackColor = Color.Red,
+                    WrapContents = true,
+                };
+                foreach (DataRow row in dt.Rows)
+                {
+
+
+                    Panel cardForCartData = new Panel
+                    {
+                        Size = new Size(1070, 43),
+
+                        Margin = new Padding(70, 10, 0, 0),
+
+                    };
+                    Label titleLabel9 = new Label
+                    {
+                        Text = row["SalespersonID"].ToString(),
+                        Font = new System.Drawing.Font("Segoe UI", 12, FontStyle.Bold),
+                        Location = new Point(30, 10),
+                        AutoSize = true,
+                        ForeColor = Color.White,
+
+                    };
+                    cardForCartData.Controls.Add(titleLabel9);
+
+                    Label titleLabel10 = new Label
+                    {
+                        Text = row["SalespersonName"].ToString(),
+                        Font = new System.Drawing.Font("Segoe UI", 12, FontStyle.Bold),
+                        Location = new Point(230, 10),
+                        AutoSize = true,
+                        ForeColor = Color.White,
+                    };
+                    cardForCartData.Controls.Add(titleLabel10);
+                    Label titleLabel11 = new Label
+                    {
+                        Text = row["GameID"].ToString(),
+                        Font = new System.Drawing.Font("Segoe UI", 12, FontStyle.Bold),
+                        Location = new Point(440, 10),
+                        AutoSize = true,
+                        ForeColor = Color.White,
+                    };
+                    cardForCartData.Controls.Add(titleLabel11);
+                    Label titleLabel12 = new Label
+                    {
+
+                        Text = row["GameName"].ToString(),
+                        Font = new System.Drawing.Font("Segoe UI", 12, FontStyle.Bold),
+                        Location = new Point(580, 10),
+                        AutoSize = true,
+                        ForeColor = Color.White,
+                    };
+                    cardForCartData.Controls.Add(titleLabel12);
+                    Label titleLabel13 = new Label
+                    {
+                        Text = row["Quantity"].ToString(),
+                        Font = new System.Drawing.Font("Segoe UI", 12, FontStyle.Bold),
+                        Location = new Point(800, 10),
+                        AutoSize = true,
+                        ForeColor = Color.White,
+                    };
+                    cardForCartData.Controls.Add(titleLabel13);
+                    Label titleLabel14 = new Label
+                    {
+                        Text = row["Price"].ToString(),
+                        Font = new System.Drawing.Font("Segoe UI", 12, FontStyle.Bold),
+                        Location = new Point(950, 10),
+                        AutoSize = true,
+                        ForeColor = Color.White,
+                    };
+                    cardForCartData.Controls.Add(titleLabel14);
+                    flowLayoutPanelforCartData.Controls.Add(cardForCartData);
+                }
+                Panel cardforTotalPrice = new Panel
+                {
+                    Size = new Size(1200, 50),
+                    Margin = new Padding(30, 0, 0, 10),
+                    BorderStyle = BorderStyle.FixedSingle,
+                    //BackColor = Color.White,
+                };
+                Label titleLabel15 = new Label
+                {
+                    Text = "Total Price: ",
+                    Font = new System.Drawing.Font("Segoe UI", 14, FontStyle.Bold),
+                    Location = new Point(850, 10),
+                    AutoSize = true,
+                    ForeColor = Color.White,
+                };
+                cardforTotalPrice.Controls.Add(titleLabel15);
+                flowLayoutPanelforCartData.Controls.Add(cardforTotalPrice);
+                Panel cardforBuy = new Panel
+                {
+                    Size = new Size(1200, 80),
+                    Margin = new Padding(30, 0, 0, 50),
                     //BorderStyle = BorderStyle.FixedSingle,
-                    Margin = new Padding(0, 10, 0, 0),
-                    //BackColor = Color.GhostWhite,
+                    //BackColor = Color.White,
                 };
-                Label titleLabel9 = new Label
+                System.Windows.Forms.Button BuyNowBtn = new System.Windows.Forms.Button
                 {
-                    Text = row["SalespersonID"].ToString(),
+                    Text = "Buy now",
                     Font = new System.Drawing.Font("Segoe UI", 12, FontStyle.Bold),
-                    Location = new Point(30, 10),
-                    AutoSize = true,
-                    ForeColor = Color.White,
-
-                };
-                cardForCartData.Controls.Add(titleLabel9);
-
-                Label titleLabel10 = new Label
-                {
-                    Text = row["SalespersonName"].ToString(),
-                    Font = new System.Drawing.Font("Segoe UI", 12, FontStyle.Bold),
-                    Location = new Point(230, 10),
-                    AutoSize = true,
-                    ForeColor = Color.White,
-                };
-                cardForCartData.Controls.Add(titleLabel10);
-                Label titleLabel11 = new Label
-                {
-                    Text = row["GameID"].ToString(),
-                    Font = new System.Drawing.Font("Segoe UI", 12, FontStyle.Bold),
+                    Size = new Size(180, 60),
                     Location = new Point(450, 10),
-                    AutoSize = true,
-                    ForeColor = Color.White,
+                    BackColor = System.Drawing.ColorTranslator.FromHtml("#F5F5F5"),
+                    FlatStyle = FlatStyle.Popup,
+                    ForeColor = System.Drawing.ColorTranslator.FromHtml("#333333")
+                    //ForeColor = Color.White,
                 };
-                cardForCartData.Controls.Add(titleLabel11);
-                Label titleLabel12 = new Label
-                {
-
-                    Text = row["GameName"].ToString(),
-                    Font = new System.Drawing.Font("Segoe UI", 12, FontStyle.Bold),
-                    Location = new Point(580, 10),
-                    AutoSize = true,
-                    ForeColor = Color.White,
-                };
-                cardForCartData.Controls.Add(titleLabel12);
-                //Label titleLabel13 = new Label
-                //{
-                //    Text = row["Quantity"].ToString(),
-                //    Font = new System.Drawing.Font("Segoe UI", 12, FontStyle.Bold),
-                //    Location = new Point(800, 10),
-                //    AutoSize = true,
-                //    ForeColor = Color.White,
-                //};
-                //cardForCartData.Controls.Add(titleLabel13);
-                Label titleLabel14 = new Label
-                {
-                    Text = row["Price"].ToString(),
-                    Font = new System.Drawing.Font("Segoe UI", 12, FontStyle.Bold),
-                    Location = new Point(950, 10),
-                    AutoSize = true,
-                    ForeColor = Color.White,
-                };
-                cardForCartData.Controls.Add(titleLabel14);
-
-                //FlowLayoutPanel flowLayoutPanel = new FlowLayoutPanel
-                //{
-                //    Size = new Size(150, 75),
-                //    Location = new Point(1230, 480),
-                //    AutoScroll = true,
-                //    //BackColor = Color.Red,
-                //    WrapContents = true,
-                //};
-                //Panel card = new Panel
-                //{
-                //    Size = new Size(100, 50),
-                //    BorderStyle = BorderStyle.FixedSingle,
-                //    Margin = new Padding(10),
-                //    //BackColor = Color.Red,
-                //};
-
-                //Label titleLabel1 = new Label
-                //{
-                //    Text = "Name: ",
-                //    Font = new System.Drawing.Font("Segoe UI", 12, FontStyle.Bold),
-                //    Location = new Point(0, 0),
-                //    AutoSize = true,
-                //    ForeColor = Color.White,
-
-                //};
-                //card.Controls.Add(titleLabel1);
+                cardforBuy.Controls.Add(BuyNowBtn);
+                flowLayoutPanelforCartData.Controls.Add(cardforBuy);
                 flowLayoutPanelForCartColumn.Controls.Add(card);
-                flowLayoutPanelforCartData.Controls.Add(cardForCartData);
                 flowLayoutPanelForCartColumn.Controls.Add(flowLayoutPanelforCartData);
-                
                 this.Controls.Add(flowLayoutPanelForCartColumn);
             }
+            catch (Exception ex) { MessageBox.Show("No data" + ex); }
         }
         private void CartPage_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -250,9 +262,14 @@ namespace ProjectWin
 
         private void label6_Click(object sender, EventArgs e)
         {
-            SalesMan sl = new SalesMan("a","b");
+            SalesMan sl = new SalesMan("a", "b");
             sl.Show();
             this.Hide();
+        }
+
+        private void profileBtn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

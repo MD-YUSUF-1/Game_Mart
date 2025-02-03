@@ -84,6 +84,7 @@
             logoutBtn.TabIndex = 0;
             logoutBtn.Text = "Logout";
             logoutBtn.UseVisualStyleBackColor = true;
+            logoutBtn.Click += logoutBtn_Click;
             // 
             // SalesMan
             // 

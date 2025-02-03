@@ -81,12 +81,19 @@ namespace ProjectWin
                 personName.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
                 personPhone.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
                 personGmail.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
-           
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Invalid data " + ex.Message);
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Admin_insert_manager admin_Insert_Manager = new Admin_insert_manager();
+            admin_Insert_Manager.Show();
+            this.Hide();
         }
     }
 }

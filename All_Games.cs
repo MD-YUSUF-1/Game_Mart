@@ -15,6 +15,7 @@ using Image = System.Drawing.Image;
 using System.Diagnostics;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Threading.Tasks.Dataflow;
 
 namespace ProjectWin
 {
@@ -27,7 +28,8 @@ namespace ProjectWin
         {
             try
             {
-                con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\new_project\database\Game_Mart.mdf;Integrated Security=True;Connect Timeout=30");
+                con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""G:\8. EIGHTH SEMESTER\C#\Project\MAIN PROJECT\database\Game_Mart.mdf"";Integrated Security=True;Connect Timeout=30;Encrypt=False
+");
                 con.Open();
             }
             catch (Exception ex)
@@ -253,7 +255,7 @@ namespace ProjectWin
                             float price = float.Parse(row["GPrice"].ToString());
                             float discount = float.Parse(row["GDiscount"].ToString());
                             price = price - (price * (discount / 100));
-                            price= (float)Math.Round(price,2);
+                            price = (float)Math.Round(price, 2);
                             sq2.Parameters.AddWithValue("@gp", price);
                         }
                         else
@@ -261,14 +263,21 @@ namespace ProjectWin
                             sq2.Parameters.AddWithValue("@gp", row["GPrice"]);
                         }
 
-                        sq2.Parameters.AddWithValue("@gname", row["GName"]);
-                        sq2.Parameters.AddWithValue("@gid", row["GameID"]);
+                        try
+                        {
+                            sq2.Parameters.AddWithValue("@gname", row["GName"]);
+                            sq2.Parameters.AddWithValue("@gid", row["GameID"]);
                             sq2.Parameters.AddWithValue("@sid", dt1.Rows[0]["SalespersonID"]);
                             sq2.Parameters.AddWithValue("@sname", dt1.Rows[0]["username"]);
-                        MessageBox.Show("Added to the cart", "Success", MessageBoxButtons.OK);
+                            MessageBox.Show("Added to the cart", "Success", MessageBoxButtons.OK);
 
-                        sq2.ExecuteNonQuery();
-                        con.Close();
+                            sq2.ExecuteNonQuery();
+                            con.Close();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Sorry," + ex.Message);
+                        }
 
                     };
                     card.Controls.Add(AddToCartbtn);
@@ -307,6 +316,13 @@ namespace ProjectWin
         {
             ProfilePage profilePage = new ProfilePage();
             profilePage.Show();
+            this.Hide();
+        }
+
+        private void logoutBtn_Click(object sender, EventArgs e)
+        {
+            All_Role all_Role = new All_Role();
+            all_Role.Show();
             this.Hide();
         }
     }

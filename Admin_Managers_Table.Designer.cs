@@ -117,6 +117,7 @@
             button2.TabIndex = 40;
             button2.Text = "Insert";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // label5
             // 
