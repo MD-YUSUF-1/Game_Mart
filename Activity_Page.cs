@@ -25,7 +25,7 @@ namespace ProjectWin
         {
             try
             {
-                con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""D:\C# Project\database\database\Game_Mart.mdf"";Integrated Security=True;Connect Timeout=30;Encrypt=False
+                con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""G:\8. EIGHTH SEMESTER\C#\Project\MAIN PROJECT\database\Game_Mart.mdf"";Integrated Security=True;Connect Timeout=30;Encrypt=False
 ");
                 con.Open();
             }
@@ -47,9 +47,6 @@ namespace ProjectWin
                 sda.Fill(dt);
                 dataGridView1.RowTemplate.Height = 75;
                 dataGridView1.DataSource = dt;
-                DataGridViewImageColumn img = new DataGridViewImageColumn();
-               // img = (DataGridViewImageColumn)dataGridView1.Columns[6];
-               // img.ImageLayout = DataGridViewImageCellLayout.Stretch;
                 con.Close();
             }
             catch (Exception ex)

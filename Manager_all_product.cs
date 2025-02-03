@@ -16,6 +16,7 @@ namespace ProjectWin
         public Manager_all_product()
         {
             InitializeComponent();
+            Form2_Load();
         }
         SqlConnection con;
         public void dbcon()
@@ -29,6 +30,28 @@ namespace ProjectWin
             catch (Exception ex)
             {
                 MessageBox.Show($"Failed to connect to the database: {ex.Message}", "Database Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void Form2_Load()
+        {
+            try
+            {
+                dbcon();
+                SqlCommand sq1 = new SqlCommand("select * from PRODUCT_TABLE", con);
+                SqlDataAdapter sda = new SqlDataAdapter(sq1);
+                DataTable dt = new DataTable();
+
+                sda.Fill(dt);
+                dataGridView1.RowTemplate.Height = 75;
+                dataGridView1.DataSource = dt;
+                DataGridViewImageColumn img = new DataGridViewImageColumn();
+                img = (DataGridViewImageColumn)dataGridView1.Columns[6];
+                img.ImageLayout = DataGridViewImageCellLayout.Stretch;
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to load Table " + ex);
             }
         }
 
@@ -94,7 +117,7 @@ namespace ProjectWin
                     gameStock.Text = "";
                     gamePrice.Text = "";
                     MessageBox.Show("Updated Successfully");
-                   // Form2_Load();
+                    // Form2_Load();
                 }
                 catch (Exception ex)
                 {
@@ -107,6 +130,7 @@ namespace ProjectWin
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
 
         }
 
@@ -131,5 +155,37 @@ namespace ProjectWin
         {
 
         }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        
+            {
+                try
+                {
+                    if (updateBtn.Text == "Update")
+                    {
+                        MessageBox.Show("Please, Update First");
+                        dataGridView1.ClearSelection();
+                    }
+                    else
+                    {
+                        gameID.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                        gameName.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+                        gameGenre.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
+                        gameStock.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+                        gamePrice.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+                        gameDiscount.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+
+                        MemoryStream ms = new MemoryStream((byte[])dataGridView1.CurrentRow.Cells[6].Value);
+                        gameImage.Image = Image.FromStream(ms);
+                    }
+
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Invalid data " + ex.Message);
+                }
+            }
+        
     }
 }

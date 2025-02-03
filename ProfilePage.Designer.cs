@@ -45,6 +45,7 @@
             // 
             // image
             // 
+
             image.BackgroundImage = Properties.Resources.defaultProfile1;
             image.Location = new Point(106, 81);
             image.Name = "image";
@@ -52,13 +53,16 @@
             image.TabIndex = 0;
             image.TabStop = false;
             image.Click += pictureBox1_Click;
+
             // 
             // label1
             // 
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Transparent;
+
             label1.Location = new Point(305, 58);
+
             label1.Name = "label1";
             label1.Size = new Size(221, 51);
             label1.TabIndex = 7;
@@ -69,7 +73,9 @@
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.Transparent;
+
             label2.Location = new Point(305, 107);
+
             label2.Name = "label2";
             label2.Size = new Size(221, 51);
             label2.TabIndex = 8;
@@ -80,14 +86,17 @@
             label3.BackColor = Color.Transparent;
             label3.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.Transparent;
+
             label3.Location = new Point(305, 158);
             label3.Name = "label3";
             label3.Size = new Size(101, 51);
+
             label3.TabIndex = 9;
             label3.Text = "Phone:";
             // 
             // updateBtn
             // 
+
             updateBtn.BackColor = Color.Black;
             updateBtn.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             updateBtn.ForeColor = Color.Transparent;
@@ -150,6 +159,7 @@
             phone.Name = "phone";
             phone.Size = new Size(221, 23);
             phone.TabIndex = 17;
+
             // 
             // ProfilePage
             // 
