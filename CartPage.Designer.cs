@@ -45,6 +45,7 @@
             logoutBtn.TabIndex = 2;
             logoutBtn.Text = "Logout";
             logoutBtn.UseVisualStyleBackColor = true;
+            logoutBtn.Click += logoutBtn_Click;
             // 
             // profileBtn
             // 

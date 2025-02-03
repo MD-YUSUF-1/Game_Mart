@@ -249,35 +249,61 @@ namespace ProjectWin
 
                         SqlDataAdapter sqd1 = new SqlDataAdapter(sq1);
                         sqd1.Fill(dt1);
-                        SqlCommand sq2 = new SqlCommand("insert into CartTABLE(SalesPersonID,SalesPersonName,GameID,GameName,Price) values(@sid,@sname,@gid,@gname, @gp)", con);
-                        if (float.Parse(row["GDiscount"].ToString()) > 0)
-                        {
-                            float price = float.Parse(row["GPrice"].ToString());
-                            float discount = float.Parse(row["GDiscount"].ToString());
-                            price = price - (price * (discount / 100));
-                            price = (float)Math.Round(price, 2);
-                            sq2.Parameters.AddWithValue("@gp", price);
-                        }
-                        else
-                        {
-                            sq2.Parameters.AddWithValue("@gp", row["GPrice"]);
-                        }
+                        
 
                         try
                         {
-                            sq2.Parameters.AddWithValue("@gname", row["GName"]);
-                            sq2.Parameters.AddWithValue("@gid", row["GameID"]);
-                            sq2.Parameters.AddWithValue("@sid", dt1.Rows[0]["SalespersonID"]);
-                            sq2.Parameters.AddWithValue("@sname", dt1.Rows[0]["username"]);
-                            MessageBox.Show("Added to the cart", "Success", MessageBoxButtons.OK);
+                            int gameID = Convert.ToInt32(row["GameID"]);
+                            SqlCommand scmForCheck = new SqlCommand("SELECT * FROM CartTable WHERE GameID = @gameID", con);
+                            scmForCheck.Parameters.AddWithValue("@gameID", gameID);
+                            SqlDataAdapter sqdForCart = new SqlDataAdapter(scmForCheck);
+                            DataTable dtforCartItem = new DataTable();
+                            sqdForCart.Fill(dtforCartItem);
 
-                            sq2.ExecuteNonQuery();
-                            con.Close();
+                            if (dtforCartItem.Rows.Count > 0)
+                            {
+                                MessageBox.Show("ALready Added to the cart. You can Update quantity in cart");
+                            }
+                            else
+                            {
+                                if (Convert.ToInt32(row["GStock"]) > 0)
+                                {
+                                    SqlCommand sq2 = new SqlCommand("insert into CartTABLE(SalesPersonID,SalesPersonName,GameID,GameName,Price,Quantity) values(@sid,@sname,@gid,@gname, @gp, @quantity)", con);
+                                    if (float.Parse(row["GDiscount"].ToString()) > 0)
+                                    {
+                                        float price = float.Parse(row["GPrice"].ToString());
+                                        float discount = float.Parse(row["GDiscount"].ToString());
+                                        price = price - (price * (discount / 100));
+                                        price = float.Parse(price.ToString("F2"));
+                                        sq2.Parameters.AddWithValue("@gp", price);
+                                    }
+                                    else
+                                    {
+                                        sq2.Parameters.AddWithValue("@gp", row["GPrice"]);
+                                    }
+                                    sq2.Parameters.AddWithValue("@gname", row["GName"]);
+                                    sq2.Parameters.AddWithValue("@gid", row["GameID"]);
+                                    sq2.Parameters.AddWithValue("@sid", dt1.Rows[0]["SalespersonID"]);
+                                    sq2.Parameters.AddWithValue("@sname", dt1.Rows[0]["username"]);
+                                    sq2.Parameters.AddWithValue("@quantity", 1);
+
+                                    MessageBox.Show("Added to the cart", "Success", MessageBoxButtons.OK);
+                                    sq2.ExecuteNonQuery();
+                                    SqlCommand updateStockCmd = new SqlCommand("UPDATE PRODUCT_TABLE SET GStock = GStock - 1 WHERE GameID = @gameID", con);
+                                    updateStockCmd.Parameters.AddWithValue("@gameID", gameID);
+                                    updateStockCmd.ExecuteNonQuery();
+                                    
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Sorry, No Stock available.");
+                                }                            }
                         }
                         catch (Exception ex)
                         {
-                            MessageBox.Show("Sorry," + ex.Message);
+                            MessageBox.Show("Cart insertion Failed. " + ex.Message);
                         }
+                        con.Close();
 
                     };
                     card.Controls.Add(AddToCartbtn);
@@ -305,12 +331,16 @@ namespace ProjectWin
             }
         }
 
+        
+
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             CartPage cartPage = new CartPage();
             cartPage.Show();
             this.Hide();
         }
+
+       
 
         private void profileBtn_Click(object sender, EventArgs e)
         {
