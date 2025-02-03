@@ -41,6 +41,7 @@
             textBox4 = new TextBox();
             textBox3 = new TextBox();
             textBox2 = new TextBox();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -50,11 +51,11 @@
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(-2, 345);
-            dataGridView1.Margin = new Padding(3, 4, 3, 4);
+            dataGridView1.Location = new Point(-2, 460);
+            dataGridView1.Margin = new Padding(3, 5, 3, 5);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(1036, 257);
+            dataGridView1.Size = new Size(1184, 343);
             dataGridView1.TabIndex = 40;
             // 
             // label5
@@ -63,9 +64,9 @@
             label5.BackColor = Color.Transparent;
             label5.Font = new Font("Segoe UI", 12F);
             label5.ForeColor = Color.Transparent;
-            label5.Location = new Point(194, 212);
+            label5.Location = new Point(215, 280);
             label5.Name = "label5";
-            label5.Size = new Size(115, 21);
+            label5.Size = new Size(144, 28);
             label5.TabIndex = 39;
             label5.Text = "DATE OF BIRTH";
             // 
@@ -75,9 +76,9 @@
             label4.BackColor = Color.Transparent;
             label4.Font = new Font("Segoe UI", 12F);
             label4.ForeColor = Color.Transparent;
-            label4.Location = new Point(255, 124);
+            label4.Location = new Point(291, 165);
             label4.Name = "label4";
-            label4.Size = new Size(54, 21);
+            label4.Size = new Size(67, 28);
             label4.TabIndex = 38;
             label4.Text = "EMAIL";
             // 
@@ -87,9 +88,9 @@
             label3.BackColor = Color.Transparent;
             label3.Font = new Font("Segoe UI", 12F);
             label3.ForeColor = Color.Transparent;
-            label3.Location = new Point(247, 170);
+            label3.Location = new Point(282, 227);
             label3.Name = "label3";
-            label3.Size = new Size(62, 21);
+            label3.Size = new Size(77, 28);
             label3.TabIndex = 37;
             label3.Text = "PHONE";
             // 
@@ -99,9 +100,9 @@
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Segoe UI", 12F);
             label2.ForeColor = Color.Transparent;
-            label2.Location = new Point(223, 79);
+            label2.Location = new Point(255, 105);
             label2.Name = "label2";
-            label2.Size = new Size(92, 21);
+            label2.Size = new Size(115, 28);
             label2.TabIndex = 36;
             label2.Text = "USERNAME";
             // 
@@ -110,19 +111,22 @@
             SubmitBtn.BackColor = Color.White;
             SubmitBtn.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             SubmitBtn.ForeColor = Color.Black;
-            SubmitBtn.Location = new Point(406, 268);
+            SubmitBtn.Location = new Point(464, 357);
+            SubmitBtn.Margin = new Padding(3, 4, 3, 4);
             SubmitBtn.Name = "SubmitBtn";
-            SubmitBtn.Size = new Size(104, 31);
+            SubmitBtn.Size = new Size(119, 41);
             SubmitBtn.TabIndex = 35;
             SubmitBtn.Text = "Submit";
             SubmitBtn.UseVisualStyleBackColor = false;
+            SubmitBtn.Click += SubmitBtn_Click;
             // 
             // browseBtn
             // 
             browseBtn.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            browseBtn.Location = new Point(729, 268);
+            browseBtn.Location = new Point(833, 357);
+            browseBtn.Margin = new Padding(3, 4, 3, 4);
             browseBtn.Name = "browseBtn";
-            browseBtn.Size = new Size(92, 31);
+            browseBtn.Size = new Size(105, 41);
             browseBtn.TabIndex = 34;
             browseBtn.Text = "Browse";
             browseBtn.UseVisualStyleBackColor = true;
@@ -130,50 +134,64 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(674, 40);
-            pictureBox1.Margin = new Padding(3, 4, 3, 4);
+            pictureBox1.Location = new Point(770, 53);
+            pictureBox1.Margin = new Padding(3, 5, 3, 5);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(186, 173);
+            pictureBox1.Size = new Size(213, 231);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 33;
             pictureBox1.TabStop = false;
             // 
             // textBox5
             // 
-            textBox5.Location = new Point(326, 210);
+            textBox5.Location = new Point(373, 280);
+            textBox5.Margin = new Padding(3, 4, 3, 4);
             textBox5.Name = "textBox5";
-            textBox5.Size = new Size(267, 23);
+            textBox5.Size = new Size(305, 27);
             textBox5.TabIndex = 32;
             // 
             // textBox4
             // 
-            textBox4.Location = new Point(326, 168);
+            textBox4.Location = new Point(373, 224);
+            textBox4.Margin = new Padding(3, 4, 3, 4);
             textBox4.Name = "textBox4";
-            textBox4.Size = new Size(267, 23);
+            textBox4.Size = new Size(305, 27);
             textBox4.TabIndex = 31;
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(326, 122);
-            textBox3.Margin = new Padding(3, 4, 3, 4);
+            textBox3.Location = new Point(373, 163);
+            textBox3.Margin = new Padding(3, 5, 3, 5);
             textBox3.Name = "textBox3";
-            textBox3.Size = new Size(267, 23);
+            textBox3.Size = new Size(305, 27);
             textBox3.TabIndex = 30;
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(326, 79);
-            textBox2.Margin = new Padding(3, 4, 3, 4);
+            textBox2.Location = new Point(373, 105);
+            textBox2.Margin = new Padding(3, 5, 3, 5);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(267, 23);
+            textBox2.Size = new Size(305, 27);
             textBox2.TabIndex = 29;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 12F);
+            label1.Location = new Point(29, 22);
+            label1.Name = "label1";
+            label1.Size = new Size(74, 28);
+            label1.TabIndex = 41;
+            label1.Text = "<-Back";
+            label1.Click += label1_Click_1;
             // 
             // Admin_insert_salesman
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = Properties.Resources.connections_background_1048_10302;
-            ClientSize = new Size(1034, 602);
+            BackColor = Color.DimGray;
+            ClientSize = new Size(1182, 803);
+            Controls.Add(label1);
             Controls.Add(dataGridView1);
             Controls.Add(label5);
             Controls.Add(label4);
@@ -186,6 +204,7 @@
             Controls.Add(textBox4);
             Controls.Add(textBox3);
             Controls.Add(textBox2);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "Admin_insert_salesman";
             Text = "Admin_insert_salesman";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
@@ -208,5 +227,6 @@
         private TextBox textBox4;
         private TextBox textBox3;
         private TextBox textBox2;
+        private Label label1;
     }
 }

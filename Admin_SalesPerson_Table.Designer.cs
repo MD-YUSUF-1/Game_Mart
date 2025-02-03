@@ -104,6 +104,7 @@
             updateBtn.TabIndex = 58;
             updateBtn.Text = "Edit";
             updateBtn.UseVisualStyleBackColor = false;
+            updateBtn.Click += updateBtn_Click;
             // 
             // button1
             // 
@@ -115,6 +116,7 @@
             button1.TabIndex = 57;
             button1.Text = "Delete";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // label
             // 
@@ -139,6 +141,7 @@
             personID.Name = "personID";
             personID.Size = new Size(299, 40);
             personID.TabIndex = 55;
+            personID.TextChanged += personID_TextChanged;
             // 
             // button2
             // 
@@ -151,6 +154,7 @@
             button2.TabIndex = 54;
             button2.Text = "Insert";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // label5
             // 
