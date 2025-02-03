@@ -40,10 +40,10 @@
             // pictureBox1
             // 
             pictureBox1.BackgroundImage = Properties.Resources.defaultProfile1;
-            pictureBox1.Location = new Point(190, 124);
+            pictureBox1.Location = new Point(138, 88);
             pictureBox1.Margin = new Padding(3, 4, 3, 4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(170, 196);
+            pictureBox1.Size = new Size(228, 222);
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
@@ -52,7 +52,7 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Transparent;
-            label1.Location = new Point(399, 135);
+            label1.Location = new Point(399, 110);
             label1.Name = "label1";
             label1.Size = new Size(253, 68);
             label1.TabIndex = 7;
@@ -63,7 +63,7 @@
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.Transparent;
-            label2.Location = new Point(399, 200);
+            label2.Location = new Point(399, 153);
             label2.Name = "label2";
             label2.Size = new Size(253, 68);
             label2.TabIndex = 8;
@@ -74,9 +74,9 @@
             label3.BackColor = Color.Transparent;
             label3.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.Transparent;
-            label3.Location = new Point(399, 268);
+            label3.Location = new Point(399, 195);
             label3.Name = "label3";
-            label3.Size = new Size(253, 68);
+            label3.Size = new Size(253, 48);
             label3.TabIndex = 9;
             label3.Text = "Phone";
             // 
@@ -85,7 +85,7 @@
             button1.BackColor = Color.Black;
             button1.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             button1.ForeColor = Color.Transparent;
-            button1.Location = new Point(381, 412);
+            button1.Location = new Point(358, 465);
             button1.Margin = new Padding(3, 4, 3, 4);
             button1.Name = "button1";
             button1.Size = new Size(186, 72);
