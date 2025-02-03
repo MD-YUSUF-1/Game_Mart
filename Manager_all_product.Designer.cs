@@ -62,6 +62,7 @@
             browseBtn.TabIndex = 47;
             browseBtn.Text = "Browse";
             browseBtn.UseVisualStyleBackColor = false;
+            browseBtn.Click += browseBtn_Click;
             // 
             // updateBtn
             // 
@@ -74,6 +75,7 @@
             updateBtn.TabIndex = 46;
             updateBtn.Text = "Edit";
             updateBtn.UseVisualStyleBackColor = false;
+            updateBtn.Click += updateBtn_Click;
             // 
             // label
             // 
@@ -218,6 +220,7 @@
             gameImage.SizeMode = PictureBoxSizeMode.StretchImage;
             gameImage.TabIndex = 31;
             gameImage.TabStop = false;
+            gameImage.Click += gameImage_Click;
             // 
             // gameName
             // 
@@ -241,6 +244,7 @@
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.Size = new Size(763, 540);
             dataGridView1.TabIndex = 29;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // Manager_all_product
             // 
