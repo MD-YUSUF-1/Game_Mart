@@ -52,7 +52,9 @@ namespace ProjectWin
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            Activity_Page activity_Page = new Activity_Page();
+            activity_Page.Show();
+            this.Hide();
         }
     }
 }

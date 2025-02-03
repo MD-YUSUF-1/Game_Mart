@@ -99,8 +99,6 @@ namespace ProjectWin
                         {
                             if (dataArray[0] == "admin")
                             {
-                                //Admin_Homepage admin_homePage = new Admin_Homepage();
-                                //admin_homePage.Show();
                                 Admin_Homepage ag = new Admin_Homepage();
                                 ag.Show();
                                 this.Hide();
@@ -115,7 +113,7 @@ namespace ProjectWin
                             }
                             if (dataArray[0] == "manager")
                             {
-                                Manager_Home m = new Manager_Home();
+                                Manager_Homepage m = new Manager_Homepage();
                                 this.Hide();
                                 m.Show();
                                 con.Close();
@@ -153,6 +151,13 @@ namespace ProjectWin
         private void LoginTextBox1_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            RegisterPage registerPage = new RegisterPage();
+            registerPage.Show();
+            this.Hide();
         }
     }
 }
