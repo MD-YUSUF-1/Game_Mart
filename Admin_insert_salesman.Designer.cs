@@ -37,11 +37,11 @@
             SubmitBtn = new Button();
             browseBtn = new Button();
             pictureBox1 = new PictureBox();
-            textBox5 = new TextBox();
             textBox4 = new TextBox();
             textBox3 = new TextBox();
             textBox2 = new TextBox();
             label1 = new Label();
+            datePicker1 = new DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -130,6 +130,7 @@
             browseBtn.TabIndex = 34;
             browseBtn.Text = "Browse";
             browseBtn.UseVisualStyleBackColor = true;
+            browseBtn.Click += browseBtn_Click;
             // 
             // pictureBox1
             // 
@@ -141,14 +142,6 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 33;
             pictureBox1.TabStop = false;
-            // 
-            // textBox5
-            // 
-            textBox5.Location = new Point(373, 280);
-            textBox5.Margin = new Padding(3, 4, 3, 4);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(305, 27);
-            textBox5.TabIndex = 32;
             // 
             // textBox4
             // 
@@ -185,12 +178,20 @@
             label1.Text = "<-Back";
             label1.Click += label1_Click_1;
             // 
+            // datePicker1
+            // 
+            datePicker1.Location = new Point(373, 280);
+            datePicker1.Name = "datePicker1";
+            datePicker1.Size = new Size(305, 27);
+            datePicker1.TabIndex = 42;
+            // 
             // Admin_insert_salesman
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DimGray;
             ClientSize = new Size(1182, 803);
+            Controls.Add(datePicker1);
             Controls.Add(label1);
             Controls.Add(dataGridView1);
             Controls.Add(label5);
@@ -200,7 +201,6 @@
             Controls.Add(SubmitBtn);
             Controls.Add(browseBtn);
             Controls.Add(pictureBox1);
-            Controls.Add(textBox5);
             Controls.Add(textBox4);
             Controls.Add(textBox3);
             Controls.Add(textBox2);
@@ -223,10 +223,10 @@
         private Button SubmitBtn;
         private Button browseBtn;
         private PictureBox pictureBox1;
-        private TextBox textBox5;
         private TextBox textBox4;
         private TextBox textBox3;
         private TextBox textBox2;
         private Label label1;
+        private DateTimePicker datePicker1;
     }
 }

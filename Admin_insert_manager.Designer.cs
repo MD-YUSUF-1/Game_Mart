@@ -40,11 +40,11 @@
             label4 = new Label();
             label3 = new Label();
             label2 = new Label();
-            textBox5 = new TextBox();
             textBox4 = new TextBox();
             textBox3 = new TextBox();
             textBox2 = new TextBox();
             label7 = new Label();
+            datePicker1 = new DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -109,6 +109,7 @@
             browseBtn.TabIndex = 21;
             browseBtn.Text = "Browse";
             browseBtn.UseVisualStyleBackColor = true;
+            browseBtn.Click += browseBtn_Click;
             // 
             // pictureBox1
             // 
@@ -178,14 +179,6 @@
             label2.TabIndex = 44;
             label2.Text = "USERNAME";
             // 
-            // textBox5
-            // 
-            textBox5.Location = new Point(453, 237);
-            textBox5.Margin = new Padding(3, 4, 3, 4);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(305, 27);
-            textBox5.TabIndex = 43;
-            // 
             // textBox4
             // 
             textBox4.Location = new Point(453, 181);
@@ -221,18 +214,25 @@
             label7.Text = "<-Back";
             label7.Click += label7_Click_1;
             // 
+            // datePicker1
+            // 
+            datePicker1.Location = new Point(453, 242);
+            datePicker1.Name = "datePicker1";
+            datePicker1.Size = new Size(305, 27);
+            datePicker1.TabIndex = 49;
+            // 
             // Admin_insert_manager
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(1184, 803);
+            Controls.Add(datePicker1);
             Controls.Add(label7);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(textBox5);
             Controls.Add(textBox4);
             Controls.Add(textBox3);
             Controls.Add(textBox2);
@@ -265,10 +265,10 @@
         private Label label4;
         private Label label3;
         private Label label2;
-        private TextBox textBox5;
         private TextBox textBox4;
         private TextBox textBox3;
         private TextBox textBox2;
         private Label label7;
+        private DateTimePicker datePicker1;
     }
 }

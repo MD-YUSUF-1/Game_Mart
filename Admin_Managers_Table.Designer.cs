@@ -45,6 +45,8 @@
             pictureBox1 = new PictureBox();
             Browsbtn = new Button();
             managerImage = new PictureBox();
+            datePicker1 = new DateTimePicker();
+            label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)managerImage).BeginInit();
@@ -80,7 +82,7 @@
             label.BackColor = Color.Transparent;
             label.Font = new Font("Segoe UI", 15.75F);
             label.ForeColor = Color.LightSkyBlue;
-            label.Location = new Point(1008, 170);
+            label.Location = new Point(991, 104);
             label.Name = "label";
             label.Size = new Size(43, 37);
             label.TabIndex = 43;
@@ -91,7 +93,7 @@
             personID.BackColor = Color.Silver;
             personID.BorderStyle = BorderStyle.None;
             personID.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            personID.Location = new Point(1054, 170);
+            personID.Location = new Point(1037, 104);
             personID.Margin = new Padding(3, 4, 3, 4);
             personID.Multiline = true;
             personID.Name = "personID";
@@ -130,7 +132,7 @@
             label5.BackColor = Color.Transparent;
             label5.Font = new Font("Segoe UI", 15.75F);
             label5.ForeColor = Color.LightSkyBlue;
-            label5.Location = new Point(964, 335);
+            label5.Location = new Point(947, 269);
             label5.Name = "label5";
             label5.Size = new Size(92, 37);
             label5.TabIndex = 35;
@@ -142,7 +144,7 @@
             label4.BackColor = Color.Transparent;
             label4.Font = new Font("Segoe UI", 15.75F);
             label4.ForeColor = Color.LightSkyBlue;
-            label4.Location = new Point(968, 419);
+            label4.Location = new Point(951, 353);
             label4.Name = "label4";
             label4.Size = new Size(87, 37);
             label4.TabIndex = 34;
@@ -154,7 +156,7 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Segoe UI", 15.75F);
             label1.ForeColor = Color.LightSkyBlue;
-            label1.Location = new Point(968, 250);
+            label1.Location = new Point(951, 184);
             label1.Name = "label1";
             label1.Size = new Size(88, 37);
             label1.TabIndex = 31;
@@ -180,7 +182,7 @@
             personName.BackColor = Color.Silver;
             personName.BorderStyle = BorderStyle.None;
             personName.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            personName.Location = new Point(1054, 250);
+            personName.Location = new Point(1037, 184);
             personName.Margin = new Padding(3, 4, 3, 4);
             personName.Multiline = true;
             personName.Name = "personName";
@@ -192,7 +194,7 @@
             personPhone.BackColor = Color.Silver;
             personPhone.BorderStyle = BorderStyle.None;
             personPhone.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            personPhone.Location = new Point(1054, 335);
+            personPhone.Location = new Point(1037, 269);
             personPhone.Margin = new Padding(3, 4, 3, 4);
             personPhone.Multiline = true;
             personPhone.Name = "personPhone";
@@ -204,7 +206,7 @@
             personGmail.BackColor = Color.Silver;
             personGmail.BorderStyle = BorderStyle.None;
             personGmail.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            personGmail.Location = new Point(1054, 419);
+            personGmail.Location = new Point(1037, 353);
             personGmail.Margin = new Padding(3, 4, 3, 4);
             personGmail.Multiline = true;
             personGmail.Name = "personGmail";
@@ -233,6 +235,7 @@
             Browsbtn.TabIndex = 50;
             Browsbtn.Text = "Browse";
             Browsbtn.UseVisualStyleBackColor = false;
+            Browsbtn.Click += Browsbtn_Click;
             // 
             // managerImage
             // 
@@ -244,13 +247,35 @@
             managerImage.TabIndex = 51;
             managerImage.TabStop = false;
             // 
+            // datePicker1
+            // 
+            datePicker1.Location = new Point(1037, 421);
+            datePicker1.Name = "datePicker1";
+            datePicker1.Size = new Size(299, 27);
+            datePicker1.TabIndex = 52;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
+            label2.Font = new Font("Segoe UI", 15.75F);
+            label2.ForeColor = Color.LightSkyBlue;
+            label2.Location = new Point(960, 421);
+            label2.Name = "label2";
+            label2.Size = new Size(71, 37);
+            label2.TabIndex = 53;
+            label2.Text = "DOB";
+            // 
             // Admin_Managers_Table
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.Control;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1382, 803);
+            Controls.Add(label2);
+            Controls.Add(datePicker1);
             Controls.Add(managerImage);
             Controls.Add(Browsbtn);
             Controls.Add(pictureBox1);
@@ -296,5 +321,7 @@
         private PictureBox pictureBox1;
         private Button Browsbtn;
         private PictureBox managerImage;
+        private DateTimePicker datePicker1;
+        private Label label2;
     }
 }
