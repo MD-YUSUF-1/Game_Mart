@@ -41,6 +41,7 @@
             textBox4 = new TextBox();
             textBox3 = new TextBox();
             textBox2 = new TextBox();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -117,6 +118,7 @@
             SubmitBtn.TabIndex = 35;
             SubmitBtn.Text = "Submit";
             SubmitBtn.UseVisualStyleBackColor = false;
+            SubmitBtn.Click += SubmitBtn_Click;
             // 
             // browseBtn
             // 
@@ -172,12 +174,24 @@
             textBox2.Size = new Size(305, 27);
             textBox2.TabIndex = 29;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 12F);
+            label1.Location = new Point(29, 22);
+            label1.Name = "label1";
+            label1.Size = new Size(74, 28);
+            label1.TabIndex = 41;
+            label1.Text = "<-Back";
+            label1.Click += label1_Click_1;
+            // 
             // Admin_insert_salesman
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DimGray;
             ClientSize = new Size(1182, 803);
+            Controls.Add(label1);
             Controls.Add(dataGridView1);
             Controls.Add(label5);
             Controls.Add(label4);
@@ -213,5 +227,6 @@
         private TextBox textBox4;
         private TextBox textBox3;
         private TextBox textBox2;
+        private Label label1;
     }
 }

@@ -44,6 +44,7 @@
             textBox4 = new TextBox();
             textBox3 = new TextBox();
             textBox2 = new TextBox();
+            label7 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -209,12 +210,24 @@
             textBox2.Size = new Size(305, 27);
             textBox2.TabIndex = 40;
             // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 12F);
+            label7.Location = new Point(27, 26);
+            label7.Name = "label7";
+            label7.Size = new Size(74, 28);
+            label7.TabIndex = 48;
+            label7.Text = "<-Back";
+            label7.Click += label7_Click_1;
+            // 
             // Admin_insert_manager
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(1184, 803);
+            Controls.Add(label7);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
@@ -256,5 +269,6 @@
         private TextBox textBox4;
         private TextBox textBox3;
         private TextBox textBox2;
+        private Label label7;
     }
 }

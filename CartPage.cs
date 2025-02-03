@@ -387,12 +387,5 @@ namespace ProjectWin
             sl.Show();
             this.Hide();
         }
-
-        private void logoutBtn_Click(object sender, EventArgs e)
-        {
-            All_Role all_Role = new All_Role();
-            all_Role.Show();
-            this.Hide();
-        }
     }
 }

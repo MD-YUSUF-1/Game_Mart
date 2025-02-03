@@ -57,6 +57,7 @@
             updateBtn.TabIndex = 45;
             updateBtn.Text = "Edit";
             updateBtn.UseVisualStyleBackColor = false;
+            updateBtn.Click += updateBtn_Click;
             // 
             // button1
             // 
@@ -68,6 +69,7 @@
             button1.TabIndex = 44;
             button1.Text = "Delete";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // label
             // 
