@@ -344,7 +344,7 @@ namespace ProjectWin
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            CartPage cartPage = new CartPage(0);
+            CartPage cartPage = new CartPage(5,"yusuf", password);
             cartPage.Show();
             this.Hide();
         }

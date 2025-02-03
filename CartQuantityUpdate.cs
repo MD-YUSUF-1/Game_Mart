@@ -93,7 +93,7 @@ namespace ProjectWin
                                         updateStock.ExecuteNonQuery();
                                     }
 
-                                    CartPage cartPage = new CartPage(0);
+                                    CartPage cartPage = new CartPage(5,"yusuf","123456");
                                     cartPage.Show();
                                     this.Hide();
                                 }
