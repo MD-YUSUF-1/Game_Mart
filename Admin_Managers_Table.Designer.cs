@@ -43,15 +43,18 @@
             personPhone = new TextBox();
             personGmail = new TextBox();
             pictureBox1 = new PictureBox();
+            Browsbtn = new Button();
+            managerImage = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)managerImage).BeginInit();
             SuspendLayout();
             // 
             // updateBtn
             // 
             updateBtn.BackColor = Color.DeepSkyBlue;
             updateBtn.FlatStyle = FlatStyle.Flat;
-            updateBtn.Location = new Point(338, 708);
+            updateBtn.Location = new Point(311, 708);
             updateBtn.Name = "updateBtn";
             updateBtn.Size = new Size(163, 52);
             updateBtn.TabIndex = 45;
@@ -63,7 +66,7 @@
             // 
             button1.BackColor = Color.DeepSkyBlue;
             button1.FlatStyle = FlatStyle.Flat;
-            button1.Location = new Point(628, 708);
+            button1.Location = new Point(536, 708);
             button1.Name = "button1";
             button1.Size = new Size(163, 52);
             button1.TabIndex = 44;
@@ -220,6 +223,27 @@
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
             // 
+            // Browsbtn
+            // 
+            Browsbtn.BackColor = Color.DeepSkyBlue;
+            Browsbtn.FlatStyle = FlatStyle.Flat;
+            Browsbtn.Location = new Point(741, 708);
+            Browsbtn.Name = "Browsbtn";
+            Browsbtn.Size = new Size(163, 52);
+            Browsbtn.TabIndex = 50;
+            Browsbtn.Text = "Browse";
+            Browsbtn.UseVisualStyleBackColor = false;
+            // 
+            // managerImage
+            // 
+            managerImage.Image = (Image)resources.GetObject("managerImage.Image");
+            managerImage.Location = new Point(1037, 499);
+            managerImage.Name = "managerImage";
+            managerImage.Size = new Size(292, 261);
+            managerImage.SizeMode = PictureBoxSizeMode.StretchImage;
+            managerImage.TabIndex = 51;
+            managerImage.TabStop = false;
+            // 
             // Admin_Managers_Table
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -227,6 +251,8 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1382, 803);
+            Controls.Add(managerImage);
+            Controls.Add(Browsbtn);
             Controls.Add(pictureBox1);
             Controls.Add(personGmail);
             Controls.Add(personPhone);
@@ -247,6 +273,7 @@
             Load += Admin_Managers_Table_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)managerImage).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -267,5 +294,7 @@
         private TextBox personPhone;
         private TextBox personGmail;
         private PictureBox pictureBox1;
+        private Button Browsbtn;
+        private PictureBox managerImage;
     }
 }

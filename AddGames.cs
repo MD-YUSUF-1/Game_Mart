@@ -22,7 +22,7 @@ namespace ProjectWin
             con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""G:\8. EIGHTH SEMESTER\C#\Project\MAIN PROJECT\database\Game_Mart.mdf"";Integrated Security=True;Connect Timeout=30;Encrypt=False");
             con.Open();
         }
-        public AddGames(string role)
+        public AddGames()
         {
             InitializeComponent();
             this.role = role;
@@ -131,7 +131,7 @@ namespace ProjectWin
         private void label6_Click(object sender, EventArgs e)
         {
 
-            All_Products_Admin all_Products_Admin = new All_Products_Admin("admin");
+            All_Products_Admin all_Products_Admin = new All_Products_Admin();
 
             all_Products_Admin.Show();
             this.Hide();

@@ -42,8 +42,11 @@
             label4 = new Label();
             label1 = new Label();
             dataGridView1 = new DataGridView();
+            Browsbtn = new Button();
+            SalesmanImage = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)SalesmanImage).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
@@ -98,7 +101,7 @@
             // 
             updateBtn.BackColor = Color.DeepSkyBlue;
             updateBtn.FlatStyle = FlatStyle.Flat;
-            updateBtn.Location = new Point(344, 716);
+            updateBtn.Location = new Point(277, 716);
             updateBtn.Name = "updateBtn";
             updateBtn.Size = new Size(163, 52);
             updateBtn.TabIndex = 58;
@@ -110,7 +113,7 @@
             // 
             button1.BackColor = Color.DeepSkyBlue;
             button1.FlatStyle = FlatStyle.Flat;
-            button1.Location = new Point(616, 716);
+            button1.Location = new Point(492, 716);
             button1.Name = "button1";
             button1.Size = new Size(163, 52);
             button1.TabIndex = 57;
@@ -207,6 +210,27 @@
             dataGridView1.CellClick += dataGridView1_CellClick;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
+            // Browsbtn
+            // 
+            Browsbtn.BackColor = Color.DeepSkyBlue;
+            Browsbtn.FlatStyle = FlatStyle.Flat;
+            Browsbtn.Location = new Point(703, 716);
+            Browsbtn.Name = "Browsbtn";
+            Browsbtn.Size = new Size(163, 52);
+            Browsbtn.TabIndex = 63;
+            Browsbtn.Text = "Browse";
+            Browsbtn.UseVisualStyleBackColor = false;
+            // 
+            // SalesmanImage
+            // 
+            SalesmanImage.Image = (Image)resources.GetObject("SalesmanImage.Image");
+            SalesmanImage.Location = new Point(1013, 507);
+            SalesmanImage.Name = "SalesmanImage";
+            SalesmanImage.Size = new Size(292, 261);
+            SalesmanImage.SizeMode = PictureBoxSizeMode.StretchImage;
+            SalesmanImage.TabIndex = 64;
+            SalesmanImage.TabStop = false;
+            // 
             // Admin_SalesPerson_Table
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -214,6 +238,8 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1382, 803);
+            Controls.Add(SalesmanImage);
+            Controls.Add(Browsbtn);
             Controls.Add(pictureBox1);
             Controls.Add(personGmail);
             Controls.Add(personPhone);
@@ -232,6 +258,7 @@
             Text = "Admin_SalesPerson_Table";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)SalesmanImage).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -251,5 +278,7 @@
         private Label label4;
         private Label label1;
         private DataGridView dataGridView1;
+        private Button Browsbtn;
+        private PictureBox SalesmanImage;
     }
 }

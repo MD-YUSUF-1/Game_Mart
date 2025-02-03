@@ -188,7 +188,7 @@ namespace ProjectWin
                     };
                     cardForCartData.Controls.Add(titleLabel12);
                     TextBox titleLabel13 = new TextBox
-                    { 
+                    {
                         Size = new Size(60, 40),
                         BackColor = Color.FromArgb(64, 64, 64),
                         BorderStyle = BorderStyle.None,
@@ -307,7 +307,7 @@ namespace ProjectWin
                     //ForeColor = Color.White,
 
                 };
-                
+
                 cardforBuy.Controls.Add(DeleteBtn);
                 System.Windows.Forms.Button BuyNowBtn = new System.Windows.Forms.Button
                 {
@@ -386,6 +386,11 @@ namespace ProjectWin
             SalesMan sl = new SalesMan("a", "b");
             sl.Show();
             this.Hide();
+        }
+
+        private void logoutBtn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
