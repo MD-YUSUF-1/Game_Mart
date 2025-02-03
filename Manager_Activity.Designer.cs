@@ -28,58 +28,54 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label6 = new Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Manager_Activity));
             dataGridView1 = new DataGridView();
+            pictureBox1 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Cursor = Cursors.Hand;
-            label6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.ForeColor = Color.LightSkyBlue;
-
-            label6.Location = new Point(31, 27);
-            label6.Name = "label6";
-            label6.Size = new Size(74, 28);
-            label6.TabIndex = 26;
-            label6.Text = "<-Back";
             // 
             // dataGridView1
             // 
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(31, 92);
+            dataGridView1.Location = new Point(45, 130);
             dataGridView1.Margin = new Padding(3, 4, 3, 4);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.Size = new Size(887, 507);
-          
             dataGridView1.TabIndex = 25;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(25, 12);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(74, 46);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 26;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
+            // 
             // Manager_Activity
             // 
-
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.DimGray;
+            BackColor = Color.FromArgb(64, 64, 64);
             ClientSize = new Size(970, 650);
-
-            Controls.Add(label6);
+            Controls.Add(pictureBox1);
             Controls.Add(dataGridView1);
             Name = "Manager_Activity";
             Text = "Manager_Activity";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
-
-        private Label label6;
         private DataGridView dataGridView1;
+        private PictureBox pictureBox1;
     }
 }

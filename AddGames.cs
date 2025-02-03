@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace ProjectWin
@@ -56,22 +57,32 @@ namespace ProjectWin
 
             try
             {
-                dbcon();
-                SqlCommand sq2 = new SqlCommand("insert into PRODUCT_TABLE(GName,GStock,GDiscount,GPrice,GGenre,GImage) values(@Name,@Stock,@discount,@Price, @Genre, @Image)", con);
-                sq2.Parameters.AddWithValue("@Name", textBox1.Text);
-                sq2.Parameters.AddWithValue("@Genre", textBox2.Text);
-                sq2.Parameters.AddWithValue("@Stock", textBox3.Text);
-                sq2.Parameters.AddWithValue("@Price", textBox4.Text);
-                sq2.Parameters.AddWithValue("@discount", textBox5.Text);
-                MemoryStream memstr = new MemoryStream();
-                pictureBox1.Image.Save(memstr, pictureBox1.Image.RawFormat);
-                sq2.Parameters.AddWithValue("@Image", memstr.ToArray());
+                if (textBox1.Text=="" || textBox2.Text == "" || textBox3.Text == "" || textBox4.Text == "" || textBox5.Text == "" || pictureBox1.Image== null)
+                {
+                    MessageBox.Show("Please provide all information");
+                   
+                }
+                else
+                {
+                    dbcon();
+                    SqlCommand sq2 = new SqlCommand("insert into PRODUCT_TABLE(GName,GStock,GDiscount,GPrice,GGenre,GImage,isDeleted) values(@Name,@Stock,@discount,@Price, @Genre, @Image,@isdeleted)", con);
+                    sq2.Parameters.AddWithValue("@Name", textBox1.Text);
+                    sq2.Parameters.AddWithValue("@Genre", textBox2.Text);
+                    sq2.Parameters.AddWithValue("@Stock", textBox3.Text);
+                    sq2.Parameters.AddWithValue("@Price", textBox4.Text);
+                    sq2.Parameters.AddWithValue("@discount", textBox5.Text);
+                    sq2.Parameters.AddWithValue("@isdeleted", 0);
+
+                    MemoryStream memstr = new MemoryStream();
+                    pictureBox1.Image.Save(memstr, pictureBox1.Image.RawFormat);
+                    sq2.Parameters.AddWithValue("@Image", memstr.ToArray());
 
 
-                sq2.ExecuteNonQuery();
-                con.Close();
-                MessageBox.Show("Data added");
-                Form2_Load();
+                    sq2.ExecuteNonQuery();
+                    con.Close();
+                    MessageBox.Show("Data added");
+                    Form2_Load();
+                }
             }
             catch (Exception ex)
             {

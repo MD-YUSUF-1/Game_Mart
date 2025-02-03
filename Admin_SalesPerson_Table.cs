@@ -17,6 +17,8 @@ namespace ProjectWin
         {
             InitializeComponent();
             Form2_Load();
+            datePicker1.Enabled = false;
+            Browsbtn.Enabled = false;
         }
         SqlConnection con;
         public void dbcon()
@@ -136,7 +138,7 @@ namespace ProjectWin
                     personName.ReadOnly = false;
                     personPhone.ReadOnly = false;
                     personGmail.ReadOnly = false;
-
+                    datePicker1.Enabled = true;
                     Browsbtn.Enabled = true;
 
                 }
@@ -148,6 +150,7 @@ namespace ProjectWin
                 personPhone.ReadOnly = true;
                 personGmail.ReadOnly = true;
                 Browsbtn.Enabled = false;
+                datePicker1.Enabled = false;
 
 
                 try

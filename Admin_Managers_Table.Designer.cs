@@ -219,7 +219,7 @@
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(53, 26);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(61, 61);
+            pictureBox1.Size = new Size(74, 61);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 49;
             pictureBox1.TabStop = false;
@@ -249,7 +249,7 @@
             // 
             // datePicker1
             // 
-            datePicker1.Location = new Point(1037, 421);
+            datePicker1.Location = new Point(1037, 429);
             datePicker1.Name = "datePicker1";
             datePicker1.Size = new Size(299, 27);
             datePicker1.TabIndex = 52;

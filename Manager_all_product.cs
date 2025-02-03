@@ -17,6 +17,7 @@ namespace ProjectWin
         {
             InitializeComponent();
             Form2_Load();
+            browseBtn.Enabled = false;
         }
         SqlConnection con;
         public void dbcon()
@@ -37,7 +38,7 @@ namespace ProjectWin
             try
             {
                 dbcon();
-                SqlCommand sq1 = new SqlCommand("select * from PRODUCT_TABLE", con);
+                SqlCommand sq1 = new SqlCommand("select GameID, GName, GStock, GDiscount, GPrice, GGenre, GImage from PRODUCT_TABLE WHERE isDeleted = 0", con);
                 SqlDataAdapter sda = new SqlDataAdapter(sq1);
                 DataTable dt = new DataTable();
 
@@ -111,10 +112,12 @@ namespace ProjectWin
                     sq2.Parameters.AddWithValue("@Image", memstr.ToArray());
                     sq2.ExecuteNonQuery();
                     con.Close();
+                    gameID.Text = "";
                     gameGenre.Text = "";
                     gameName.Text = "";
                     gameDiscount.Text = "";
                     gameStock.Text = "";
+                    gameImage.Image = null;
                     gamePrice.Text = "";
                     MessageBox.Show("Updated Successfully");
                     // Form2_Load();

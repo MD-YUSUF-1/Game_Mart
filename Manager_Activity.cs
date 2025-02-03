@@ -67,5 +67,12 @@ namespace ProjectWin
         {
 
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Manager_Homepage manager_Homepage = new Manager_Homepage();
+            manager_Homepage.Show();
+            this.Hide();
+        }
     }
 }

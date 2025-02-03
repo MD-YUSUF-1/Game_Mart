@@ -17,6 +17,8 @@ namespace ProjectWin
         {
             InitializeComponent();
             Form2_Load();
+            datePicker1.Enabled = false;
+            Browsbtn.Enabled = false;
         }
         SqlConnection con;
         public void dbcon()
@@ -49,7 +51,7 @@ namespace ProjectWin
             try
             {
                 dbcon();
-                SqlCommand sq1 = new SqlCommand("select ManagerID,Username,PhoneNumber,Email,DateOfBirth,Photo from Managers", con);
+                SqlCommand sq1 = new SqlCommand("select ManagerID,Username,PhoneNumber,Email,DateOfBirth,Photo from Managers ", con);
                 SqlDataAdapter sda = new SqlDataAdapter(sq1);
                 DataTable dt = new DataTable();
 
@@ -115,6 +117,7 @@ namespace ProjectWin
                     personPhone.ReadOnly = false;
                     personGmail.ReadOnly = false;
                     Browsbtn.Enabled = true;
+                    datePicker1.Enabled = true;
 
 
                 }
@@ -126,6 +129,7 @@ namespace ProjectWin
                 personPhone.ReadOnly = true;
                 personGmail.ReadOnly = true;
                 Browsbtn.Enabled = false;
+                datePicker1.Enabled = false;
                 try
                 {
                     dbcon();
@@ -144,10 +148,11 @@ namespace ProjectWin
 
                     sq2.ExecuteNonQuery();
                     con.Close();
-
+                    personID.Text = "";
                     personName.Text = "";
                     personPhone.Text = "";
                     personGmail.Text = "";
+                    managerImage.Image = null;
 
                     MessageBox.Show("Updated Successfully");
                     Form2_Load();

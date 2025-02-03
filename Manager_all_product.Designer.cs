@@ -33,7 +33,6 @@
             updateBtn = new Button();
             label = new Label();
             gameID = new TextBox();
-            label6 = new Label();
             gameGenre = new TextBox();
             gameStock = new TextBox();
             gamePrice = new TextBox();
@@ -46,8 +45,10 @@
             gameImage = new PictureBox();
             gameName = new TextBox();
             dataGridView1 = new DataGridView();
+            pictureBox1 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)gameImage).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // browseBtn
@@ -98,18 +99,6 @@
             gameID.ReadOnly = true;
             gameID.Size = new Size(343, 27);
             gameID.TabIndex = 43;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Cursor = Cursors.Hand;
-            label6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.ForeColor = Color.LightSkyBlue;
-            label6.Location = new Point(53, 19);
-            label6.Name = "label6";
-            label6.Size = new Size(74, 28);
-            label6.TabIndex = 42;
-            label6.Text = "<-Back";
             // 
             // gameGenre
             // 
@@ -253,17 +242,27 @@
             dataGridView1.CellClick += dataGridView1_CellClick;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(53, 12);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(75, 42);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 48;
+            pictureBox1.TabStop = false;
+            // 
             // Manager_all_product
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.DimGray;
+            BackColor = Color.FromArgb(64, 64, 64);
             ClientSize = new Size(1353, 881);
+            Controls.Add(pictureBox1);
             Controls.Add(browseBtn);
             Controls.Add(updateBtn);
             Controls.Add(label);
             Controls.Add(gameID);
-            Controls.Add(label6);
             Controls.Add(gameGenre);
             Controls.Add(gameStock);
             Controls.Add(gamePrice);
@@ -281,6 +280,7 @@
             Text = "Manager_all_product";
             ((System.ComponentModel.ISupportInitialize)gameImage).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -291,7 +291,6 @@
         private Button updateBtn;
         private Label label;
         private TextBox gameID;
-        private Label label6;
         private TextBox gameGenre;
         private TextBox gameStock;
         private TextBox gamePrice;
@@ -304,5 +303,6 @@
         private PictureBox gameImage;
         private TextBox gameName;
         private DataGridView dataGridView1;
+        private PictureBox pictureBox1;
     }
 }

@@ -40,10 +40,11 @@
             textBox4 = new TextBox();
             textBox3 = new TextBox();
             textBox2 = new TextBox();
-            label1 = new Label();
             datePicker1 = new DateTimePicker();
+            pictureBox2 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // dataGridView1
@@ -167,17 +168,6 @@
             textBox2.Size = new Size(305, 27);
             textBox2.TabIndex = 29;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 12F);
-            label1.Location = new Point(29, 22);
-            label1.Name = "label1";
-            label1.Size = new Size(74, 28);
-            label1.TabIndex = 41;
-            label1.Text = "<-Back";
-            label1.Click += label1_Click_1;
-            // 
             // datePicker1
             // 
             datePicker1.Location = new Point(373, 280);
@@ -185,14 +175,26 @@
             datePicker1.Size = new Size(305, 27);
             datePicker1.TabIndex = 42;
             // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(30, 12);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(75, 62);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 51;
+            pictureBox2.TabStop = false;
+            pictureBox2.Click += pictureBox2_Click;
+            // 
             // Admin_insert_salesman
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DimGray;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(1182, 803);
+            Controls.Add(pictureBox2);
             Controls.Add(datePicker1);
-            Controls.Add(label1);
             Controls.Add(dataGridView1);
             Controls.Add(label5);
             Controls.Add(label4);
@@ -209,6 +211,7 @@
             Text = "Admin_insert_salesman";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -226,7 +229,7 @@
         private TextBox textBox4;
         private TextBox textBox3;
         private TextBox textBox2;
-        private Label label1;
         private DateTimePicker datePicker1;
+        private PictureBox pictureBox2;
     }
 }

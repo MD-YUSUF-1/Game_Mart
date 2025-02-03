@@ -47,9 +47,10 @@
             button1 = new Button();
             updateBtn = new Button();
             browseBtn = new Button();
-            label6 = new Label();
+            pictureBox1 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gameImage).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // dataGridView1
@@ -268,18 +269,16 @@
             browseBtn.UseVisualStyleBackColor = false;
             browseBtn.Click += browseBtn_Click;
             // 
-            // label6
+            // pictureBox1
             // 
-            label6.AutoSize = true;
-            label6.Cursor = Cursors.Hand;
-            label6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.ForeColor = Color.LightSkyBlue;
-            label6.Location = new Point(54, 9);
-            label6.Name = "label6";
-            label6.Size = new Size(74, 28);
-            label6.TabIndex = 23;
-            label6.Text = "<-Back";
-            label6.Click += label6_Click;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(54, 12);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(75, 42);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 29;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // All_Products_Admin
             // 
@@ -287,16 +286,15 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(64, 64, 64);
             ClientSize = new Size(1353, 881);
+            Controls.Add(pictureBox1);
             Controls.Add(browseBtn);
             Controls.Add(updateBtn);
             Controls.Add(button1);
             Controls.Add(label);
             Controls.Add(gameID);
-            Controls.Add(label6);
             Controls.Add(button2);
             Controls.Add(gameGenre);
             Controls.Add(gameStock);
-            Controls.Add(gamePrice);
             Controls.Add(gameDiscount);
             Controls.Add(label5);
             Controls.Add(label4);
@@ -306,12 +304,14 @@
             Controls.Add(gameImage);
             Controls.Add(gameName);
             Controls.Add(dataGridView1);
+            Controls.Add(gamePrice);
             Margin = new Padding(3, 4, 3, 4);
             Name = "All_Products_Admin";
             Text = "All_Products_Admin";
             Click += All_Products_Admin_Click;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)gameImage).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -336,6 +336,6 @@
         private Button button1;
         private Button updateBtn;
         private Button browseBtn;
-        private Label label6;
+        private PictureBox pictureBox1;
     }
 }

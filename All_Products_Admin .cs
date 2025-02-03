@@ -20,7 +20,7 @@ namespace ProjectWin
             Form2_Load();
             gameImage.Image = null;
             this.role = role;
-            
+
         }
         SqlConnection con;
         //Databse connection code 
@@ -40,9 +40,7 @@ namespace ProjectWin
 
         private void label6_Click(object sender, EventArgs e)
         {
-            Admin_Homepage admin_Homepage = new Admin_Homepage();
-            admin_Homepage.Show();
-            this.Hide();
+            
         }
 
         private void Form2_Load()
@@ -50,7 +48,7 @@ namespace ProjectWin
             try
             {
                 dbcon();
-                SqlCommand sq1 = new SqlCommand("select * from PRODUCT_TABLE", con);
+                SqlCommand sq1 = new SqlCommand("select GameID, GName, GStock, GDiscount, GPrice, GGenre, GImage from PRODUCT_TABLE WHERE isDeleted = 0", con);
                 SqlDataAdapter sda = new SqlDataAdapter(sq1);
                 DataTable dt = new DataTable();
 
@@ -131,7 +129,7 @@ namespace ProjectWin
             try
             {
                 dbcon();
-                SqlCommand sq1 = new SqlCommand("DELETE from PRODUCT_TABLE where GameID=@gameID", con);
+                SqlCommand sq1 = new SqlCommand("UPDATE PRODUCT_TABLE SET isDeleted = 1 WHERE GameID = @gameID", con);
                 sq1.Parameters.AddWithValue("@gameID", int.Parse(gameID.Text));
                 sq1.ExecuteNonQuery();
                 con.Close();
@@ -188,7 +186,7 @@ namespace ProjectWin
                 gameStock.BackColor = Color.Gray;
                 gameDiscount.BackColor = Color.Gray;
                 gameGenre.BackColor = Color.Gray;
-               
+
                 try
                 {
                     dbcon();
@@ -204,11 +202,13 @@ namespace ProjectWin
                     sq2.Parameters.AddWithValue("@Image", memstr.ToArray());
                     sq2.ExecuteNonQuery();
                     con.Close();
+                    gameID.Text = "";
                     gameGenre.Text = "";
                     gameName.Text = "";
                     gameDiscount.Text = "";
                     gameStock.Text = "";
                     gamePrice.Text = "";
+                    gameImage.Image = null;
                     MessageBox.Show("Updated Successfully");
                     Form2_Load();
                 }
@@ -241,6 +241,13 @@ namespace ProjectWin
         private void gameID_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Admin_Homepage admin_Homepage = new Admin_Homepage();
+            admin_Homepage.Show();
+            this.Hide();
         }
     }
 }

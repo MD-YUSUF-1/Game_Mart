@@ -13,20 +13,20 @@ namespace ProjectWin
             ApplicationConfiguration.Initialize();
 
             //Application.Run(new SalesMan("a","b"));
-
-//Application.Run(new AddGames());
+            //Application.Run(new AddGames());
             //Application.Run(new SalesMan("ankon", "yusuf"));
 
 
             //Application.Run(new AddGames());
             //Application.Run(new Admin_Homepage());
+            Application.Run(new Manager_Homepage());
             //Application.Run(new All_Role());
             //Application.Run(new CartPage(5,"yusuf","123456"));
             //Application.Run(new Manager_all_product());
             //Application.Run(new SalesMan("ankon", "yusuf"));
             //Application.Run(new Login("a"));
             //Application.Run(new RegisterPage());
-            Application.Run(new Manager_Activity());    
+            //Application.Run(new Manager_Activity());    
 
         }
     }

@@ -27,30 +27,38 @@ namespace ProjectWin
 
         private void SubmitBtn_Click(object sender, EventArgs e)
         {
-            try
+            if (textBox2.Text == "" || textBox3.Text == "" || textBox4.Text == "" || pictureBox1.Image == null)
             {
-                dbcon();
-                SqlCommand sq2 = new SqlCommand("insert into Salespersons(Username,PhoneNumber,Email,DateOfBirth,Photo) values(@Username,@PhoneNumber,@Email,@Date,@Image)", con);
+                MessageBox.Show("Please provide all information");
 
-                sq2.Parameters.AddWithValue("@Username", textBox2.Text);
-                sq2.Parameters.AddWithValue("@PhoneNumber", textBox4.Text);
-                sq2.Parameters.AddWithValue("@Email", textBox3.Text);
-                sq2.Parameters.AddWithValue("@Date", datePicker1.Value);
-
-
-                MemoryStream memstr = new MemoryStream();
-                pictureBox1.Image.Save(memstr, pictureBox1.Image.RawFormat);
-                sq2.Parameters.AddWithValue("@Image", memstr.ToArray());
-
-
-                sq2.ExecuteNonQuery();
-                con.Close();
-                MessageBox.Show("Data added");
-                Form2_Load();
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Failed" + ex);
+                try
+                {
+                    dbcon();
+                    SqlCommand sq2 = new SqlCommand("insert into Salespersons(Username,PhoneNumber,Email,DateOfBirth,Photo) values(@Username,@PhoneNumber,@Email,@Date,@Image)", con);
+
+                    sq2.Parameters.AddWithValue("@Username", textBox2.Text);
+                    sq2.Parameters.AddWithValue("@PhoneNumber", textBox4.Text);
+                    sq2.Parameters.AddWithValue("@Email", textBox3.Text);
+                    sq2.Parameters.AddWithValue("@Date", datePicker1.Value);
+
+
+                    MemoryStream memstr = new MemoryStream();
+                    pictureBox1.Image.Save(memstr, pictureBox1.Image.RawFormat);
+                    sq2.Parameters.AddWithValue("@Image", memstr.ToArray());
+
+
+                    sq2.ExecuteNonQuery();
+                    con.Close();
+                    MessageBox.Show("Data added");
+                    Form2_Load();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Failed" + ex);
+                }
             }
         }
 
@@ -101,6 +109,13 @@ namespace ProjectWin
             {
                 MessageBox.Show("Image file not found!" + ex);
             }
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            Admin_SalesPerson_Table admin_SalesPerson_Table = new Admin_SalesPerson_Table();
+            admin_SalesPerson_Table.Show();
+            this.Hide();
         }
     }
 }
