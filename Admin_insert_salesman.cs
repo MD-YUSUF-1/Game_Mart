@@ -16,12 +16,13 @@ namespace ProjectWin
         SqlConnection con;
         public void dbcon()
         {
-            con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""G:\8. EIGHTH SEMESTER\C#\Project\MAIN PROJECT\database\Game_Mart.mdf"";Integrated Security=True;Connect Timeout=30;Encrypt=False
-"); con.Open();
+            con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\new_project\database\Game_Mart.mdf;Integrated Security=True;Connect Timeout=30;Encrypt=True");
+            con.Open();
         }
         public Admin_insert_salesman()
         {
             InitializeComponent();
+            Form2_Load();
         }
 
         private void SubmitBtn_Click(object sender, EventArgs e)
@@ -29,12 +30,14 @@ namespace ProjectWin
             try
             {
                 dbcon();
-                SqlCommand sq2 = new SqlCommand("insert into Salespersons(Username,PhoneNumber,Email) values(@Username,@PhoneNumber,@Email)", con);
-                //sq2.Parameters.AddWithValue("@Name", textBox1.Text);
+                SqlCommand sq2 = new SqlCommand("insert into Salespersons(Username,PhoneNumber,Email,DateOfBirth,Photo) values(@Username,@PhoneNumber,@Email,@Date,@Image)", con);
+
                 sq2.Parameters.AddWithValue("@Username", textBox2.Text);
-                sq2.Parameters.AddWithValue("@PhoneNumber", textBox3.Text);
-                sq2.Parameters.AddWithValue("@Email", textBox4.Text);
-                // sq2.Parameters.AddWithValue("@discount", textBox5.Text);
+                sq2.Parameters.AddWithValue("@PhoneNumber", textBox4.Text);
+                sq2.Parameters.AddWithValue("@Email", textBox3.Text);
+                sq2.Parameters.AddWithValue("@Date", datePicker1.Value);
+
+
                 MemoryStream memstr = new MemoryStream();
                 pictureBox1.Image.Save(memstr, pictureBox1.Image.RawFormat);
                 sq2.Parameters.AddWithValue("@Image", memstr.ToArray());
@@ -74,13 +77,30 @@ namespace ProjectWin
             }
         }
 
-       
+
 
         private void label1_Click_1(object sender, EventArgs e)
         {
             Admin_SalesPerson_Table admin_SalesPerson_Table = new Admin_SalesPerson_Table();
             admin_SalesPerson_Table.Show();
             this.Hide();
+        }
+
+        private void browseBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OpenFileDialog ofd = new OpenFileDialog();
+                ofd.Filter = "Image Files|*.jpg;*.jpeg;*.png";
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    pictureBox1.Image = Image.FromFile(ofd.FileName);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Image file not found!" + ex);
+            }
         }
     }
 }
