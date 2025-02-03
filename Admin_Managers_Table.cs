@@ -23,7 +23,7 @@ namespace ProjectWin
         {
             try
             {
-                con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\new_project\database\Game_Mart.mdf;Integrated Security=True;Connect Timeout=30;Encrypt=True
+                con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""G:\8. EIGHTH SEMESTER\C#\Project\MAIN PROJECT\database\Game_Mart.mdf"";Integrated Security=True;Connect Timeout=30;Encrypt=False
 ");
                 con.Open();
             }
@@ -121,36 +121,34 @@ namespace ProjectWin
                 personName.ReadOnly = true;
                 personPhone.ReadOnly = true;
                 personGmail.ReadOnly = true;
+                try
+                {
+                    dbcon();
+                    SqlCommand sq2 = new SqlCommand("UPDATE Managers SET Name = @Name, Phone = @Phone, Gmail = @Gmail, ProfileImage = @Image WHERE ManagerID = @PersonID", con);
 
+                    sq2.Parameters.AddWithValue("@personID", personID.Text); // Assuming Phone is being used as an identifier
+                    sq2.Parameters.AddWithValue("@Name", personName.Text);
+                    sq2.Parameters.AddWithValue("@Phone", personPhone.Text);
+                    sq2.Parameters.AddWithValue("@Gmail", personGmail.Text);
 
-            }
-            try
-            {
-                dbcon();
-                SqlCommand sq2 = new SqlCommand("UPDATE Managers SET Name = @Name, Phone = @Phone, Gmail = @Gmail, ProfileImage = @Image WHERE ManagerID = @PersonID", con);
+                    MemoryStream memstr = new MemoryStream();
+                    // gameImage.Image.Save(memstr, gameImage.Image.RawFormat);
+                    sq2.Parameters.AddWithValue("@Image", memstr.ToArray());
 
-                sq2.Parameters.AddWithValue("@personID", personID.Text); // Assuming Phone is being used as an identifier
-                sq2.Parameters.AddWithValue("@Name", personName.Text);
-                sq2.Parameters.AddWithValue("@Phone", personPhone.Text);
-                sq2.Parameters.AddWithValue("@Gmail", personGmail.Text);
+                    sq2.ExecuteNonQuery();
+                    con.Close();
 
-                MemoryStream memstr = new MemoryStream();
-                // gameImage.Image.Save(memstr, gameImage.Image.RawFormat);
-                sq2.Parameters.AddWithValue("@Image", memstr.ToArray());
+                    personName.Text = "";
+                    personPhone.Text = "";
+                    personGmail.Text = "";
 
-                sq2.ExecuteNonQuery();
-                con.Close();
-
-                personName.Text = "";
-                personPhone.Text = "";
-                personGmail.Text = "";
-
-                MessageBox.Show("Updated Successfully");
-                Form2_Load();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Invalid input");
+                    MessageBox.Show("Updated Successfully");
+                    Form2_Load();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Invalid input" + ex);
+                }
             }
 
         }

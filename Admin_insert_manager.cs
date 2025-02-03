@@ -17,34 +17,41 @@ namespace ProjectWin
         SqlConnection con;
         public void dbcon()
         {
-            con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\new_project\database\Game_Mart.mdf;Integrated Security=True;Connect Timeout=30;Encrypt=True");
+            con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""G:\8. EIGHTH SEMESTER\C#\Project\MAIN PROJECT\database\Game_Mart.mdf"";Integrated Security=True;Connect Timeout=30;Encrypt=False
+");
             con.Open();
         }
         public Admin_insert_manager()
         {
             InitializeComponent();
+            Form2_Load();
         }
 
         private void SubmitBtn_Click(object sender, EventArgs e)
         {
             try
             {
-                dbcon();
-                SqlCommand sq2 = new SqlCommand("insert into Managers(Username,PhoneNumber,Email) values(@Username,@PhoneNumber,@Email)", con);
-                //sq2.Parameters.AddWithValue("@Name", textBox1.Text);
-                sq2.Parameters.AddWithValue("@Username", textBox2.Text);
-                sq2.Parameters.AddWithValue("@PhoneNumber", textBox3.Text);
-                sq2.Parameters.AddWithValue("@Email", textBox4.Text);
-                // sq2.Parameters.AddWithValue("@discount", textBox5.Text);
-                MemoryStream memstr = new MemoryStream();
-                pictureBox1.Image.Save(memstr, pictureBox1.Image.RawFormat);
-                sq2.Parameters.AddWithValue("@Image", memstr.ToArray());
-
-
-                sq2.ExecuteNonQuery();
-                con.Close();
-                MessageBox.Show("Data added");
-                Form2_Load();
+                if (true)
+                {
+                    
+                }
+                else
+                {
+                    dbcon();
+                    SqlCommand sq2 = new SqlCommand("insert into Managers(Username,PhoneNumber,Email) values(@Username,@PhoneNumber,@Email)", con);
+                    //sq2.Parameters.AddWithValue("@Name", textBox1.Text);
+                    sq2.Parameters.AddWithValue("@Username", textBox2.Text);
+                    sq2.Parameters.AddWithValue("@PhoneNumber", textBox3.Text);
+                    sq2.Parameters.AddWithValue("@Email", textBox4.Text);
+                    // sq2.Parameters.AddWithValue("@discount", textBox5.Text);
+                    MemoryStream memstr = new MemoryStream();
+                    pictureBox1.Image.Save(memstr, pictureBox1.Image.RawFormat);
+                    sq2.Parameters.AddWithValue("@Image", memstr.ToArray());
+                    sq2.ExecuteNonQuery();
+                    con.Close();
+                    MessageBox.Show("Data added");
+                    Form2_Load();
+                }
             }
             catch (Exception ex)
             {
@@ -68,9 +75,9 @@ namespace ProjectWin
                 sda.Fill(dt);
                 dataGridView1.RowTemplate.Height = 75;
                 dataGridView1.DataSource = dt;
-                DataGridViewImageColumn img = new DataGridViewImageColumn();
-                img = (DataGridViewImageColumn)dataGridView1.Columns[6];
-                img.ImageLayout = DataGridViewImageCellLayout.Stretch;
+                //DataGridViewImageColumn img = new DataGridViewImageColumn();
+                //img = (DataGridViewImageColumn)dataGridView1.Columns[6];
+                //img.ImageLayout = DataGridViewImageCellLayout.Stretch;
                 con.Close();
             }
             catch (Exception ex)

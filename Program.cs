@@ -19,9 +19,9 @@ namespace ProjectWin
 
 
             //Application.Run(new AddGames());
-            //Application.Run(new Admin_Homepage());
+            Application.Run(new Admin_Homepage());
             //Application.Run(new All_Role());
-            Application.Run(new CartPage());
+            //Application.Run(new CartPage());
 
             //Application.Run(new SalesMan("ankon", "yusuf"));
             //Application.Run(new Login("a"));

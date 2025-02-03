@@ -14,24 +14,21 @@ namespace ProjectWin
     public partial class All_Products_Admin : Form
     {
         string role;
-        public All_Products_Admin(string role)
+        public All_Products_Admin()
         {
             InitializeComponent();
             Form2_Load();
             gameImage.Image = null;
             this.role = role;
-            if (role == "manager")
-            {
-                button2.Visible = false;
-                button1.Visible = false;
-            }
+            
         }
         SqlConnection con;
+        //Databse connection code 
         public void dbcon()
         {
             try
             {
-                con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\new_project\database\Game_Mart.mdf;Integrated Security=True;Connect Timeout=30;Encrypt=True
+                con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""G:\8. EIGHTH SEMESTER\C#\Project\MAIN PROJECT\database\Game_Mart.mdf"";Integrated Security=True;Connect Timeout=30;Encrypt=False
 ");
                 con.Open();
             }
@@ -73,7 +70,7 @@ namespace ProjectWin
 
         private void button2_Click(object sender, EventArgs e)
         {
-            AddGames addGames = new AddGames(role);
+            AddGames addGames = new AddGames();
             addGames.Show();
             this.Hide();
         }
