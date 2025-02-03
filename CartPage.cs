@@ -58,7 +58,7 @@ namespace ProjectWin
                 {
                     Size = new Size(1290, 720),
                     Location = new Point(0, 100),
-                   
+
                     AutoScroll = true,
                     //BackColor = Color.Green,
                     WrapContents = true,
@@ -210,13 +210,13 @@ namespace ProjectWin
                 Panel cardforTotalPrice = new Panel
                 {
                     Size = new Size(1200, 50),
-                    Margin = new Padding(30,0, 0, 10),
+                    Margin = new Padding(30, 0, 0, 10),
                     BorderStyle = BorderStyle.FixedSingle,
                     //BackColor = Color.White,
                 };
                 Label titleLabel15 = new Label
                 {
-                    Text = "Total Price: " ,
+                    Text = "Total Price: ",
                     Font = new System.Drawing.Font("Segoe UI", 14, FontStyle.Bold),
                     Location = new Point(850, 10),
                     AutoSize = true,
@@ -248,11 +248,11 @@ namespace ProjectWin
                 flowLayoutPanelForCartColumn.Controls.Add(flowLayoutPanelforCartData);
                 this.Controls.Add(flowLayoutPanelForCartColumn);
             }
-            catch(Exception ex) { MessageBox.Show("No data" + ex); }
+            catch (Exception ex) { MessageBox.Show("No data" + ex); }
         }
         private void CartPage_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -262,9 +262,14 @@ namespace ProjectWin
 
         private void label6_Click(object sender, EventArgs e)
         {
-            SalesMan sl = new SalesMan("a","b");
+            SalesMan sl = new SalesMan("a", "b");
             sl.Show();
             this.Hide();
+        }
+
+        private void profileBtn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

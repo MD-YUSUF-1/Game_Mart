@@ -56,6 +56,7 @@
             profileBtn.TabIndex = 3;
             profileBtn.Text = "Profile";
             profileBtn.UseVisualStyleBackColor = true;
+            profileBtn.Click += profileBtn_Click;
             // 
             // panel1
             // 
