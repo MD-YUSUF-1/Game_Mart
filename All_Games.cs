@@ -246,10 +246,19 @@ namespace ProjectWin
                         DataTable dt1 = new DataTable();
                         sq1.Parameters.AddWithValue("@username", username);
                         sq1.Parameters.AddWithValue("@password", password);
-
                         SqlDataAdapter sqd1 = new SqlDataAdapter(sq1);
                         sqd1.Fill(dt1);
-                        
+                        if (dt1.Rows.Count > 0)
+                        {
+                            Debug.WriteLine("Data found!");
+                            Debug.WriteLine("SalespersonID: " + dt1.Rows[0]["SalespersonID"]);
+                            Debug.WriteLine("Username: " + dt1.Rows[0]["Username"]);
+                        }
+                        else
+                        {
+                            Debug.WriteLine("No data found!");
+                        }
+
 
                         try
                         {
@@ -274,8 +283,8 @@ namespace ProjectWin
                                         float price = float.Parse(row["GPrice"].ToString());
                                         float discount = float.Parse(row["GDiscount"].ToString());
                                         price = price - (price * (discount / 100));
-                                        price = float.Parse(price.ToString("F2"));
-                                        sq2.Parameters.AddWithValue("@gp", price);
+                                        float newPrice = float.Parse(price.ToString("F2"));
+                                        sq2.Parameters.AddWithValue("@gp", newPrice);
                                     }
                                     else
                                     {
@@ -335,7 +344,7 @@ namespace ProjectWin
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            CartPage cartPage = new CartPage();
+            CartPage cartPage = new CartPage(0);
             cartPage.Show();
             this.Hide();
         }
