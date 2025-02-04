@@ -33,8 +33,6 @@
             pictureBox1 = new PictureBox();
             profileBtn = new Button();
             logoutBtn = new Button();
-            textBox1 = new TextBox();
-            searchbtn = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -42,8 +40,6 @@
             // panel1
             // 
             panel1.BackColor = Color.Black;
-            panel1.Controls.Add(searchbtn);
-            panel1.Controls.Add(textBox1);
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(profileBtn);
             panel1.Controls.Add(logoutBtn);
@@ -90,25 +86,6 @@
             logoutBtn.UseVisualStyleBackColor = true;
             logoutBtn.Click += logoutBtn_Click;
             // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(42, 22);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(294, 51);
-            textBox1.TabIndex = 2;
-            // 
-            // searchbtn
-            // 
-            searchbtn.Cursor = Cursors.Hand;
-            searchbtn.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            searchbtn.Location = new Point(379, 23);
-            searchbtn.Name = "searchbtn";
-            searchbtn.Size = new Size(109, 50);
-            searchbtn.TabIndex = 3;
-            searchbtn.Text = "search";
-            searchbtn.UseVisualStyleBackColor = true;
-            // 
             // SalesMan
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -121,7 +98,6 @@
             Text = "GameDetails";
             Load += SalesMan_Load_1;
             panel1.ResumeLayout(false);
-            panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
@@ -132,7 +108,5 @@
         private Button logoutBtn;
         private Button profileBtn;
         private PictureBox pictureBox1;
-        private Button searchbtn;
-        private TextBox textBox1;
     }
 }

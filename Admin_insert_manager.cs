@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
@@ -39,12 +40,20 @@ namespace ProjectWin
                 else {
                     try
                     {
+                        string password = textBox5.Text;
+                        if (password.Length < 6 || !Regex.IsMatch(password, @"[!@#$%^&*(),.?\:{ }|<>]"))
+                        {
+                            MessageBox.Show("Password must be at least 6 characters long and contain at least one special character.", "Invalid Password", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
                         dbcon();
-                        SqlCommand sq2 = new SqlCommand("insert into Managers(Username,PhoneNumber,Email,DateOfBirth,Photo) values(@Username,@PhoneNumber,@Email,@Date,@Image)", con);
+                        SqlCommand sq2 = new SqlCommand("insert into Managers(Username,PhoneNumber,Email,DateOfBirth,Photo,Password) values(@Username,@PhoneNumber,@Email,@Date,@Image,@pass)", con);
 
                         sq2.Parameters.AddWithValue("@Username", textBox2.Text);
                         sq2.Parameters.AddWithValue("@PhoneNumber", textBox4.Text);
                         sq2.Parameters.AddWithValue("@Email", textBox3.Text);
+                        sq2.Parameters.AddWithValue("@pass", textBox5.Text);
+
                         sq2.Parameters.AddWithValue("@Date", datePicker1.Value);
                         MemoryStream memstr = new MemoryStream();
                         pictureBox1.Image.Save(memstr, pictureBox1.Image.RawFormat);

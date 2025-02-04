@@ -107,7 +107,7 @@ namespace ProjectWin
             {
                 if (string.IsNullOrWhiteSpace(personID.Text))
                 {
-                    MessageBox.Show("Please Select a Product");
+                    MessageBox.Show("Please Select a USer");
                     return;
                 }
                 else

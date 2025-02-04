@@ -27,6 +27,7 @@ namespace ProjectWin
         string role;
         int id;
         DataTable dtforPerson = new DataTable();
+        DataTable dtforSearchGame = new DataTable();
         public void dbcon()
         {
             try
@@ -69,7 +70,7 @@ namespace ProjectWin
 
         private void button4_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -210,7 +211,7 @@ namespace ProjectWin
                     };
                     card.Controls.Add(titleLabel2);
                     Label titleLabel3 = new Label
-                    { 
+                    {
                         Font = new System.Drawing.Font("Segoe UI", 12, FontStyle.Bold),
                         AutoSize = true,
                         Location = new Point(325, 70),
@@ -228,7 +229,7 @@ namespace ProjectWin
                     card.Controls.Add(titleLabel3);
                     Label titleLabel5 = new Label
                     {
-                        
+
                         Font = new System.Drawing.Font("Segoe UI", 12, FontStyle.Bold),
                         Location = new Point(325, 100),
                         AutoSize = true,
@@ -238,7 +239,7 @@ namespace ProjectWin
                     {
                         titleLabel5.Text = "Discount: " + Convert.ToSingle(row["GDiscount"]) + "%";
                         titleLabel5.ForeColor = Color.White;
-       
+
                     }
                     else
                     {
@@ -249,7 +250,7 @@ namespace ProjectWin
                     card.Controls.Add(titleLabel5);
                     Label titleLabel4 = new Label
                     {
-                        
+
                         Font = new System.Drawing.Font("Segoe UI", 14, FontStyle.Bold),
                         Location = new Point(325, 140),
                         AutoSize = true,
@@ -262,7 +263,7 @@ namespace ProjectWin
                         price = price - (price * (discount / 100));
                         float newPrice = float.Parse(price.ToString("F2"));
 
-                        titleLabel4.Text = "Price with Discount: $" + newPrice ;
+                        titleLabel4.Text = "Price with Discount: $" + newPrice;
 
                     }
                     else
@@ -282,7 +283,7 @@ namespace ProjectWin
                     };
                     AddToCartbtn.Click += (s, e) =>
                     {
-                        DataTable dt1 =  findSalesperson(dtforPerson);
+                        DataTable dt1 = findSalesperson(dtforPerson);
                         if (dt1.Rows.Count > 0)
                         {
 
@@ -336,12 +337,13 @@ namespace ProjectWin
                                     SqlCommand updateStockCmd = new SqlCommand("UPDATE PRODUCT_TABLE SET GStock = GStock - 1 WHERE GameID = @gameID", con);
                                     updateStockCmd.Parameters.AddWithValue("@gameID", gameID);
                                     updateStockCmd.ExecuteNonQuery();
-                                    
+
                                 }
                                 else
                                 {
                                     MessageBox.Show("Sorry, No Stock available.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                }                            }
+                                }
+                            }
                         }
                         catch (Exception ex)
                         {
@@ -351,7 +353,7 @@ namespace ProjectWin
 
                     };
                     card.Controls.Add(AddToCartbtn);
-                    
+
 
                     flowLayoutPanel.Controls.Add(card);
                 }
@@ -364,7 +366,7 @@ namespace ProjectWin
             }
         }
 
-        
+
 
 
         public DataTable findSalesperson(DataTable dtforPerson)
@@ -378,11 +380,11 @@ namespace ProjectWin
             id = Convert.ToInt32(dtforPerson.Rows[0]["SalespersonID"]);
             return dtforPerson;
         }
-        
+
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
-            CartPage cartPage = new CartPage(id,username, password,role);
+            CartPage cartPage = new CartPage(id, username, password, role);
             cartPage.Show();
             this.Hide();
         }
@@ -390,7 +392,7 @@ namespace ProjectWin
 
         private void profileBtn_Click(object sender, EventArgs e)
         {
-            ProfilePage profilePage = new ProfilePage(username,password,role);
+            ProfilePage profilePage = new ProfilePage(username, password, role);
             profilePage.Show();
             this.Hide();
         }
@@ -400,6 +402,11 @@ namespace ProjectWin
             All_Role all_Role = new All_Role();
             all_Role.Show();
             this.Hide();
+        }
+
+        private void searchbtn_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

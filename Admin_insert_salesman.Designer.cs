@@ -42,6 +42,8 @@
             textBox2 = new TextBox();
             datePicker1 = new DateTimePicker();
             pictureBox2 = new PictureBox();
+            textBox1 = new TextBox();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -112,7 +114,7 @@
             SubmitBtn.BackColor = Color.White;
             SubmitBtn.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             SubmitBtn.ForeColor = Color.Black;
-            SubmitBtn.Location = new Point(464, 357);
+            SubmitBtn.Location = new Point(468, 388);
             SubmitBtn.Margin = new Padding(3, 4, 3, 4);
             SubmitBtn.Name = "SubmitBtn";
             SubmitBtn.Size = new Size(119, 41);
@@ -186,6 +188,26 @@
             pictureBox2.TabStop = false;
             pictureBox2.Click += pictureBox2_Click;
             // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(373, 336);
+            textBox1.Margin = new Padding(3, 4, 3, 4);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(305, 27);
+            textBox1.TabIndex = 52;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("Segoe UI", 12F);
+            label1.ForeColor = Color.Transparent;
+            label1.Location = new Point(229, 336);
+            label1.Name = "label1";
+            label1.Size = new Size(117, 28);
+            label1.TabIndex = 53;
+            label1.Text = "PASSWORD";
+            // 
             // Admin_insert_salesman
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -193,6 +215,8 @@
             BackColor = Color.DimGray;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(1182, 803);
+            Controls.Add(label1);
+            Controls.Add(textBox1);
             Controls.Add(pictureBox2);
             Controls.Add(datePicker1);
             Controls.Add(dataGridView1);
@@ -231,5 +255,7 @@
         private TextBox textBox2;
         private DateTimePicker datePicker1;
         private PictureBox pictureBox2;
+        private TextBox textBox1;
+        private Label label1;
     }
 }
