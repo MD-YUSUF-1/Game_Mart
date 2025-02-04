@@ -37,6 +37,8 @@
             label3 = new Label();
             button1 = new Button();
             button3 = new Button();
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -72,6 +74,7 @@
             loginPassBox2.PasswordChar = '*';
             loginPassBox2.Size = new Size(282, 38);
             loginPassBox2.TabIndex = 2;
+            loginPassBox2.TextChanged += loginPassBox2_TextChanged;
             // 
             // label2
             // 
@@ -135,6 +138,18 @@
             button3.UseVisualStyleBackColor = false;
             button3.Click += button3_Click;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.Transparent;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(679, 354);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(38, 38);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 11;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
+            // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -142,6 +157,7 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1062, 653);
+            Controls.Add(pictureBox1);
             Controls.Add(button3);
             Controls.Add(button1);
             Controls.Add(label3);
@@ -153,6 +169,7 @@
             Margin = new Padding(3, 4, 3, 4);
             Name = "Login";
             Text = "Login";
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -167,5 +184,6 @@
         private Label label3;
         private Button button1;
         private Button button3;
+        private PictureBox pictureBox1;
     }
 }

@@ -170,5 +170,21 @@ namespace ProjectWin
             all_Role.Show();
             this.Hide();
         }
+
+        private void loginPassBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            if (loginPassBox2.PasswordChar == '\0')
+            {
+                loginPassBox2.PasswordChar = '*';
+            }
+            else if (loginPassBox2.PasswordChar=='*') {
+                loginPassBox2.PasswordChar = '\0';
+            }
+        }
     }
 }

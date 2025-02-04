@@ -123,8 +123,9 @@ namespace ProjectWin
                         MessageBox.Show("Failed" + ex);
                     }
                 }
-                else { 
-                MessageBox.Show("Please select e Role", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                {
+                    MessageBox.Show("Please select e Role", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
             }
@@ -133,7 +134,7 @@ namespace ProjectWin
                 MessageBox.Show("Please provide all information", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            
+
 
         }
 
@@ -163,6 +164,18 @@ namespace ProjectWin
         private void datePicker1_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            if (textBox2.PasswordChar == '\0')
+            {
+                textBox2.PasswordChar = '*';
+            }
+            else if (textBox2.PasswordChar == '*')
+            {
+                textBox2.PasswordChar = '\0';
+            }
         }
     }
 }

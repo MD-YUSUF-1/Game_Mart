@@ -46,7 +46,9 @@
             radioButton1 = new RadioButton();
             radioButton2 = new RadioButton();
             label7 = new Label();
+            pictureBox2 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // label3
@@ -241,12 +243,25 @@
             label7.TabIndex = 54;
             label7.Text = "ROLE";
             // 
+            // pictureBox2
+            // 
+            pictureBox2.BackColor = Color.Transparent;
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(653, 247);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(38, 27);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 55;
+            pictureBox2.TabStop = false;
+            pictureBox2.Click += pictureBox2_Click;
+            // 
             // RegisterPage
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(932, 725);
+            Controls.Add(pictureBox2);
             Controls.Add(label7);
             Controls.Add(radioButton2);
             Controls.Add(radioButton1);
@@ -269,6 +284,7 @@
             Text = "RegisterPage";
             Load += RegisterPage_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -292,5 +308,6 @@
         private RadioButton radioButton1;
         private RadioButton radioButton2;
         private Label label7;
+        private PictureBox pictureBox2;
     }
 }
