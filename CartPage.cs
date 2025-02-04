@@ -26,6 +26,7 @@ namespace ProjectWin
             this.name = name;
             this.password = pass;
             this.role = role;
+            Debug.WriteLine(id + name+ pass+role);
         }
         SqlConnection con;
         public void dbcon()
@@ -523,6 +524,9 @@ namespace ProjectWin
 
         private void logoutBtn_Click(object sender, EventArgs e)
         {
+            All_Role role = new All_Role();
+            role.Show();
+            this.Hide();
 
         }
 

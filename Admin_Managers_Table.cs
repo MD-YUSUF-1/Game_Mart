@@ -174,7 +174,7 @@ namespace ProjectWin
                 sq1.Parameters.AddWithValue("@PersonID", int.Parse(personID.Text));
                 sq1.ExecuteNonQuery();
                 con.Close();
-                MessageBox.Show("Product DELETED");
+                MessageBox.Show("User DELETED");
                 Form2_Load();
                 personID.Text = string.Empty;
                 personName.Text = string.Empty;

@@ -47,6 +47,7 @@ namespace ProjectWin
             this.username = username;
             this.password = password;
             this.role = role;
+            DataTable dt2 = findSalesperson(dtforPerson);
         }
         private void Form2_Load(object sender, EventArgs e)
         {
@@ -365,12 +366,6 @@ namespace ProjectWin
 
         
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            CartPage cartPage = new CartPage(id,username, password,role);
-            cartPage.Show();
-            this.Hide();
-        }
 
         public DataTable findSalesperson(DataTable dtforPerson)
         {
@@ -382,6 +377,14 @@ namespace ProjectWin
             sqd1.Fill(dtforPerson);
             id = Convert.ToInt32(dtforPerson.Rows[0]["SalespersonID"]);
             return dtforPerson;
+        }
+        
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+            CartPage cartPage = new CartPage(id,username, password,role);
+            cartPage.Show();
+            this.Hide();
         }
 
 
