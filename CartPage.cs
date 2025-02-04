@@ -14,16 +14,18 @@ namespace ProjectWin
 {
     public partial class CartPage : Form
     {
-        int id;
+        int pid;
         string name;
         string password;
-        public CartPage(int id,string name,string pass)
+        string role;
+        public CartPage(int id, string name, string pass, string role)
         {
-            this.id = id;
+            this.pid = id;
             InitializeComponent();
             Form2_Load();
             this.name = name;
             this.password = pass;
+            this.role = role;
         }
         SqlConnection con;
         public void dbcon()
@@ -46,7 +48,7 @@ namespace ProjectWin
             {
                 dbcon();
                 SqlCommand sq1 = new SqlCommand("select * from CartTable where SalesPersonID = @id", con);
-                sq1.Parameters.AddWithValue("@id", id);
+                sq1.Parameters.AddWithValue("@id", pid);
                 SqlDataAdapter sda = new SqlDataAdapter(sq1);
                 DataTable dt = new DataTable();
                 sda.Fill(dt);
@@ -294,7 +296,7 @@ namespace ProjectWin
                         int count = Convert.ToInt32(scmForCheck.ExecuteScalar());
                         if (count > 0)
                         {
-                            CartQuantityUpdate cartQuantityUpdate = new CartQuantityUpdate(id);
+                            CartQuantityUpdate cartQuantityUpdate = new CartQuantityUpdate(id, name, password, role);
                             cartQuantityUpdate.Show();
                             this.Hide();
                             tb.Text = "";
@@ -347,7 +349,7 @@ namespace ProjectWin
                                 //Form2_Load();
                                 MessageBox.Show("Product DELETED");
                                 this.Hide();
-                                CartPage newCartPage = new CartPage(5,"yusuf", password );
+                                CartPage newCartPage = new CartPage(id, name, password, role);
                                 newCartPage.Show();
                                 tb.Text = "";
                                 con.Close();
@@ -385,7 +387,7 @@ namespace ProjectWin
 
                     try
                     {
-                        string customerName = textBox1.Text; 
+                        string customerName = textBox1.Text;
                         string customerPhone = textBox2.Text;
 
                         if (string.IsNullOrWhiteSpace(textBox1.Text) || string.IsNullOrWhiteSpace(textBox2.Text))
@@ -396,7 +398,7 @@ namespace ProjectWin
                         {
                             dbcon();
                             SqlCommand insertcmd = new SqlCommand("INSERT INTO Activity_Table (SalespersonID, SalespersonName, PriceSold, CustomerName, CustomerPhone) VALUES(@SalespersonID, @SalespersonName, @PriceSold, @CustomerName, @CustomerPhone)", con);
-                            insertcmd.Parameters.AddWithValue("@SalespersonID", id);
+                            insertcmd.Parameters.AddWithValue("@SalespersonID", pid);
                             insertcmd.Parameters.AddWithValue("@SalespersonName", name);
                             insertcmd.Parameters.AddWithValue("@PriceSold", TotalPrice());
                             insertcmd.Parameters.AddWithValue("@CustomerName", customerName);
@@ -407,14 +409,14 @@ namespace ProjectWin
                             {
                                 dbcon();
                                 SqlCommand deleteCmd = new SqlCommand("DELETE FROM CartTable WHERE SalespersonID = @SalespersonID", con);
-                                deleteCmd.Parameters.AddWithValue("@SalespersonID", id);
+                                deleteCmd.Parameters.AddWithValue("@SalespersonID", pid);
                                 int deleteRowsAffected = deleteCmd.ExecuteNonQuery();
 
                                 if (deleteRowsAffected > 0)
                                 {
                                     MessageBox.Show("Items Sold To " + customerName + ", Total price " + TotalPrice() + ".");
                                     this.Hide();
-                                    SalesMan salesMan = new SalesMan(name,password);
+                                    SalesMan salesMan = new SalesMan(name, password, role);
                                     salesMan.Show();
                                 }
                                 else
@@ -435,9 +437,9 @@ namespace ProjectWin
                         MessageBox.Show("Error: " + ex.Message);
                     }
 
-                
-                        
-         
+
+
+
 
                 };
                 cardforBuy.Controls.Add(BuyNowBtn);
@@ -445,7 +447,7 @@ namespace ProjectWin
                 flowLayoutPanelForCartColumn.Controls.Add(card);
                 flowLayoutPanelForCartColumn.Controls.Add(flowLayoutPanelforCartData);
                 this.Controls.Add(flowLayoutPanelForCartColumn);
-                
+
             }
             catch (Exception ex) { MessageBox.Show("No data" + ex); }
         }
@@ -456,12 +458,13 @@ namespace ProjectWin
         public float TotalPrice()
         {
             float totalPrice = 0;
-            try {
+            try
+            {
                 dbcon();
-                dbcon(); 
+                dbcon();
                 SqlCommand totalPriceCmd = new SqlCommand("SELECT SUM(Price) FROM CartTable where SalesPersonID = @id", con);
-                totalPriceCmd.Parameters.AddWithValue("@id", id);
-                object result = totalPriceCmd.ExecuteScalar(); 
+                totalPriceCmd.Parameters.AddWithValue("@id", pid);
+                object result = totalPriceCmd.ExecuteScalar();
 
                 if (result != null && result != DBNull.Value)
                 {
@@ -486,24 +489,24 @@ namespace ProjectWin
 
             try
             {
-                dbcon(); 
+                dbcon();
                 SqlCommand totalGamesCmd = new SqlCommand("SELECT SUM(Quantity) FROM CartTable where SalesPersonID = @id", con);
-                totalGamesCmd.Parameters.AddWithValue("@id", id);
+                totalGamesCmd.Parameters.AddWithValue("@id", pid);
                 object result = totalGamesCmd.ExecuteScalar();
 
                 if (result != null && result != DBNull.Value)
                 {
-                    totalGames = Convert.ToInt32(result); 
+                    totalGames = Convert.ToInt32(result);
                 }
-                con.Close(); 
+                con.Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error counting total games: " + ex.Message);
             }
-           
 
-            return totalGames; 
+
+            return totalGames;
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -513,7 +516,7 @@ namespace ProjectWin
 
         private void label6_Click(object sender, EventArgs e)
         {
-            SalesMan sl = new SalesMan("a", "b");
+            SalesMan sl = new SalesMan(name, password, role);
             sl.Show();
             this.Hide();
         }
@@ -521,6 +524,13 @@ namespace ProjectWin
         private void logoutBtn_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            SalesMan salesMan = new SalesMan(name, password, role);
+            salesMan.Show();
+            this.Hide();
         }
     }
 }

@@ -106,7 +106,7 @@ namespace ProjectWin
                             }
                             if (dataArray[0] == "salesman")
                             {
-                                SalesMan s = new SalesMan(username, password);
+                                SalesMan s = new SalesMan(username, password, dataArray[0]);
                                 this.Hide();
                                 s.Show();
                                 con.Close();

@@ -77,6 +77,38 @@ namespace ProjectWin
 
                     con.Close();
                 }
+                else if(role == "salesman")
+                {
+                    
+                        dbcon();
+
+                        SqlCommand sq1 = new SqlCommand("SELECT Username, Email, PhoneNumber, DateOfBirth, Photo FROM Salespersons WHERE Username = @Username AND Password = @Password", con);
+                        sq1.Parameters.AddWithValue("@Username", username);
+                        sq1.Parameters.AddWithValue("@Password", password);
+
+                        SqlDataAdapter sda = new SqlDataAdapter(sq1);
+                        DataTable dt = new DataTable();
+                        sda.Fill(dt);
+
+                        if (dt.Rows.Count > 0)
+                        {
+                            name.Text = dt.Rows[0]["Username"].ToString();
+                            email.Text = dt.Rows[0]["Email"].ToString();
+                            phone.Text = dt.Rows[0]["PhoneNumber"].ToString();
+                            datePicker1.Value = Convert.ToDateTime(dt.Rows[0]["DateOfBirth"]);
+
+                            byte[] imgBytes = (byte[])dt.Rows[0]["Photo"];
+                            MemoryStream ms = new MemoryStream(imgBytes);
+                            image.Image = Image.FromStream(ms);
+                        }
+                        else
+                        {
+                            MessageBox.Show("No data found" + MessageBoxButtons.OK + MessageBoxIcon.Error);
+                        }
+
+                        con.Close();
+                }
+                
             }
             catch (Exception ex)
             {
@@ -113,10 +145,6 @@ namespace ProjectWin
                 phone.ReadOnly = true;
                 datePicker1.Enabled = false;
                 browseBtn.Enabled = false;
-                //name.BackColor = Color.Gray;
-                //email.BackColor = Color.Gray;
-                //phone.BackColor = Color.Gray;
-                //datePicker1.BackColor = Color.Gray;
 
                 if (role == "manager")
                 {
@@ -124,6 +152,37 @@ namespace ProjectWin
                     {
                         dbcon();
                         SqlCommand sq2 = new SqlCommand("UPDATE Managers SET Username = @Name, Email = @Email, PhoneNumber = @PhoneNumber, DateOfBirth = @DateOfBirth, Photo = @Image WHERE Username = @uname AND Password = @pass", con);
+                        sq2.Parameters.AddWithValue("@Name", name.Text);
+                        sq2.Parameters.AddWithValue("@Email", email.Text);
+                        sq2.Parameters.AddWithValue("@PhoneNumber", phone.Text);
+                        sq2.Parameters.AddWithValue("@DateOfBirth", datePicker1.Value);
+                        sq2.Parameters.AddWithValue("@uname", username);
+                        sq2.Parameters.AddWithValue("@pass", password);
+
+                        MemoryStream memstr = new MemoryStream();
+
+                        image.Image.Save(memstr, image.Image.RawFormat);
+                        sq2.Parameters.AddWithValue("@Image", memstr.ToArray());
+
+                        sq2.ExecuteNonQuery();
+                        con.Close();
+                        MessageBox.Show("Updated Successfully");
+                        name.BackColor = Color.Silver;
+                        email.BackColor = Color.Silver;
+                        phone.BackColor = Color.Silver;
+                        datePicker1.BackColor = Color.Silver;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Inavlid input" + ex);
+                    }
+                }
+                if (role == "salesman")
+                {
+                    try
+                    {
+                        dbcon();
+                        SqlCommand sq2 = new SqlCommand("UPDATE Salespersons SET Username = @Name, Email = @Email, PhoneNumber = @PhoneNumber, DateOfBirth = @DateOfBirth, Photo = @Image WHERE Username = @uname AND Password = @pass", con);
                         sq2.Parameters.AddWithValue("@Name", name.Text);
                         sq2.Parameters.AddWithValue("@Email", email.Text);
                         sq2.Parameters.AddWithValue("@PhoneNumber", phone.Text);
@@ -183,6 +242,12 @@ namespace ProjectWin
             {
                 Manager_Homepage manager_Homepage = new Manager_Homepage(username, password, role);
                 manager_Homepage.Show();
+                this.Hide();
+            }
+            else if (role == "salesman")
+            {
+                SalesMan salesman = new SalesMan(username, password, role);
+                salesman.Show();
                 this.Hide();
             }
         }

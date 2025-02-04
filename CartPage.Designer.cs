@@ -28,15 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CartPage));
             logoutBtn = new Button();
             profileBtn = new Button();
             panel1 = new Panel();
-            label6 = new Label();
             cusName = new Label();
             cusPhone = new Label();
             textBox1 = new TextBox();
             textBox2 = new TextBox();
+            pictureBox1 = new PictureBox();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // logoutBtn
@@ -65,26 +67,13 @@
             // panel1
             // 
             panel1.BackColor = Color.Black;
-            panel1.Controls.Add(label6);
+            panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(profileBtn);
             panel1.Controls.Add(logoutBtn);
             panel1.Location = new Point(1, 2);
             panel1.Name = "panel1";
             panel1.Size = new Size(1386, 119);
             panel1.TabIndex = 4;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.BackColor = SystemColors.ActiveCaptionText;
-            label6.Cursor = Cursors.Hand;
-            label6.ForeColor = Color.LightSeaGreen;
-            label6.Location = new Point(57, 33);
-            label6.Name = "label6";
-            label6.Size = new Size(56, 20);
-            label6.TabIndex = 15;
-            label6.Text = "<-Back";
-            label6.Click += label6_Click;
             // 
             // cusName
             // 
@@ -124,6 +113,17 @@
             textBox2.Size = new Size(333, 34);
             textBox2.TabIndex = 19;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(27, 21);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(63, 62);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 4;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
+            // 
             // CartPage
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -139,7 +139,7 @@
             Text = "CartPage";
             Load += CartPage_Load;
             panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -154,5 +154,6 @@
         private Label cusPhone;
         private TextBox textBox1;
         private TextBox textBox2;
+        private PictureBox pictureBox1;
     }
 }

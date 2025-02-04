@@ -46,7 +46,7 @@
             panel1.Location = new Point(-5, 0);
             panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1395, 100);
+            panel1.Size = new Size(1411, 100);
             panel1.TabIndex = 0;
             // 
             // pictureBox1
@@ -66,7 +66,7 @@
             // 
             profileBtn.Cursor = Cursors.Hand;
             profileBtn.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            profileBtn.Location = new Point(1117, 22);
+            profileBtn.Location = new Point(1133, 22);
             profileBtn.Name = "profileBtn";
             profileBtn.Size = new Size(109, 50);
             profileBtn.TabIndex = 1;
@@ -78,7 +78,7 @@
             // 
             logoutBtn.Cursor = Cursors.Hand;
             logoutBtn.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            logoutBtn.Location = new Point(1250, 22);
+            logoutBtn.Location = new Point(1264, 22);
             logoutBtn.Name = "logoutBtn";
             logoutBtn.Size = new Size(108, 50);
             logoutBtn.TabIndex = 0;
@@ -91,7 +91,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(64, 64, 64);
-            ClientSize = new Size(1382, 803);
+            ClientSize = new Size(1404, 803);
             Controls.Add(panel1);
             Margin = new Padding(3, 4, 3, 4);
             Name = "SalesMan";

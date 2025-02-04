@@ -24,6 +24,9 @@ namespace ProjectWin
         SqlConnection con;
         string username;
         string password;
+        string role;
+        int id;
+        DataTable dtforPerson = new DataTable();
         public void dbcon()
         {
             try
@@ -37,12 +40,13 @@ namespace ProjectWin
                 MessageBox.Show($"Failed to connect to the database: {ex.Message}", "Database Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        public SalesMan(string username, string password)
+        public SalesMan(string username, string password, string role)
         {
             InitializeComponent();
             this.Load += SalesMan_Load_1;
             this.username = username;
             this.password = password;
+            this.role = role;
         }
         private void Form2_Load(object sender, EventArgs e)
         {
@@ -64,9 +68,7 @@ namespace ProjectWin
 
         private void button4_Click(object sender, EventArgs e)
         {
-            All_Role lg = new All_Role();
-            lg.Show();
-            this.Hide();
+           
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -109,24 +111,23 @@ namespace ProjectWin
         {
 
         }
-        public void databseConnect(DataTable dt)
-        {
-            dbcon();
-            SqlCommand sq1 = new SqlCommand("select * from PRODUCT_TABLE", con);
-            SqlDataReader sdr = sq1.ExecuteReader();
-            dt.Load(sdr);
-            con.Close();
-        }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
+        public void databseConnect(DataTable dt)
+        {
+            dbcon();
+            SqlCommand sq1 = new SqlCommand("select * from PRODUCT_TABLE WHERE isDeleted = 0", con);
+            SqlDataReader sdr = sq1.ExecuteReader();
+            dt.Load(sdr);
+            con.Close();
+        }
 
         private void SalesMan_Load_1(object sender, EventArgs e)
         {
             DataTable dt = new DataTable();
-
 
             try
             {
@@ -138,9 +139,6 @@ namespace ProjectWin
                 MessageBox.Show("database Connection Error" + ex.Message);
             }
             dynamic_Data(dt);
-
-
-
         }
 
 
@@ -152,7 +150,7 @@ namespace ProjectWin
 
                 FlowLayoutPanel flowLayoutPanel = new FlowLayoutPanel
                 {
-                    Size = new Size(1300, 670),
+                    Size = new Size(1340, 670),
                     Location = new Point(40, 100),
                     AutoScroll = true,
                     BackColor = Color.Gray,
@@ -164,7 +162,7 @@ namespace ProjectWin
 
                     Panel card = new Panel
                     {
-                        Size = new Size(610, 330),
+                        Size = new Size(633, 330),
                         BorderStyle = BorderStyle.FixedSingle,
                         Margin = new Padding(10),
                         //BackColor = Color.GhostWhite,
@@ -211,48 +209,82 @@ namespace ProjectWin
                     };
                     card.Controls.Add(titleLabel2);
                     Label titleLabel3 = new Label
-                    {
-                        Text = "Stock: " + row["GStock"].ToString(),
+                    { 
                         Font = new System.Drawing.Font("Segoe UI", 12, FontStyle.Bold),
-                        Location = new Point(325, 70),
                         AutoSize = true,
-                        ForeColor = Color.White,
+                        Location = new Point(325, 70),
                     };
-                    card.Controls.Add(titleLabel3);
-
-                    Label titleLabel4 = new Label
+                    if (Convert.ToInt32(row["GStock"]) > 0)
                     {
-                        Text = "Price: " + row["GPrice"].ToString(),
+                        titleLabel3.Text = "Stock: " + Convert.ToInt32(row["GStock"]);
+                        titleLabel3.ForeColor = Color.White;
+                    }
+                    else
+                    {
+                        titleLabel3.Text = "Out of stock";
+                        titleLabel3.ForeColor = Color.Red;
+                    }
+                    card.Controls.Add(titleLabel3);
+                    Label titleLabel5 = new Label
+                    {
+                        
                         Font = new System.Drawing.Font("Segoe UI", 12, FontStyle.Bold),
                         Location = new Point(325, 100),
                         AutoSize = true,
                         ForeColor = Color.White,
                     };
+                    if (Convert.ToSingle(row["GDiscount"]) > 0)
+                    {
+                        titleLabel5.Text = "Discount: " + Convert.ToSingle(row["GDiscount"]) + "%";
+                        titleLabel5.ForeColor = Color.White;
+       
+                    }
+                    else
+                    {
+                        titleLabel5.Text = "No Discount available";
+                        titleLabel5.ForeColor = Color.Red;
+
+                    }
+                    card.Controls.Add(titleLabel5);
+                    Label titleLabel4 = new Label
+                    {
+                        
+                        Font = new System.Drawing.Font("Segoe UI", 14, FontStyle.Bold),
+                        Location = new Point(325, 140),
+                        AutoSize = true,
+                        ForeColor = Color.White,
+                    };
+                    if (Convert.ToSingle(row["GDiscount"]) > 0)
+                    {
+                        float price = float.Parse(row["GPrice"].ToString());
+                        float discount = float.Parse(row["GDiscount"].ToString());
+                        price = price - (price * (discount / 100));
+                        float newPrice = float.Parse(price.ToString("F2"));
+
+                        titleLabel4.Text = "Price with Discount: $" + newPrice ;
+
+                    }
+                    else
+                    {
+                        titleLabel4.Text = "Price  $" + row["GPrice"].ToString();
+                    }
                     card.Controls.Add(titleLabel4);
                     System.Windows.Forms.Button AddToCartbtn = new System.Windows.Forms.Button
                     {
                         Text = "Add to cart",
                         Font = new System.Drawing.Font("Segoe UI", 12, FontStyle.Bold),
                         Size = new Size(160, 50),
-                        Location = new Point(325, 140),
+                        Location = new Point(325, 190),
                         BackColor = System.Drawing.ColorTranslator.FromHtml("#F5F5F5"),
                         FlatStyle = FlatStyle.Popup,
                         ForeColor = System.Drawing.ColorTranslator.FromHtml("#333333")
                     };
                     AddToCartbtn.Click += (s, e) =>
                     {
-                        dbcon();
-                        SqlCommand sq1 = new SqlCommand("SELECT SalespersonID,Username FROM Salespersons WHERE Username = @username AND Password = @password", con);
-                        DataTable dt1 = new DataTable();
-                        sq1.Parameters.AddWithValue("@username", username);
-                        sq1.Parameters.AddWithValue("@password", password);
-                        SqlDataAdapter sqd1 = new SqlDataAdapter(sq1);
-                        sqd1.Fill(dt1);
+                        DataTable dt1 =  findSalesperson(dtforPerson);
                         if (dt1.Rows.Count > 0)
                         {
-                            Debug.WriteLine("Data found!");
-                            Debug.WriteLine("SalespersonID: " + dt1.Rows[0]["SalespersonID"]);
-                            Debug.WriteLine("Username: " + dt1.Rows[0]["Username"]);
+
                         }
                         else
                         {
@@ -263,8 +295,10 @@ namespace ProjectWin
                         try
                         {
                             int gameID = Convert.ToInt32(row["GameID"]);
-                            SqlCommand scmForCheck = new SqlCommand("SELECT * FROM CartTable WHERE GameID = @gameID", con);
+                            SqlCommand scmForCheck = new SqlCommand("SELECT * FROM CartTable WHERE GameID = @gameID AND SalesPersonID = @id  ", con);
                             scmForCheck.Parameters.AddWithValue("@gameID", gameID);
+                            scmForCheck.Parameters.AddWithValue("@id", id);
+
                             SqlDataAdapter sqdForCart = new SqlDataAdapter(scmForCheck);
                             DataTable dtforCartItem = new DataTable();
                             sqdForCart.Fill(dtforCartItem);
@@ -316,18 +350,7 @@ namespace ProjectWin
 
                     };
                     card.Controls.Add(AddToCartbtn);
-                    System.Windows.Forms.Button BuyNowBtn = new System.Windows.Forms.Button
-                    {
-                        Text = "Buy now",
-                        Font = new System.Drawing.Font("Segoe UI", 12, FontStyle.Bold),
-                        Size = new Size(120, 50),
-                        Location = new Point(325, 200),
-                        BackColor = System.Drawing.ColorTranslator.FromHtml("#F5F5F5"),
-                        FlatStyle = FlatStyle.Popup,
-                        ForeColor = System.Drawing.ColorTranslator.FromHtml("#333333")
-                    };
-                    card.Controls.Add(BuyNowBtn);
-
+                    
 
                     flowLayoutPanel.Controls.Add(card);
                 }
@@ -344,16 +367,27 @@ namespace ProjectWin
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            CartPage cartPage = new CartPage(5,"yusuf", password);
+            CartPage cartPage = new CartPage(id,username, password,role);
             cartPage.Show();
             this.Hide();
         }
 
+        public DataTable findSalesperson(DataTable dtforPerson)
+        {
+            dbcon();
+            SqlCommand sq1 = new SqlCommand("SELECT SalespersonID,Username FROM Salespersons WHERE Username = @username AND Password = @password", con);
+            sq1.Parameters.AddWithValue("@username", username);
+            sq1.Parameters.AddWithValue("@password", password);
+            SqlDataAdapter sqd1 = new SqlDataAdapter(sq1);
+            sqd1.Fill(dtforPerson);
+            id = Convert.ToInt32(dtforPerson.Rows[0]["SalespersonID"]);
+            return dtforPerson;
+        }
 
 
         private void profileBtn_Click(object sender, EventArgs e)
         {
-            ProfilePage profilePage = new ProfilePage("ankon", "123456", "manager");
+            ProfilePage profilePage = new ProfilePage(username,password,role);
             profilePage.Show();
             this.Hide();
         }
