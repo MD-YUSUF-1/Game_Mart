@@ -117,4 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="label5.Text" xml:space="preserve">
+    <value>As an Admin in GameMart Manager, you have full control over the store’s operations. From managing inventory and pricing to overseeing users and monitoring store performance, this dashboard gives you easy access to all essential functions. Keep your game store organized, update product details, and ensure a smooth workflow. Select a section to begin managing efficiently and take full control of your store’s success! 🚀</value>
+  </data>
 </root>

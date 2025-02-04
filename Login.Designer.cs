@@ -105,13 +105,13 @@
             // 
             label3.AutoSize = true;
             label3.BackColor = Color.Transparent;
-            label3.Font = new Font("Segoe UI", 22.2F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            label3.Font = new Font("Segoe UI", 22.2F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.Transparent;
             label3.Location = new Point(270, 171);
             label3.Name = "label3";
-            label3.Size = new Size(487, 50);
+            label3.Size = new Size(456, 50);
             label3.TabIndex = 6;
-            label3.Text = "Welcome To Our Game Store";
+            label3.Text = "Login To Our Game Store";
             label3.Click += label3_Click;
             // 
             // button1

@@ -117,4 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="label5.Text" xml:space="preserve">
+    <value>As a Manager in GameMart Manager, you oversee product information and ensure smooth store operations. You can update product details, monitor inventory levels, and approve price adjustments or discounts. Additionally, you play a key role in supporting the sales team by ensuring accurate stock data and optimizing store performance. Select a section to get started and manage the store efficiently! 🚀</value>
+  </data>
 </root>
