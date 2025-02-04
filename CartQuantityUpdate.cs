@@ -14,16 +14,18 @@ namespace ProjectWin
     public partial class CartQuantityUpdate : Form
     {
         int id;
+        int pid;
         string name;
         string password;
         string role;
-        public CartQuantityUpdate(int id, string name, string pass, string role)
+        public CartQuantityUpdate(int id, string name, string pass, string role, int pid)
         {
             this.id = id;
             this.name = name;
             this.password = pass;
             this.role = role;
             InitializeComponent();
+            this.pid = pid;
         }
         SqlConnection con;
         public void dbcon()
@@ -99,7 +101,7 @@ namespace ProjectWin
                                         updateStock.ExecuteNonQuery();
                                     }
 
-                                    CartPage cartPage = new CartPage(id, name,password, role);
+                                    CartPage cartPage = new CartPage(pid, name,password, role);
                                     cartPage.Show();
                                     this.Hide();
                                 }

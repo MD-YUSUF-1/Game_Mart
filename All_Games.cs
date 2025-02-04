@@ -137,7 +137,7 @@ namespace ProjectWin
             }
             catch (Exception ex)
             {
-                MessageBox.Show("database Connection Error" + ex.Message);
+                MessageBox.Show("database Connection Error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             dynamic_Data(dt);
         }
@@ -306,7 +306,7 @@ namespace ProjectWin
 
                             if (dtforCartItem.Rows.Count > 0)
                             {
-                                MessageBox.Show("ALready Added to the cart. You can Update quantity in cart");
+                                MessageBox.Show("ALready Added to the cart. You can Update quantity in cart", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                             else
                             {
@@ -331,7 +331,7 @@ namespace ProjectWin
                                     sq2.Parameters.AddWithValue("@sname", dt1.Rows[0]["username"]);
                                     sq2.Parameters.AddWithValue("@quantity", 1);
 
-                                    MessageBox.Show("Added to the cart", "Success", MessageBoxButtons.OK);
+                                    MessageBox.Show("Added to the cart", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     sq2.ExecuteNonQuery();
                                     SqlCommand updateStockCmd = new SqlCommand("UPDATE PRODUCT_TABLE SET GStock = GStock - 1 WHERE GameID = @gameID", con);
                                     updateStockCmd.Parameters.AddWithValue("@gameID", gameID);
@@ -340,12 +340,12 @@ namespace ProjectWin
                                 }
                                 else
                                 {
-                                    MessageBox.Show("Sorry, No Stock available.");
+                                    MessageBox.Show("Sorry, No Stock available.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }                            }
                         }
                         catch (Exception ex)
                         {
-                            MessageBox.Show("Cart insertion Failed. " + ex.Message);
+                            MessageBox.Show("Cart insertion Failed. ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         con.Close();
 
@@ -360,7 +360,7 @@ namespace ProjectWin
             }
             catch (Exception ex)
             {
-                MessageBox.Show("No data Found" + ex.Message);
+                MessageBox.Show("No data Found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

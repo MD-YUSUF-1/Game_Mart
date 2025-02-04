@@ -24,7 +24,7 @@ namespace ProjectWin
             this.username = username;
             this.password = pass;
             this.role = role;
-            //browseBtn.Enabled = false;
+            browseBtn.Hide();
             Form2_Load();
         }
         SqlConnection con;
@@ -132,7 +132,7 @@ namespace ProjectWin
                 email.ReadOnly = false;
                 phone.ReadOnly = false;
                 datePicker1.Enabled = true;
-                browseBtn.Enabled = true;
+                browseBtn.Show();
                 browseBtn.Cursor = Cursors.Hand;
 
 
@@ -144,7 +144,7 @@ namespace ProjectWin
                 email.ReadOnly = true;
                 phone.ReadOnly = true;
                 datePicker1.Enabled = false;
-                browseBtn.Enabled = false;
+                browseBtn.Hide();
 
                 if (role == "manager")
                 {

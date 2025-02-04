@@ -42,7 +42,7 @@ namespace ProjectWin
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Image file not found!" + ex);
+                MessageBox.Show("Image file not found!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -59,8 +59,8 @@ namespace ProjectWin
             {
                 if (textBox1.Text=="" || textBox2.Text == "" || textBox3.Text == "" || textBox4.Text == "" || textBox5.Text == "" || pictureBox1.Image== null)
                 {
-                    MessageBox.Show("Please provide all information");
-                   
+                    MessageBox.Show("Please provide all information", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 }
                 else
                 {
@@ -80,13 +80,13 @@ namespace ProjectWin
 
                     sq2.ExecuteNonQuery();
                     con.Close();
-                    MessageBox.Show("Data added");
+                    MessageBox.Show("Data added", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Form2_Load();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Failed" + ex);
+                MessageBox.Show("Failed", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -109,7 +109,7 @@ namespace ProjectWin
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Failed to load Table " + ex);
+                MessageBox.Show("Failed to load Table ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

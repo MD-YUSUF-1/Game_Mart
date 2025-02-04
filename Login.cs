@@ -25,6 +25,10 @@ namespace ProjectWin
         {
             this.role = role;
             InitializeComponent();
+            if (role == "admin")
+            {
+                button1.Hide();
+            }
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -113,7 +117,7 @@ namespace ProjectWin
                             }
                             if (dataArray[0] == "manager")
                             {
-                                Manager_Homepage m = new Manager_Homepage(username,password, dataArray[0]);
+                                Manager_Homepage m = new Manager_Homepage(username, password, dataArray[0]);
                                 this.Hide();
                                 m.Show();
                                 con.Close();
@@ -157,6 +161,13 @@ namespace ProjectWin
         {
             RegisterPage registerPage = new RegisterPage();
             registerPage.Show();
+            this.Hide();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            All_Role all_Role = new All_Role();
+            all_Role.Show();
             this.Hide();
         }
     }

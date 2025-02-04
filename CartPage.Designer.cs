@@ -32,11 +32,11 @@
             logoutBtn = new Button();
             profileBtn = new Button();
             panel1 = new Panel();
+            pictureBox1 = new PictureBox();
             cusName = new Label();
             cusPhone = new Label();
             textBox1 = new TextBox();
             textBox2 = new TextBox();
-            pictureBox1 = new PictureBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -72,8 +72,19 @@
             panel1.Controls.Add(logoutBtn);
             panel1.Location = new Point(1, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1386, 119);
+            panel1.Size = new Size(1356, 119);
             panel1.TabIndex = 4;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(27, 21);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(63, 62);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 4;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // cusName
             // 
@@ -112,17 +123,6 @@
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(333, 34);
             textBox2.TabIndex = 19;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(27, 21);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(63, 62);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 4;
-            pictureBox1.TabStop = false;
-            pictureBox1.Click += pictureBox1_Click;
             // 
             // CartPage
             // 

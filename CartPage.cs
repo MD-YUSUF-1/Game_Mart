@@ -58,7 +58,7 @@ namespace ProjectWin
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Failed to load Table " + ex);
+                MessageBox.Show("Failed to load Table ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         public void dynamicDataLoad(DataTable dt)
@@ -297,20 +297,20 @@ namespace ProjectWin
                         int count = Convert.ToInt32(scmForCheck.ExecuteScalar());
                         if (count > 0)
                         {
-                            CartQuantityUpdate cartQuantityUpdate = new CartQuantityUpdate(id, name, password, role);
+                            CartQuantityUpdate cartQuantityUpdate = new CartQuantityUpdate(id, name, password, role, pid);
                             cartQuantityUpdate.Show();
                             this.Hide();
                             tb.Text = "";
                         }
                         else
                         {
-                            MessageBox.Show("No data related to the ID");
+                            MessageBox.Show("No data related to the ID", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
 
                     }
                     else
                     {
-                        MessageBox.Show("Please write a Game ID");
+                        MessageBox.Show("Please write a Game ID", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     con.Close();
                 };
@@ -348,9 +348,9 @@ namespace ProjectWin
                                 sq1.ExecuteNonQuery();
                                 //flowLayoutPanelForCartColumn.Controls.Clear();
                                 //Form2_Load();
-                                MessageBox.Show("Product DELETED");
+                                MessageBox.Show("Product DELETED", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 this.Hide();
-                                CartPage newCartPage = new CartPage(id, name, password, role);
+                                CartPage newCartPage = new CartPage(pid, name, password, role);
                                 newCartPage.Show();
                                 tb.Text = "";
                                 con.Close();
@@ -358,16 +358,16 @@ namespace ProjectWin
                             }
                             else
                             {
-                                MessageBox.Show("No data related to the ID");
+                                MessageBox.Show("No data related to the ID", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
 
                         }
                         else
                         {
-                            MessageBox.Show("Please write a Game ID");
+                            MessageBox.Show("Please write a Game ID", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
-                    catch (Exception ex) { MessageBox.Show("No game Found. " + ex.Message); }
+                    catch (Exception ex) { MessageBox.Show("No game Found. ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
 
                 };
 
@@ -393,7 +393,7 @@ namespace ProjectWin
 
                         if (string.IsNullOrWhiteSpace(textBox1.Text) || string.IsNullOrWhiteSpace(textBox2.Text))
                         {
-                            MessageBox.Show("Customer Name and Phone number cannot be empty.");
+                            MessageBox.Show("Customer Name and Phone number cannot be empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         else
                         {
@@ -404,7 +404,7 @@ namespace ProjectWin
                             insertcmd.Parameters.AddWithValue("@PriceSold", TotalPrice());
                             insertcmd.Parameters.AddWithValue("@CustomerName", customerName);
                             insertcmd.Parameters.AddWithValue("@CustomerPhone", customerPhone);
-
+                            float finalPrice = TotalPrice();
                             int rowsAffected = insertcmd.ExecuteNonQuery();
                             if (rowsAffected > 0)
                             {
@@ -415,27 +415,27 @@ namespace ProjectWin
 
                                 if (deleteRowsAffected > 0)
                                 {
-                                    MessageBox.Show("Items Sold To " + customerName + ", Total price " + TotalPrice() + ".");
+                                    MessageBox.Show("Items Sold To " + customerName + ", Total price " + finalPrice + ".","Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     this.Hide();
                                     SalesMan salesMan = new SalesMan(name, password, role);
                                     salesMan.Show();
                                 }
                                 else
                                 {
-                                    MessageBox.Show("No cart items found for this salesperson.");
+                                    MessageBox.Show("No cart items found for this salesperson.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
                                 con.Close();
                             }
                             else
                             {
-                                MessageBox.Show("Insert failed.");
+                                MessageBox.Show("Insert failed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                             con.Close();
                         }
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Error: " + ex.Message);
+                        MessageBox.Show("Error: ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
 
 
@@ -450,7 +450,7 @@ namespace ProjectWin
                 this.Controls.Add(flowLayoutPanelForCartColumn);
 
             }
-            catch (Exception ex) { MessageBox.Show("No data" + ex); }
+            catch (Exception ex) { MessageBox.Show("No data", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
         private void CartPage_Load(object sender, EventArgs e)
         {
@@ -479,7 +479,7 @@ namespace ProjectWin
 
             catch (Exception ex)
             {
-                MessageBox.Show("" + ex);
+                MessageBox.Show("No total price", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return totalPrice;
         }
@@ -503,7 +503,7 @@ namespace ProjectWin
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error counting total games: " + ex.Message);
+                MessageBox.Show("Error counting total games: ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
 
